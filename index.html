@@ -1681,6 +1681,7 @@
     }
 
     .image-collection-grid {
+      --carousel-step: 318px;
       display: block;
       width: min(100%, 1160px);
       height: clamp(540px, 72vh, 760px);
@@ -1728,7 +1729,7 @@
       top: 50%;
       left: 50%;
       z-index: var(--carousel-z-index, 1);
-      width: clamp(230px, 29vw, 340px);
+      width: clamp(240px, 29vw, 350px);
       gap: 0;
       padding: 14px 14px 16px;
       border: 1px solid color-mix(in srgb, var(--line) 75%, transparent);
@@ -1779,6 +1780,22 @@
       border: 0;
       border-radius: 6px;
       box-shadow: none;
+    }
+
+    #image-works .image-collection-grid .work-media {
+      aspect-ratio: 4 / 5;
+    }
+
+    .image-collection-grid .work-card.is-landscape {
+      width: clamp(320px, 42vw, 460px);
+    }
+
+    .image-collection-grid .work-card.is-landscape .work-media {
+      aspect-ratio: 16 / 10;
+    }
+
+    #image-works .image-collection-grid .work-card.is-landscape .work-media {
+      aspect-ratio: 16 / 10;
     }
 
     .image-collection-grid .work-media::after {
@@ -2667,6 +2684,15 @@
         grid-template-columns: 1fr;
       }
 
+      .image-collection-grid {
+        --carousel-step: 244px;
+        height: clamp(500px, 76vh, 640px);
+      }
+
+      .image-collection-grid .work-card.is-landscape {
+        width: min(76vw, 360px);
+      }
+
       .work-meta {
         grid-template-rows: auto minmax(6.2em, auto) auto;
       }
@@ -3226,12 +3252,12 @@
       <div class="section-head image-collection-head reveal" id="image-gallery">
         <div>
           <span class="kicker">Image Collection</span>
-          <h2>图片作品合集</h2>
+          <h2>AI图片设计合集</h2>
         </div>
       </div>
 
       <div class="works-rail-wrap image-carousel-wrap">
-        <div class="works-grid image-collection-grid" aria-label="图片作品合集卡片">
+        <div class="works-grid image-collection-grid" aria-label="AI图片设计合集卡片">
           <article class="work-card reveal">
             <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/companion-toy-poster.jpg" alt="AI 智能陪伴玩偶概念海报"></div>
             <div class="work-meta"><h3>AI 智能陪伴玩偶概念海报</h3><p>产品概念视觉海报，突出智能陪伴、角色亲和力与情绪连接。</p></div>
@@ -3276,11 +3302,11 @@
             <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/comic-emperor-poster.jpg" alt="AI 漫剧傀儡皇帝海报"></div>
             <div class="work-meta"><h3>AI 漫剧傀儡皇帝海报</h3><p>以东方幻想和权谋氛围为核心，建立更强的故事感。</p></div>
           </article>
-          <article class="work-card reveal">
+          <article class="work-card reveal is-landscape">
             <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/monkey-king-landscape-1.jpg" alt="猴王山水概念图 01"></div>
             <div class="work-meta"><h3>猴王山水概念图 01</h3><p>横屏概念视觉，适合动态壁纸和空间氛围延展。</p></div>
           </article>
-          <article class="work-card reveal">
+          <article class="work-card reveal is-landscape">
             <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/monkey-king-landscape-2.jpg" alt="猴王山水概念图 02"></div>
             <div class="work-meta"><h3>猴王山水概念图 02</h3><p>延续东方山水意境，强化横屏构图与视觉层次。</p></div>
           </article>
@@ -3655,6 +3681,12 @@
     let imageCarouselLastTapTime = 0;
     let imageViewerPreviousFocus = null;
 
+    const getImageCarouselStep = () => {
+      if (!imageCarousel) return 318;
+      const step = parseFloat(getComputedStyle(imageCarousel).getPropertyValue("--carousel-step"));
+      return Number.isFinite(step) ? step : 318;
+    };
+
     const normalizeImageCarouselIndex = (index) => {
       const total = imageCarouselCards.length;
       return ((index % total) + total) % total;
@@ -3673,7 +3705,7 @@
         const offset = getCarouselOffset(index);
         const abs = Math.abs(offset);
         const visible = abs <= 4.35;
-        const x = offset * 218;
+        const x = offset * getImageCarouselStep();
         const scale = Math.max(0.54, 1 - abs * 0.13);
         const rotate = offset * -24;
         const tilt = offset * -4.5;
@@ -3827,7 +3859,7 @@
         imageCarouselDragLastX = event.clientX;
         imageCarouselDragLastTime = now;
         if (Math.abs(delta) > 6) imageCarouselMoved = true;
-        imageCarouselPosition = imageCarouselDragStartPosition - (delta / 218);
+        imageCarouselPosition = imageCarouselDragStartPosition - (delta / getImageCarouselStep());
         imageCarouselTarget = imageCarouselPosition;
         renderImageCarousel();
       });
@@ -3864,7 +3896,7 @@
             }
           }
         } else {
-          imageCarouselTarget = Math.round(imageCarouselPosition - ((imageCarouselDragVelocity * 160) / 218));
+          imageCarouselTarget = Math.round(imageCarouselPosition - ((imageCarouselDragVelocity * 160) / getImageCarouselStep()));
           queueImageCarouselAnimation();
         }
         window.setTimeout(() => {
