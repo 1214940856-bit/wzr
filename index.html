@@ -553,6 +553,40 @@
       50% { transform: rotate(1.4deg) translate3d(0, -5px, 0); }
     }
 
+    @keyframes welcome-scroll-pulse {
+      0%, 100% { opacity: 0.36; transform: scaleY(0.82); transform-origin: top; }
+      50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+    }
+
+    @keyframes welcome-sun-rays {
+      0% { opacity: 0.62; transform: rotate(-7deg) translate3d(0, 0, 0) scale(0.99); }
+      100% { opacity: 0.84; transform: rotate(-7deg) translate3d(-8px, 8px, 0) scale(1.015); }
+    }
+
+    @keyframes welcome-blur-word {
+      0% { filter: blur(10px); opacity: 0; transform: translate3d(0, -42px, 0); }
+      48% { filter: blur(5px); opacity: 0.54; transform: translate3d(0, 5px, 0); }
+      100% { filter: blur(0); opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    @keyframes welcome-boat-drift {
+      0% { transform: translate3d(-22vw, 0, 0) rotate(-1.5deg); }
+      100% { transform: translate3d(112vw, -6px, 0) rotate(1deg); }
+    }
+
+    @keyframes welcome-gull-drift {
+      0% { opacity: 0; transform: translate3d(-14vw, 0, 0) scale(var(--gull-scale)); }
+      12% { opacity: 1; }
+      50% { transform: translate3d(46vw, -18px, 0) scale(var(--gull-scale)); }
+      88% { opacity: 1; }
+      100% { opacity: 0; transform: translate3d(112vw, 12px, 0) scale(var(--gull-scale)); }
+    }
+
+    @keyframes welcome-creature-drift {
+      0% { transform: translate3d(-8px, 6px, 0) rotate(-2deg); }
+      100% { transform: translate3d(14px, -8px, 0) rotate(2deg); }
+    }
+
     @keyframes sea-gull-float-a {
       0%, 100% { transform: translate3d(0, 0, 0); }
       50% { transform: translate3d(18px, -10px, 0); }
@@ -816,6 +850,254 @@
 
     .menu-button {
       display: none;
+    }
+
+    .welcome-cover {
+      min-height: calc(100vh - 78px);
+      display: grid;
+      place-items: center;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      padding: clamp(72px, 10vw, 126px) 0 clamp(92px, 12vw, 150px);
+      --panel-art-height: clamp(260px, 42vw, 520px);
+      --panel-art-opacity: 0.96;
+      --panel-art:
+        radial-gradient(ellipse at 18% 112%, color-mix(in srgb, var(--accent-2) 26%, transparent), transparent 48%),
+        radial-gradient(ellipse at 78% 108%, color-mix(in srgb, var(--accent) 23%, transparent), transparent 52%),
+        radial-gradient(ellipse at 50% 116%, rgba(255, 255, 255, 0.18), transparent 56%);
+    }
+
+    .welcome-cover::before {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -18vh;
+      right: -18vw;
+      width: min(92vw, 1040px);
+      height: min(86vh, 760px);
+      pointer-events: none;
+      opacity: 0.78;
+      background:
+        radial-gradient(circle at 76% 24%, rgba(255, 250, 226, 0.78) 0 3%, rgba(239, 201, 135, 0.32) 8%, rgba(255, 255, 255, 0.16) 18%, transparent 34%),
+        radial-gradient(ellipse at 72% 28%, rgba(255, 246, 214, 0.28), transparent 38%),
+        linear-gradient(142deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 246, 214, 0.2) 16%, rgba(255, 255, 255, 0.08) 34%, transparent 58%);
+      filter: blur(9px);
+      mix-blend-mode: screen;
+      transform: rotate(-7deg);
+      transform-origin: 88% 10%;
+      animation: welcome-sun-rays 10s ease-in-out infinite alternate;
+      -webkit-mask-image: linear-gradient(135deg, black 0%, rgba(0, 0, 0, 0.82) 30%, rgba(0, 0, 0, 0.42) 56%, transparent 82%);
+      mask-image: linear-gradient(135deg, black 0%, rgba(0, 0, 0, 0.82) 30%, rgba(0, 0, 0, 0.42) 56%, transparent 82%);
+    }
+
+    .welcome-cover > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .welcome-panel {
+      width: min(100%, 980px);
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      gap: clamp(16px, 2.4vw, 26px);
+      z-index: 3;
+    }
+
+    .welcome-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent-2);
+      font-size: clamp(12px, 1.8vw, 14px);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .welcome-kicker::before,
+    .welcome-kicker::after {
+      content: "";
+      width: clamp(28px, 6vw, 70px);
+      height: 1px;
+      background: currentColor;
+      opacity: 0.72;
+    }
+
+    .welcome-title {
+      position: relative;
+      margin: 0;
+      max-width: 11em;
+      color: #ffffff;
+      font-family: Didot, "Bodoni 72", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6.8vw, 86px);
+      font-weight: 800;
+      line-height: 0.98;
+      letter-spacing: 0;
+      text-wrap: balance;
+      text-shadow:
+        0 0 18px rgba(255, 255, 255, 0.2),
+        0 18px 48px rgba(55, 66, 160, 0.34),
+        0 34px 94px rgba(17, 28, 106, 0.24);
+      overflow: visible;
+    }
+
+    .blur-text {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0 0.24em;
+    }
+
+    .blur-word {
+      display: inline-block;
+      opacity: 0;
+      filter: blur(10px);
+      transform: translate3d(0, -42px, 0);
+      animation: welcome-blur-word 0.9s var(--ease-soft) forwards;
+      animation-delay: calc(0.28s + (var(--i) * 150ms));
+      will-change: transform, filter, opacity;
+    }
+
+    .welcome-title strong {
+      display: inline-block;
+      color: transparent;
+      background:
+        linear-gradient(110deg, #ffffff 0%, #fff3cc 34%, #efc987 56%, #ffffff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      font-style: normal;
+      text-shadow: none;
+    }
+
+    .welcome-subline {
+      margin: 0;
+      max-width: 680px;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: clamp(14px, 1.8vw, 18px);
+      line-height: 1.78;
+    }
+
+    .welcome-ocean {
+      position: absolute;
+      z-index: 1;
+      inset: auto calc(50% - 50vw) 0;
+      height: min(48vh, 430px);
+      pointer-events: none;
+      opacity: 0.92;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 24%, black 82%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, black 24%, black 82%, transparent);
+    }
+
+    .welcome-ocean svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .welcome-wave {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.42);
+      stroke-linecap: round;
+      stroke-dasharray: 60 28;
+      animation: sea-wave-drift 11s linear infinite;
+    }
+
+    .welcome-wave.is-soft {
+      stroke: rgba(239, 201, 135, 0.34);
+      stroke-dasharray: 22 26;
+      animation-duration: 16s;
+      animation-direction: reverse;
+    }
+
+    .welcome-creature {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: welcome-creature-drift 11s ease-in-out infinite alternate;
+    }
+
+    .welcome-sailboat {
+      position: absolute;
+      z-index: 4;
+      left: clamp(28px, 18vw, 285px);
+      bottom: clamp(78px, 15vh, 145px);
+      width: clamp(118px, 13vw, 176px);
+      pointer-events: none;
+      opacity: 0.7;
+      filter: blur(0.3px) drop-shadow(0 18px 26px rgba(43, 55, 150, 0.22));
+      animation: welcome-boat-drift 34s linear infinite;
+      will-change: transform;
+    }
+
+    .welcome-sailboat svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      animation: sea-boat-bob 5.8s ease-in-out infinite;
+    }
+
+    .welcome-gulls {
+      position: absolute;
+      z-index: 3;
+      inset: 9vh 0 auto;
+      height: 210px;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.78;
+    }
+
+    .welcome-gull {
+      position: absolute;
+      left: -90px;
+      top: var(--gull-top);
+      width: var(--gull-size);
+      color: rgba(255, 255, 255, var(--gull-opacity));
+      filter: drop-shadow(0 8px 16px rgba(71, 74, 161, 0.18));
+      transform: translateX(var(--gull-left)) scale(var(--gull-scale));
+      animation: welcome-gull-drift var(--gull-speed, 36s) linear var(--gull-delay, 0s) infinite;
+      will-change: transform, opacity;
+    }
+
+    .welcome-gull svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      animation: voyage-gull-wing 4.4s ease-in-out infinite;
+    }
+
+    .welcome-gull path {
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 5;
+    }
+
+    .welcome-scroll {
+      position: absolute;
+      z-index: 3;
+      left: 50%;
+      bottom: clamp(22px, 4vw, 42px);
+      transform: translateX(-50%);
+      display: grid;
+      justify-items: center;
+      gap: 10px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .welcome-scroll::after {
+      content: "";
+      width: 1px;
+      height: 38px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, currentColor, transparent);
+      animation: welcome-scroll-pulse 1.8s ease-in-out infinite;
     }
 
     .hero {
@@ -1084,6 +1366,7 @@
       animation: sea-gull-float-b 7.8s ease-in-out infinite;
     }
 
+    .welcome-cover::after,
     .hero::after,
     .section::after,
     footer::after {
@@ -1271,11 +1554,54 @@
       font-weight: 800;
     }
 
+    .section-head .kicker {
+      display: none;
+    }
+
     h2 {
+      position: relative;
+      display: inline-block;
       margin: 10px 0 0;
       font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.05;
-      letter-spacing: 0;
+      line-height: 1.02;
+      letter-spacing: 0.04em;
+      font-family: "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+      font-weight: 900;
+      color: transparent;
+      background:
+        linear-gradient(102deg, #ffffff 0%, #f7f9ff 36%, #ffe5a8 66%, #ffffff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-stroke: 0.35px rgba(255, 255, 255, 0.28);
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.22),
+        0 16px 34px rgba(53, 76, 184, 0.34),
+        0 0 34px rgba(239, 201, 135, 0.16);
+    }
+
+    h2::before {
+      content: "";
+      position: absolute;
+      left: 0.02em;
+      top: -0.22em;
+      width: clamp(42px, 8vw, 92px);
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), rgba(255, 255, 255, 0));
+      box-shadow: 0 0 22px rgba(239, 201, 135, 0.35);
+    }
+
+    h2::after {
+      content: "";
+      position: absolute;
+      left: 0.04em;
+      right: 0.08em;
+      bottom: -0.18em;
+      height: 0.18em;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(239, 201, 135, 0.34), rgba(255, 255, 255, 0.08), transparent);
+      filter: blur(0.5px);
+      z-index: -1;
     }
 
     .section-note {
@@ -1296,6 +1622,7 @@
     #image-works .section-head h2,
     #dynamic-wallpaper .section-head h2 {
       white-space: nowrap;
+      letter-spacing: 0.045em;
     }
 
     .showreel {
@@ -1477,6 +1804,14 @@
 
     .work-card:hover {
       transform: translateY(-8px) scale(1.018);
+    }
+
+    .work-card:hover .work-meta h3 {
+      background:
+        linear-gradient(100deg, rgba(255, 255, 255, 1) 0%, rgba(255, 248, 226, 0.98) 48%, rgba(239, 201, 135, 1) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 12px 34px rgba(239, 201, 135, 0.2);
     }
 
     .work-card:hover .work-media {
@@ -1680,6 +2015,12 @@
       padding: 8px 0 clamp(28px, 5vw, 56px);
     }
 
+    .image-collection-head {
+      margin-top: clamp(92px, 11vw, 152px);
+      padding-top: clamp(28px, 4vw, 46px);
+      border-top: 1px solid rgba(244, 247, 255, 0.22);
+    }
+
     .image-collection-grid {
       --carousel-step: 318px;
       display: block;
@@ -1832,6 +2173,75 @@
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+
+    #asset-gallery h2 {
+      white-space: nowrap;
+      font-size: 64px;
+    }
+
+    .asset-collection-grid .work-meta p {
+      display: none;
+    }
+
+    .asset-collection-grid .work-card {
+      padding-bottom: 12px;
+    }
+
+    .asset-collection-grid .work-meta {
+      display: block;
+      grid-template-rows: none;
+      gap: 0;
+      padding-top: 10px;
+    }
+
+    .asset-collection-grid .work-meta h3 {
+      margin-bottom: 0;
+    }
+
+    .asset-carousel-progress,
+    .image-gallery-progress {
+      width: min(520px, 72vw);
+      height: 7px;
+      margin: 12px auto 0;
+      overflow: hidden;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--line) 46%, transparent);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.14) inset,
+        0 12px 28px rgba(0, 0, 0, 0.18);
+    }
+
+    .asset-carousel-progress-fill,
+    .image-gallery-progress-fill {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      transform-origin: left center;
+      background: linear-gradient(90deg, #7ba9c6, #f0b684 36%, #ffe2a0 66%, #7c93ff);
+      box-shadow: 0 0 24px rgba(255, 226, 160, 0.5);
+      transition: transform 260ms ease;
+    }
+
+    .asset-carousel-progress-fill {
+      transform: scaleX(var(--asset-progress, 0.0556));
+    }
+
+    .image-gallery-progress-fill {
+      transform: scaleX(var(--image-gallery-progress, 0.0769));
+    }
+
+    @media (max-width: 520px) {
+      #asset-gallery h2 {
+        font-size: 42px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      #asset-gallery h2 {
+        font-size: 34px;
+      }
     }
 
     .image-carousel-status {
@@ -2078,12 +2488,55 @@
     }
 
     .work-meta h3 {
+      position: relative;
+      display: inline-block;
       margin: 0;
       min-height: 1.18em;
-      font-size: clamp(26px, 3vw, 38px);
-      line-height: 1.18;
-      letter-spacing: 0;
-      white-space: nowrap;
+      width: fit-content;
+      max-width: 100%;
+      padding-left: 0.42em;
+      padding-bottom: 0.08em;
+      font-family: "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+      font-size: clamp(24px, 2.8vw, 36px);
+      line-height: 1.16;
+      letter-spacing: 0.045em;
+      font-weight: 900;
+      color: transparent;
+      background:
+        linear-gradient(100deg, #ffffff 0%, #f4f7ff 46%, #ffe2a0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-stroke: 0.25px rgba(255, 255, 255, 0.18);
+      text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.2),
+        0 10px 28px rgba(50, 67, 170, 0.28),
+        0 0 24px rgba(239, 201, 135, 0.14);
+      overflow-wrap: anywhere;
+    }
+
+    .work-meta h3::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.12em;
+      bottom: 0.12em;
+      width: 3px;
+      border-radius: 999px;
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.94), var(--accent));
+      box-shadow: 0 0 18px rgba(239, 201, 135, 0.36);
+    }
+
+    .work-meta h3::after {
+      content: "";
+      position: absolute;
+      left: 0.42em;
+      right: 0;
+      bottom: -0.08em;
+      height: 0.2em;
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(239, 201, 135, 0.36), rgba(255, 255, 255, 0.08), transparent);
+      filter: blur(0.5px);
+      z-index: -1;
     }
 
     .work-meta p {
@@ -2597,6 +3050,40 @@
         gap: 12px;
       }
 
+      .welcome-cover {
+        min-height: calc(100vh - 68px);
+        padding: 68px 0 108px;
+      }
+
+      .welcome-cover::before {
+        width: 116vw;
+        height: 62vh;
+        top: -14vh;
+        right: -42vw;
+      }
+
+      .welcome-panel {
+        gap: 18px;
+      }
+
+      .welcome-title {
+        max-width: 8.8em;
+      }
+
+      .welcome-sailboat {
+        left: clamp(22px, 12vw, 120px);
+        bottom: 96px;
+        width: clamp(96px, 22vw, 132px);
+      }
+
+      .welcome-gulls {
+        opacity: 0.62;
+      }
+
+      .welcome-ocean {
+        height: min(42vh, 340px);
+      }
+
       .menu-button {
         display: inline-flex;
       }
@@ -2689,6 +3176,11 @@
         height: clamp(500px, 76vh, 640px);
       }
 
+      .image-collection-head {
+        margin-top: clamp(72px, 14vw, 112px);
+        padding-top: 28px;
+      }
+
       .image-collection-grid .work-card.is-landscape {
         width: min(76vw, 360px);
       }
@@ -2698,7 +3190,9 @@
       }
 
       .work-meta h3 {
-        font-size: clamp(22px, 6.2vw, 30px);
+        font-size: clamp(21px, 6vw, 30px);
+        letter-spacing: 0.025em;
+        padding-left: 0.36em;
       }
 
       .workflow-visual {
@@ -2743,6 +3237,47 @@
 
       .voyage-sailboat {
         width: 68px;
+      }
+
+      .welcome-cover {
+        padding: 54px 0 104px;
+      }
+
+      .welcome-cover::before {
+        width: 132vw;
+        height: 58vh;
+        top: -13vh;
+        right: -58vw;
+        opacity: 0.7;
+      }
+
+      .welcome-kicker {
+        letter-spacing: 0.12em;
+      }
+
+      .welcome-kicker::before,
+      .welcome-kicker::after {
+        width: 24px;
+      }
+
+      .welcome-title {
+        max-width: 7.4em;
+        font-size: clamp(38px, 13vw, 64px);
+      }
+
+      .blur-text {
+        gap: 0 0.18em;
+      }
+
+      .welcome-subline {
+        max-width: 20em;
+        font-size: 14px;
+      }
+
+      .welcome-sailboat {
+        left: 24px;
+        bottom: 92px;
+        width: 92px;
       }
 
       .section-voyage-pattern {
@@ -2805,6 +3340,12 @@
       .hero-actions {
         display: grid;
         grid-template-columns: 1fr;
+      }
+
+      #works .section-head h2,
+      #image-works .section-head h2,
+      #dynamic-wallpaper .section-head h2 {
+        white-space: normal;
       }
 
       .button {
@@ -2976,7 +3517,89 @@
   </header>
 
   <main id="top">
-    <section class="hero page-shell">
+    <section class="welcome-cover page-shell" aria-label="Portfolio welcome cover">
+      <div class="welcome-panel reveal">
+        <span class="welcome-kicker">Kevin Portfolio</span>
+        <h1 class="welcome-title blur-text" aria-label="Welcome to Kevin's Portfolio">
+          <span class="blur-word" style="--i:0;">Welcome</span>
+          <span class="blur-word" style="--i:1;">to</span>
+          <span class="blur-word" style="--i:2;"><strong>Kevin's</strong></span>
+          <span class="blur-word" style="--i:3;">Portfolio</span>
+        </h1>
+        <p class="welcome-subline">Scroll into a curated body of AI video design, visual storytelling, and motion-led creative work.</p>
+      </div>
+      <div class="welcome-gulls" aria-hidden="true">
+        <div class="welcome-gull" style="--gull-top:18px; --gull-left:72vw; --gull-size:36px; --gull-opacity:0.64; --gull-scale:0.7; --gull-speed:34s; --gull-delay:-6s;">
+          <svg viewBox="0 0 96 48" role="presentation" focusable="false"><path d="M8 29 C22 10 36 12 48 28 C60 12 74 10 88 29"/></svg>
+        </div>
+        <div class="welcome-gull" style="--gull-top:74px; --gull-left:84vw; --gull-size:28px; --gull-opacity:0.46; --gull-scale:0.52; --gull-speed:42s; --gull-delay:-22s;">
+          <svg viewBox="0 0 96 48" role="presentation" focusable="false"><path d="M8 29 C22 10 36 12 48 28 C60 12 74 10 88 29"/></svg>
+        </div>
+        <div class="welcome-gull" style="--gull-top:124px; --gull-left:63vw; --gull-size:50px; --gull-opacity:0.5; --gull-scale:0.86; --gull-speed:38s; --gull-delay:-14s;">
+          <svg viewBox="0 0 96 48" role="presentation" focusable="false"><path d="M8 29 C22 10 36 12 48 28 C60 12 74 10 88 29"/></svg>
+        </div>
+        <div class="welcome-gull" style="--gull-top:46px; --gull-left:91vw; --gull-size:22px; --gull-opacity:0.42; --gull-scale:0.44; --gull-speed:46s; --gull-delay:-31s;">
+          <svg viewBox="0 0 96 48" role="presentation" focusable="false"><path d="M8 29 C22 10 36 12 48 28 C60 12 74 10 88 29"/></svg>
+        </div>
+      </div>
+      <div class="welcome-ocean" aria-hidden="true">
+        <svg viewBox="0 0 1440 520" preserveAspectRatio="none" role="presentation" focusable="false">
+          <defs>
+            <linearGradient id="welcome-sea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#6f86ed" stop-opacity="0"/>
+              <stop offset="46%" stop-color="#5b73d8" stop-opacity="0.44"/>
+              <stop offset="100%" stop-color="#485ab4" stop-opacity="0.78"/>
+            </linearGradient>
+            <radialGradient id="welcome-moon" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff6d6" stop-opacity="0.9"/>
+              <stop offset="42%" stop-color="#efc987" stop-opacity="0.34"/>
+              <stop offset="100%" stop-color="#efc987" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <circle cx="1120" cy="92" r="118" fill="url(#welcome-moon)"/>
+          <path d="M0 205 C180 164 282 224 438 188 C624 145 758 230 936 184 C1122 136 1264 174 1440 126 L1440 520 L0 520 Z" fill="url(#welcome-sea)"/>
+          <path class="welcome-wave" d="M-120 252 C92 192 236 282 456 226 C666 174 800 268 1038 214 C1196 178 1308 184 1560 132" stroke-width="3"/>
+          <path class="welcome-wave is-soft" d="M-140 326 C104 260 274 352 510 292 C740 234 890 334 1114 276 C1284 232 1386 250 1564 208" stroke-width="2.2"/>
+          <path class="welcome-wave" d="M-120 412 C96 358 240 440 470 384 C672 336 824 426 1058 374 C1226 336 1350 346 1560 300" stroke-width="2.4" opacity="0.58"/>
+          <g class="welcome-creature" transform="translate(244 246)" fill="#ffffff" opacity="0.72">
+            <path d="M0 36 C24 6 76 2 108 28 C92 29 82 37 72 50 C48 50 22 44 0 36 Z"/>
+            <path d="M96 27 C116 12 134 13 150 24 C130 30 118 38 101 46 Z" opacity="0.7"/>
+            <path d="M40 48 C32 66 18 76 0 76 C12 64 20 52 24 39 Z" opacity="0.52"/>
+            <circle cx="91" cy="26" r="2.6" fill="#697ee8" opacity="0.8"/>
+          </g>
+          <g class="welcome-creature" transform="translate(1018 292) scale(0.82)" fill="#ffffff" opacity="0.48">
+            <ellipse cx="82" cy="56" rx="42" ry="30"/>
+            <circle cx="128" cy="52" r="14" opacity="0.86"/>
+            <path d="M50 42 C24 28 12 34 4 52 C24 54 38 52 56 50 Z" opacity="0.58"/>
+            <path d="M104 72 C130 92 146 88 154 70 C130 66 118 64 98 64 Z" opacity="0.46"/>
+          </g>
+        </svg>
+      </div>
+      <div class="welcome-sailboat" aria-hidden="true">
+        <svg viewBox="0 0 150 150" role="presentation" focusable="false">
+          <defs>
+            <linearGradient id="welcome-sail" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#dfe8ff"/>
+            </linearGradient>
+            <linearGradient id="welcome-hull" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#eef3ff"/>
+              <stop offset="56%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#cdd9ff"/>
+            </linearGradient>
+          </defs>
+          <path d="M74 16 L74 104" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="4"/>
+          <path d="M68 29 L68 98 L25 92 Z" fill="url(#welcome-sail)" stroke="#ffffff" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M80 43 L80 100 L116 94 Z" fill="#ffffff" fill-opacity="0.92" stroke="#ffffff" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M20 104 C50 110 91 111 124 103 C116 123 98 132 61 131 C42 130 28 119 20 104 Z" fill="url(#welcome-hull)" stroke="#ffffff" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M32 116 C58 121 92 121 112 114" fill="none" stroke="#8ea3ed" stroke-linecap="round" stroke-opacity="0.7" stroke-width="2"/>
+          <path d="M8 137 C39 128 78 145 140 129" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-opacity="0.46" stroke-width="3" stroke-dasharray="10 10"/>
+        </svg>
+      </div>
+      <div class="welcome-scroll" aria-hidden="true">Scroll</div>
+    </section>
+
+    <section class="hero page-shell" id="advantages">
       <div class="hero-seascape" aria-hidden="true">
         <svg viewBox="0 0 560 315" role="presentation" focusable="false">
           <defs>
@@ -3098,7 +3721,7 @@
             </div>
             <div class="work-meta">
               <h3>AI 漫剧项目（已上线）</h3>
-              <p>该项目为《别惹我，我防御拉满》，目前红果热度3400W，观看量300W+，抖音短剧双强榜TOP11。该项目从分镜到剪辑均由我统筹完成。</p>
+              <p>该项目为《别惹我，我防御拉满》，目前红果热度3400W，观看量300W+，抖音短剧双强榜TOP11。该项目我负责资产、提示词、镜头生成，主要担任镜头生成小组长，日均生产10集。</p>
             </div>
           </article>
 
@@ -3124,7 +3747,7 @@
             </div>
             <div class="work-meta">
               <h3>个人实验短片《提线》</h3>
-              <p>全AI流程的一次实验，从创意、剧本、分镜、提示词均由AI生成，最后剪辑成片。</p>
+              <p>以赛博城市、幽暗走廊和黑衣人物为核心视觉，围绕“被操控”这一隐喻展开悬疑叙事。影片通过霓虹夜景、压迫性的长廊追逐、人物近景和线状光轨，营造出被无形力量牵引的紧张感；从创意、剧本、分镜、提示词到后期剪辑均采用 AI 流程完成，是一次偏电影化气质的个人实验短片。</p>
             </div>
           </article>
 
@@ -3137,7 +3760,7 @@
             </div>
             <div class="work-meta">
               <h3>海外真人短剧</h3>
-              <p>海外实验真人短剧。</p>
+              <p>以高端酒店大堂为主要场景，围绕两位女性角色久别重逢后的言语交锋展开。画面通过服务员制服、商务套装、安保人员和奢华空间建立阶层与权力关系，再用正面对峙、贴近耳语和英文对白字幕强化冲突张力，呈现出适合海外短剧语境的真人化叙事节奏与情绪反转。</p>
             </div>
           </article>
 
@@ -3149,8 +3772,8 @@
               </video>
             </div>
             <div class="work-meta">
-              <h3>AI真人叙事剧</h3>
-              <p>以旧课堂与老人回忆为线索，通过跨越时光的师生对话，呈现一段关于成长、告别与宽慰的情感叙事。</p>
+              <h3>AI真人叙事剧（时光）</h3>
+              <p>以废弃教室、昏暗走廊和青年回忆为线索，讲述一个关于求学、理解与迟来的和解的情感故事。影片在旧时光的压抑空间与现实生活场景之间切换，通过人物对话、录取通知书、孤独等待和外卖递送等细节，把成长中的遗憾与亲情牵挂连接起来，形成一段带有现实温度的 AI 真人叙事短片。</p>
             </div>
           </article>
 
@@ -3164,7 +3787,6 @@
             <div class="work-meta">
               <h3>凤归巢</h3>
               <p>古风互动剧情 Demo，以庶出二小姐沈婉清的身份转折为线索，通过嫁衣、凤冠与闺阁镜像等镜头，展示 AI 生成角色、服化道和竖屏剧情演示的完整氛围。</p>
-              <a class="work-link" href="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%87%A4%E5%BD%92%E5%B7%A2.mp4" target="_blank" rel="noopener noreferrer">查看原视频</a>
             </div>
           </article>
         </div>
@@ -3186,7 +3808,7 @@
               <img loading="lazy" decoding="async" src="assets/images/yushui-poster.jpg" alt="雨水海报">
             </div>
             <div class="work-meta">
-              <h3>AI节气海报</h3>
+              <h3>雨水AI节气海报</h3>
               <p>作品说明：本作品以中国传统节气“雨水”为主题，结合IP角色进行创意海报设计。画面围绕“雨水润物”的节气意象展开，以雨中荷塘为主要场景，营造清新、生动的春雨氛围。角色动作设计加入恶作剧式互动情节：角色利用荷叶上的积水淋向青蛙，为画面增加趣味性与故事感，使节气海报在传统意境之外更具童趣和记忆点。</p>
             </div>
           </article>
@@ -3210,7 +3832,7 @@
             </div>
             <div class="work-meta">
               <h3>大年初一新年海报</h3>
-              <p>围绕春节初一的喜庆氛围展开，将 IP 角色、舞龙、鞭炮和年俗场景融入画面，呈现热闹温暖的新春视觉。</p>
+              <p>作品说明：本作品以“大年初一”为主题，围绕春节团圆、祈福与新年开端的节庆氛围展开视觉设计。画面将 IP 角色、舞龙、鞭炮、灯笼、祥云和年俗场景进行整合，通过红金色调和热闹的构图强化新春仪式感。整体风格兼顾传统节日元素与现代传播视觉，使海报具备鲜明的节日识别度、亲和力和社交媒体传播记忆点。</p>
             </div>
           </article>
 
@@ -3223,7 +3845,7 @@
             </div>
             <div class="work-meta">
               <h3>大年初一动态海报</h3>
-              <p>在新年静态海报基础上进行动态延展，通过角色动作、节庆元素和画面节奏增强传播表现力。</p>
+              <p>作品说明：本作品在大年初一静态海报基础上进行动态化延展，将原本的节庆画面转化为更具节奏感的动态传播素材。通过角色动作、舞龙动势、节庆元素飘动、光效变化和画面细节奏的推进，增强新年氛围的热闹感与观看吸引力。动态设计保留原海报的红金视觉基调，同时进一步放大节日情绪，使作品更适合短视频平台和活动传播场景。</p>
             </div>
           </article>
 
@@ -3233,7 +3855,7 @@
             </div>
             <div class="work-meta">
               <h3>上海 IP 授权展会海报</h3>
-              <p>围绕 IP 展会传播需求进行视觉设计，以轻松鲜明的角色场景增强活动识别度和亲和力。</p>
+              <p>作品说明：本作品面向上海 IP 授权展会传播场景进行视觉设计，重点突出 IP 角色、展会信息和活动识别。画面通过明快的角色表情、轻松的场景氛围和清晰的信息层级，增强受众对展会内容的第一眼理解。整体设计在商业活动传播需求与角色亲和力之间取得平衡，使海报既具备展会视觉识别度，也能体现 IP 形象的活力与可传播性。</p>
             </div>
           </article>
 
@@ -3243,7 +3865,7 @@
             </div>
             <div class="work-meta">
               <h3>AI 漫剧海报</h3>
-              <p>结合东方幻想氛围、角色群像和剧情关键词，为 AI 漫剧制作具有故事感的竖版宣传海报。</p>
+              <p>作品说明：本作品为 AI 漫剧项目制作竖版宣传海报，围绕东方幻想、人物关系和剧情冲突建立视觉叙事。画面通过角色群像、服装气质、画面层次和剧情关键词组织信息，使观众能够快速感知作品类型与故事张力。整体风格强调戏剧感和点击吸引力，既服务于漫剧宣发场景，也强化了角色阵营、世界观氛围和内容传播的记忆点。</p>
             </div>
           </article>
         </div>
@@ -3313,6 +3935,9 @@
         </div>
       </div>
       <div class="image-carousel-status" id="image-carousel-status">01 / 13</div>
+      <div class="image-gallery-progress" aria-hidden="true">
+        <span class="image-gallery-progress-fill"></span>
+      </div>
     </section>
 
     <section class="section page-shell" id="dynamic-wallpaper">
@@ -3336,7 +3961,6 @@
               <h3>猴王山水 · 云雾流动</h3>
               <p>以横屏场景构建桌面壁纸氛围，通过镜头微推、光线扫过与粒子漂移模拟动态壁纸质感。</p>
             </div>
-            <span class="wallpaper-tag">16:9</span>
           </div>
         </article>
 
@@ -3352,7 +3976,6 @@
               <h3>东方奇境 · 光影呼吸</h3>
               <p>保留横屏视觉纵深，用缓慢推拉、环境高光和细密漂浮点增强沉浸式壁纸预览。</p>
             </div>
-            <span class="wallpaper-tag">16:9</span>
           </div>
         </article>
       </div>
@@ -3491,6 +4114,94 @@
           </div>
         </article>
       </div>
+
+      <div class="section-head image-collection-head reveal" id="asset-gallery">
+        <div>
+          <span class="kicker">Asset Collection</span>
+          <h2>AI资产设计合集</h2>
+        </div>
+      </div>
+
+      <div class="works-rail-wrap image-carousel-wrap">
+        <div class="works-grid image-collection-grid asset-collection-grid" aria-label="AI资产设计合集卡片">
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-01.jpg" alt="AI 资产设计 01"></div>
+            <div class="work-meta"><h3>AI 资产设计 01</h3><p>围绕角色、产品与场景资产展开的视觉设计，强调可复用素材质感与系列统一性。</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-02.jpg" alt="AI 资产设计 02"></div>
+            <div class="work-meta"><h3>AI 资产设计 02</h3><p>面向 AIGC 内容生产的资产图，兼顾造型辨识度、细节完整度与落地使用效率。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-03.jpg" alt="AI 资产设计 03"></div>
+            <div class="work-meta"><h3>AI 资产设计 03</h3><p>横版资产视觉，适合用于项目展示、场景延展、视频封面和动态画面衔接。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-04.jpg" alt="AI 资产设计 04"></div>
+            <div class="work-meta"><h3>AI 资产设计 04</h3><p>以场景氛围和主体关系为核心，建立可用于后续创作的视觉资产基础。</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-05.jpg" alt="AI 资产设计 05"></div>
+            <div class="work-meta"><h3>AI 资产设计 05</h3><p>竖版资产图适配移动端传播场景，突出主体轮廓、色彩记忆点和画面完整度。</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-06.jpg" alt="AI 资产设计 06"></div>
+            <div class="work-meta"><h3>AI 资产设计 06</h3><p>通过统一风格控制与细节塑造，形成更适合系列化交付的 AI 视觉资产。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-07.jpg" alt="AI 资产设计 07"></div>
+            <div class="work-meta"><h3>AI 资产设计 07</h3><p>横向画幅强调空间叙事和素材延展，便于作为视频、海报和专题页视觉底图。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-08.jpg" alt="AI 资产设计 08"></div>
+            <div class="work-meta"><h3>AI 资产设计 08</h3><p>面向项目制生产的资产设计，保留明确主体并强化画面可裁切、可组合能力。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-09.jpg" alt="AI 资产设计 09"></div>
+            <div class="work-meta"><h3>AI 资产设计 09</h3><p>以视觉氛围和构图层次组织画面，支持多平台物料延展和后续动效制作。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-10.jpg" alt="AI 资产设计 10"></div>
+            <div class="work-meta"><h3>AI 资产设计 10</h3><p>系列资产中的场景化表达，兼顾展示冲击力与后期编辑中的素材适配性。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-11.jpg" alt="AI 资产设计 11"></div>
+            <div class="work-meta"><h3>AI 资产设计 11</h3><p>通过横版构图建立更宽的叙事空间，用于品牌视觉、内容封面和项目氛围图。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-12.jpg" alt="AI 资产设计 12"></div>
+            <div class="work-meta"><h3>AI 资产设计 12</h3><p>资产画面保留较高完成度，方便在宣传短片、动态海报和合集展示中复用。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-13.jpg" alt="AI 资产设计 13"></div>
+            <div class="work-meta"><h3>AI 资产设计 13</h3><p>强调画面质感与视觉识别，作为后续 AIGC 项目中的场景或主视觉资产。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-14.jpg" alt="AI 资产设计 14"></div>
+            <div class="work-meta"><h3>AI 资产设计 14</h3><p>横版资产图适合承载更多环境信息，让画面在展示和剪辑中更有延展空间。</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-15.jpg" alt="AI 资产设计 15"></div>
+            <div class="work-meta"><h3>AI 资产设计 15</h3><p>竖屏视觉资产面向手机端内容展示，突出画面中心、质感细节与传播识别。</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-16.jpg" alt="AI 资产设计 16"></div>
+            <div class="work-meta"><h3>AI 资产设计 16</h3><p>以完整主体和清晰层次组织画面，适配海报、封面和角色资产展示需求。</p></div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-17.jpg" alt="AI 资产设计 17"></div>
+            <div class="work-meta"><h3>AI 资产设计 17</h3><p>竖版资产延续系列风格，强化主体细节、光影质感与可交付素材完整度。</p></div>
+          </article>
+          <article class="work-card reveal is-landscape">
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-18.jpg" alt="AI 资产设计 18"></div>
+            <div class="work-meta"><h3>AI 资产设计 18</h3><p>宽幅资产图适合做项目头图、视频视觉基底和横向展示物料的主视觉延展。</p></div>
+          </article>
+        </div>
+      </div>
+      <div class="image-carousel-status">01 / 18</div>
+      <div class="asset-carousel-progress" aria-hidden="true">
+        <span class="asset-carousel-progress-fill"></span>
+      </div>
     </section>
 
     <section class="section page-shell" id="contact">
@@ -3573,7 +4284,7 @@
       </div>
     `;
 
-    document.querySelectorAll(".hero, .section").forEach((section, index) => {
+    document.querySelectorAll(".welcome-cover, .hero, .section").forEach((section, index) => {
       section.insertAdjacentHTML("beforeend", voyagePatternMarkup((index % 5) + 1));
     });
 
@@ -3658,8 +4369,9 @@
     updateThemeMeta();
 
     const imageCarousel = document.querySelector(".image-collection-grid");
-    const imageCarouselCards = Array.from(document.querySelectorAll(".image-collection-grid .work-card"));
+    const imageCarouselCards = imageCarousel ? Array.from(imageCarousel.querySelectorAll(".work-card")) : [];
     const imageCarouselStatus = document.querySelector("#image-carousel-status");
+    const imageGalleryProgressFill = document.querySelector(".image-gallery-progress-fill");
     const imageViewer = document.querySelector("#image-viewer");
     const imageViewerImg = document.querySelector("#image-viewer-img");
     const imageViewerClose = document.querySelector("#image-viewer-close");
@@ -3706,13 +4418,13 @@
         const abs = Math.abs(offset);
         const visible = abs <= 4.35;
         const x = offset * getImageCarouselStep();
-        const scale = Math.max(0.54, 1 - abs * 0.13);
+        const scale = abs === 0 ? 1.04 : Math.max(0.54, 1 - abs * 0.13);
         const rotate = offset * -24;
         const tilt = offset * -4.5;
-        const z = abs * -132;
-        const opacity = visible ? Math.max(0.18, 1 - abs * 0.24) : 0;
-        const blur = abs === 0 ? 0 : Math.min(10, abs * 2.4);
-        const brightness = abs === 0 ? 1 : Math.max(0.58, 0.9 - abs * 0.08);
+        const z = abs === 0 ? 28 : abs * -132;
+        const opacity = visible ? (abs === 0 ? 1 : Math.max(0.2, 0.9 - abs * 0.2)) : 0;
+        const blur = abs === 0 ? 0 : Math.min(9, abs * 1.6);
+        const brightness = abs === 0 ? 1.03 : Math.max(0.62, 0.94 - abs * 0.08);
 
         card.classList.toggle("is-active", index === imageCarouselIndex);
         card.style.setProperty("--carousel-x", x + "px");
@@ -3733,6 +4445,9 @@
 
       if (imageCarouselStatus) {
         imageCarouselStatus.textContent = String(imageCarouselIndex + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
+      }
+      if (imageGalleryProgressFill) {
+        imageGalleryProgressFill.style.setProperty("--image-gallery-progress", String((imageCarouselIndex + 1) / total));
       }
     };
 
@@ -3921,6 +4636,7 @@
         setImageViewerZoom(true);
       });
       document.addEventListener("keydown", (event) => {
+        if (event.defaultPrevented) return;
         if (event.key === "Escape" && imageViewer?.classList.contains("is-open")) closeImageViewer();
         if (!imageViewer?.classList.contains("is-open") && event.key === "ArrowLeft") {
           setImageCarouselIndex(imageCarouselIndex - 1);
@@ -3932,6 +4648,244 @@
 
       imageViewer?.setAttribute("aria-hidden", "true");
       renderImageCarousel();
+    }
+
+    const assetCarousel = document.querySelector(".asset-collection-grid");
+    const assetCarouselCards = assetCarousel ? Array.from(assetCarousel.querySelectorAll(".work-card")) : [];
+    const assetCarouselStatus = assetCarousel?.parentElement?.nextElementSibling?.classList.contains("image-carousel-status")
+      ? assetCarousel.parentElement.nextElementSibling
+      : null;
+    const assetCarouselProgressFill = document.querySelector(".asset-carousel-progress-fill");
+    let assetCarouselIndex = 0;
+    let assetCarouselPosition = 0;
+    let assetCarouselTarget = 0;
+    let assetCarouselFrame = 0;
+    let assetCarouselDragStart = 0;
+    let assetCarouselDragStartPosition = 0;
+    let assetCarouselDragLastX = 0;
+    let assetCarouselDragLastTime = 0;
+    let assetCarouselDragVelocity = 0;
+    let assetCarouselPointerCardIndex = -1;
+    let assetCarouselDragging = false;
+    let assetCarouselMoved = false;
+    let assetCarouselWheelTimer = 0;
+    let assetCarouselClickTimer = 0;
+    let assetCarouselLastTapIndex = -1;
+    let assetCarouselLastTapTime = 0;
+
+    const getAssetCarouselStep = () => {
+      if (!assetCarousel) return 318;
+      const step = parseFloat(getComputedStyle(assetCarousel).getPropertyValue("--carousel-step"));
+      return Number.isFinite(step) ? step : 318;
+    };
+
+    const normalizeAssetCarouselIndex = (index) => {
+      const total = assetCarouselCards.length;
+      return ((index % total) + total) % total;
+    };
+
+    const getAssetCarouselOffset = (index, position = assetCarouselPosition) => {
+      const total = assetCarouselCards.length;
+      return ((((index - position) + (total / 2)) % total) + total) % total - (total / 2);
+    };
+
+    const renderAssetCarousel = () => {
+      const total = assetCarouselCards.length;
+      assetCarouselIndex = normalizeAssetCarouselIndex(Math.round(assetCarouselPosition));
+
+      assetCarouselCards.forEach((card, index) => {
+        const offset = getAssetCarouselOffset(index);
+        const abs = Math.abs(offset);
+        const visible = abs <= 4.35;
+        const x = offset * getAssetCarouselStep();
+        const scale = abs === 0 ? 1.04 : Math.max(0.54, 1 - abs * 0.13);
+        const rotate = offset * -24;
+        const tilt = offset * -4.5;
+        const z = abs === 0 ? 28 : abs * -132;
+        const opacity = visible ? (abs === 0 ? 1 : Math.max(0.2, 0.9 - abs * 0.2)) : 0;
+        const blur = abs === 0 ? 0 : Math.min(9, abs * 1.6);
+        const brightness = abs === 0 ? 1.03 : Math.max(0.62, 0.94 - abs * 0.08);
+
+        card.classList.toggle("is-active", index === assetCarouselIndex);
+        card.style.setProperty("--carousel-x", x + "px");
+        card.style.setProperty("--carousel-z", z + "px");
+        card.style.setProperty("--carousel-rotate", rotate + "deg");
+        card.style.setProperty("--carousel-tilt", tilt + "deg");
+        card.style.setProperty("--carousel-scale", String(scale));
+        card.style.setProperty("--carousel-opacity", String(opacity));
+        card.style.setProperty("--carousel-blur", blur + "px");
+        card.style.setProperty("--carousel-brightness", String(brightness));
+        card.style.setProperty("--carousel-z-index", String(100 - abs));
+        card.style.pointerEvents = visible ? "auto" : "none";
+        card.setAttribute("aria-current", index === assetCarouselIndex ? "true" : "false");
+        card.setAttribute("aria-label", (index === assetCarouselIndex ? "单击预览，双击放大图片 " : "切换到图片 ") + String(index + 1));
+        if (index === assetCarouselIndex) card.setAttribute("title", "单击预览，双击放大");
+        else card.removeAttribute("title");
+      });
+
+      if (assetCarouselStatus) {
+        assetCarouselStatus.textContent = String(assetCarouselIndex + 1).padStart(2, "0") + " / " + String(total).padStart(2, "0");
+      }
+      if (assetCarouselProgressFill) {
+        assetCarouselProgressFill.style.setProperty("--asset-progress", String((assetCarouselIndex + 1) / total));
+      }
+    };
+
+    const animateAssetCarousel = () => {
+      const distance = assetCarouselTarget - assetCarouselPosition;
+      if (Math.abs(distance) < 0.001) {
+        assetCarouselPosition = assetCarouselTarget;
+        if (Math.abs(assetCarouselPosition) > assetCarouselCards.length * 2) {
+          assetCarouselPosition = normalizeAssetCarouselIndex(assetCarouselPosition);
+          assetCarouselTarget = assetCarouselPosition;
+        }
+        assetCarouselFrame = 0;
+        renderAssetCarousel();
+        return;
+      }
+
+      const step = Math.sign(distance) * Math.min(Math.abs(distance) * 0.18, 0.48);
+      assetCarouselPosition += step;
+      renderAssetCarousel();
+      assetCarouselFrame = requestAnimationFrame(animateAssetCarousel);
+    };
+
+    const queueAssetCarouselAnimation = () => {
+      if (!assetCarouselFrame) {
+        assetCarouselFrame = requestAnimationFrame(animateAssetCarousel);
+      }
+    };
+
+    const setAssetCarouselIndex = (nextIndex) => {
+      const normalizedIndex = normalizeAssetCarouselIndex(nextIndex);
+      assetCarouselTarget += getAssetCarouselOffset(normalizedIndex, assetCarouselTarget);
+      queueAssetCarouselAnimation();
+    };
+
+    if (assetCarousel && assetCarouselCards.length) {
+      assetCarouselCards.forEach((card, index) => {
+        card.tabIndex = 0;
+        card.setAttribute("role", "button");
+        card.querySelector("img")?.setAttribute("draggable", "false");
+        card.addEventListener("click", (event) => {
+          event.preventDefault();
+        });
+        card.addEventListener("dblclick", (event) => {
+          event.preventDefault();
+        });
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            if (index === normalizeAssetCarouselIndex(Math.round(assetCarouselPosition))) openImageViewer(card, event.shiftKey);
+            else setAssetCarouselIndex(index);
+          }
+        });
+      });
+
+      assetCarousel.addEventListener("wheel", (event) => {
+        event.preventDefault();
+        const rawDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+        const deltaScale = event.deltaMode === 1 ? 36 : event.deltaMode === 2 ? window.innerHeight : 1;
+        const delta = Math.max(-120, Math.min(120, rawDelta * deltaScale));
+        const nextTarget = assetCarouselTarget + (delta / 120);
+        assetCarouselTarget = Math.max(assetCarouselPosition - 2.25, Math.min(assetCarouselPosition + 2.25, nextTarget));
+        queueAssetCarouselAnimation();
+        window.clearTimeout(assetCarouselWheelTimer);
+        assetCarouselWheelTimer = window.setTimeout(() => {
+          assetCarouselTarget = Math.round(assetCarouselTarget);
+          queueAssetCarouselAnimation();
+        }, 110);
+      }, { passive: false });
+
+      assetCarousel.addEventListener("keydown", (event) => {
+        if (imageViewer?.classList.contains("is-open")) return;
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          setAssetCarouselIndex(assetCarouselIndex - 1);
+        }
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          setAssetCarouselIndex(assetCarouselIndex + 1);
+        }
+      });
+
+      assetCarousel.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+        const pointerCard = event.target.closest(".asset-collection-grid .work-card");
+        assetCarouselPointerCardIndex = pointerCard ? assetCarouselCards.indexOf(pointerCard) : -1;
+        if (assetCarouselFrame) {
+          cancelAnimationFrame(assetCarouselFrame);
+          assetCarouselFrame = 0;
+        }
+        assetCarouselDragging = true;
+        assetCarouselMoved = false;
+        assetCarouselDragStart = event.clientX;
+        assetCarouselDragStartPosition = assetCarouselPosition;
+        assetCarouselTarget = assetCarouselPosition;
+        assetCarouselDragLastX = event.clientX;
+        assetCarouselDragLastTime = performance.now();
+        assetCarouselDragVelocity = 0;
+        assetCarousel.classList.add("is-dragging");
+        assetCarousel.setPointerCapture?.(event.pointerId);
+      });
+
+      assetCarousel.addEventListener("pointermove", (event) => {
+        if (!assetCarouselDragging) return;
+        const delta = event.clientX - assetCarouselDragStart;
+        const now = performance.now();
+        const elapsed = Math.max(1, now - assetCarouselDragLastTime);
+        assetCarouselDragVelocity = (event.clientX - assetCarouselDragLastX) / elapsed;
+        assetCarouselDragLastX = event.clientX;
+        assetCarouselDragLastTime = now;
+        if (Math.abs(delta) > 6) assetCarouselMoved = true;
+        assetCarouselPosition = assetCarouselDragStartPosition - (delta / getAssetCarouselStep());
+        assetCarouselTarget = assetCarouselPosition;
+        renderAssetCarousel();
+      });
+
+      const stopAssetCarouselDrag = (event) => {
+        if (!assetCarouselDragging) return;
+        const tappedIndex = assetCarouselPointerCardIndex;
+        const tappedCard = tappedIndex >= 0 ? assetCarouselCards[tappedIndex] : null;
+        const wasTap = !assetCarouselMoved && tappedIndex >= 0;
+        assetCarouselPointerCardIndex = -1;
+        assetCarouselDragging = false;
+        assetCarousel.classList.remove("is-dragging");
+        if (event?.pointerId !== undefined) assetCarousel.releasePointerCapture?.(event.pointerId);
+        if (wasTap) {
+          window.clearTimeout(assetCarouselClickTimer);
+          const activeIndex = normalizeAssetCarouselIndex(Math.round(assetCarouselPosition));
+          if (tappedIndex !== activeIndex) {
+            assetCarouselLastTapIndex = -1;
+            assetCarouselLastTapTime = 0;
+            setAssetCarouselIndex(tappedIndex);
+          } else {
+            const now = performance.now();
+            const isDoubleTap = tappedIndex === assetCarouselLastTapIndex && now - assetCarouselLastTapTime < 330;
+            assetCarouselLastTapIndex = tappedIndex;
+            assetCarouselLastTapTime = now;
+            if (isDoubleTap) {
+              openImageViewer(tappedCard, true);
+              assetCarouselLastTapIndex = -1;
+              assetCarouselLastTapTime = 0;
+            } else {
+              assetCarouselClickTimer = window.setTimeout(() => {
+                openImageViewer(tappedCard, false);
+              }, 230);
+            }
+          }
+        } else {
+          assetCarouselTarget = Math.round(assetCarouselPosition - ((assetCarouselDragVelocity * 160) / getAssetCarouselStep()));
+          queueAssetCarouselAnimation();
+        }
+        window.setTimeout(() => {
+          assetCarouselMoved = false;
+        }, 0);
+      };
+
+      assetCarousel.addEventListener("pointerup", stopAssetCarouselDrag);
+      assetCarousel.addEventListener("pointercancel", stopAssetCarouselDrag);
+      renderAssetCarousel();
     }
 
     if (canUseMotion && window.matchMedia("(pointer: fine)").matches) {
