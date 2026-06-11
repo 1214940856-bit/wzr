@@ -2008,6 +2008,105 @@
         radial-gradient(ellipse at 20% 0%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 54%);
     }
 
+    #showreel-mix {
+      --panel-art-opacity: 0.82;
+      --panel-art:
+        radial-gradient(ellipse at 50% 116%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 48%),
+        radial-gradient(ellipse at 92% 108%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 52%);
+      --section-blend:
+        radial-gradient(ellipse at 36% 0%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 52%),
+        radial-gradient(ellipse at 82% 0%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 48%);
+    }
+
+    #showreel-mix .section-head {
+      display: block;
+      margin-bottom: clamp(24px, 4vw, 46px);
+    }
+
+    #showreel-mix .section-head h2 {
+      white-space: nowrap;
+      letter-spacing: 0.045em;
+    }
+
+    .mix-video-shell {
+      width: min(100%, 1120px);
+      margin-inline: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .mix-video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 48%),
+        color-mix(in srgb, var(--surface-2) 88%, transparent);
+      box-shadow:
+        0 26px 78px rgba(0, 0, 0, 0.34),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    }
+
+    .mix-video-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 20%),
+        radial-gradient(ellipse at 50% 110%, rgba(239, 201, 135, 0.18), transparent 52%);
+      mix-blend-mode: screen;
+    }
+
+    .mix-video-frame video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #050b1e;
+    }
+
+    .mix-video-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      color: var(--muted);
+    }
+
+    .mix-video-meta p {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(15px, 1.35vw, 17px);
+      line-height: 1.72;
+    }
+
+    .mix-video-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mix-video-tags li {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 14px;
+      background: color-mix(in srgb, var(--accent-2) 12%, var(--surface));
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
     #image-works {
       --panel-art-opacity: 0.88;
       --panel-art:
@@ -4176,6 +4275,15 @@
         grid-template-columns: 1fr;
       }
 
+      .mix-video-meta {
+        display: grid;
+        gap: 14px;
+      }
+
+      .mix-video-tags {
+        justify-content: flex-start;
+      }
+
       .section {
         padding-top: clamp(64px, 12vw, 96px);
         padding-bottom: clamp(64px, 12vw, 96px);
@@ -4684,6 +4792,7 @@
         Kevin <small>AI Video Design</small>
       </a>
       <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="#showreel-mix">混剪</a>
         <a href="#works">作品</a>
         <a href="#workflow">工作流</a>
         <a href="#cases">案例</a>
@@ -4990,6 +5099,33 @@
         </div>
         <div class="portrait-frame hero-portrait reveal" aria-label="个人照片展示窗口">
           <img class="portrait-image" src="assets/images/kevin-portrait-web.jpg" alt="吴卓儒 Kevin 个人照片" loading="eager" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="section page-shell" id="showreel-mix">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Showreel Mix</span>
+          <h2>混剪大视频</h2>
+        </div>
+        <p class="section-note">用于集中展示横版混剪成片，适合放置作品集开场、年度合集、项目精选或对外投递版 showreel。</p>
+      </div>
+
+      <div class="mix-video-shell reveal">
+        <div class="mix-video-frame" aria-label="混剪大视频 16:9 播放窗口">
+          <video controls preload="metadata" playsinline poster="assets/images/video-covers/shenzhen-cultural-expo-web.jpg?v=20260602" aria-label="混剪大视频">
+            <source src="assets/videos/shenzhen-cultural-expo-web.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+          </video>
+        </div>
+        <div class="mix-video-meta">
+          <p>当前窗口已固定为 16:9 横屏比例，可替换为最终混剪大视频文件，作为个人优势与 AI 视频作品集之间的重点展示入口。</p>
+          <ul class="mix-video-tags" aria-label="混剪大视频标签">
+            <li>16:9</li>
+            <li>Showreel</li>
+            <li>精选混剪</li>
+          </ul>
         </div>
       </div>
     </section>
