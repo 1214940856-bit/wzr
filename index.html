@@ -1399,6 +1399,16 @@
         radial-gradient(ellipse at 82% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 48%);
     }
 
+    .welcome-cover.page-shell,
+    .hero.page-shell,
+    .section.page-shell {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding-left: max(24px, calc((100vw - var(--max)) / 2));
+      padding-right: max(24px, calc((100vw - var(--max)) / 2));
+    }
+
     .hero > *,
     .section > *,
     footer > * {
@@ -1560,8 +1570,8 @@
     .section-voyage-pattern {
       position: absolute;
       z-index: 1;
-      left: calc(50% - 50vw);
-      right: calc(50% - 50vw);
+      left: 0;
+      right: 0;
       bottom: 0;
       height: clamp(104px, 14vw, 176px);
       pointer-events: none;
@@ -3513,6 +3523,14 @@
         width: min(calc(100% - 32px), var(--max));
       }
 
+      .welcome-cover.page-shell,
+      .hero.page-shell,
+      .section.page-shell {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
       .topbar-inner {
         min-height: 68px;
         gap: 12px;
@@ -3520,7 +3538,8 @@
 
       .welcome-cover {
         min-height: calc(100vh - 68px);
-        padding: 68px 0 108px;
+        padding-top: 68px;
+        padding-bottom: 108px;
       }
 
       .welcome-cover::before {
@@ -3640,6 +3659,11 @@
         grid-template-columns: 1fr;
       }
 
+      .section {
+        padding-top: clamp(64px, 12vw, 96px);
+        padding-bottom: clamp(64px, 12vw, 96px);
+      }
+
       .story-video-stage {
         min-height: clamp(410px, 96vw, 560px);
       }
@@ -3721,6 +3745,10 @@
     }
 
     @media (max-width: 520px) {
+      body {
+        line-height: 1.56;
+      }
+
       .voyage-route {
         opacity: 0.42;
       }
@@ -3738,7 +3766,8 @@
       }
 
       .welcome-cover {
-        padding: 54px 0 104px;
+        padding-top: 54px;
+        padding-bottom: 104px;
       }
 
       .welcome-cover::before {
@@ -3783,6 +3812,23 @@
         opacity: 0.48;
       }
 
+      .section-head {
+        margin-bottom: 28px;
+      }
+
+      h2 {
+        max-width: 100%;
+        font-size: clamp(30px, 10.5vw, 42px);
+        line-height: 1.06;
+        letter-spacing: 0.02em;
+        overflow-wrap: anywhere;
+      }
+
+      #image-to-video .section-head h2 {
+        font-size: clamp(30px, 10vw, 40px);
+        white-space: nowrap;
+      }
+
       .hero-grid {
         grid-template-columns: 1fr;
       }
@@ -3818,9 +3864,97 @@
         height: 72px;
       }
 
+      .works-grid {
+        gap: 34px;
+      }
+
+      .work-card {
+        gap: 12px;
+      }
+
+      .work-media,
+      .case-card,
+      .wallpaper-screen,
+      .workflow-visual {
+        border-radius: 12px;
+      }
+
+      .work-meta {
+        gap: 8px;
+      }
+
+      .work-meta h3,
+      .case-body h3 {
+        font-size: clamp(20px, 6vw, 26px);
+      }
+
+      .work-meta p,
+      .case-body p,
+      .step p,
+      .contact-panel-note {
+        font-size: 14px;
+        line-height: 1.62;
+      }
+
       .wallpaper-caption {
         display: grid;
         gap: 10px;
+      }
+
+      .wallpaper-tag {
+        justify-self: start;
+      }
+
+      .story-video-stage {
+        min-height: 520px;
+        border-radius: 18px;
+      }
+
+      .story-video-panel {
+        width: min(560px, 92vw);
+      }
+
+      .story-video-caption {
+        align-items: start;
+        display: grid;
+        grid-template-columns: auto 1fr;
+      }
+
+      .story-video-caption h3 {
+        font-size: clamp(20px, 6.4vw, 26px);
+      }
+
+      .story-video-steps {
+        font-size: 11px;
+        gap: 4px;
+      }
+
+      .workflow-visual {
+        max-height: 520px;
+      }
+
+      .step {
+        grid-template-columns: 44px 1fr;
+        gap: 12px;
+        padding: 18px 0;
+      }
+
+      .step-number {
+        width: 38px;
+        height: 38px;
+        border-radius: 11px;
+      }
+
+      .step h3 {
+        font-size: 20px;
+      }
+
+      .contact-panel {
+        padding: 22px;
+      }
+
+      .contact-panel-title strong {
+        font-size: clamp(24px, 8vw, 34px);
       }
 
       .brand {
@@ -3844,6 +3978,11 @@
       #image-works .section-head h2,
       #dynamic-wallpaper .section-head h2 {
         white-space: normal;
+      }
+
+      #asset-gallery h2 {
+        white-space: normal;
+        font-size: clamp(32px, 10vw, 42px);
       }
 
       .button {
