@@ -162,7 +162,6 @@
     }
 
     [data-palette="artist"] .work-media,
-    [data-palette="artist"] .mix-video-frame,
     [data-palette="artist"] .case-card,
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
@@ -172,7 +171,6 @@
     }
 
     [data-palette="artist"] .work-media,
-    [data-palette="artist"] .mix-video-frame,
     [data-palette="artist"] .case-card,
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
@@ -190,7 +188,6 @@
     }
 
     [data-palette="artist"] .work-card:hover .work-media,
-    [data-palette="artist"] .mix-video-shell:hover .mix-video-frame,
     [data-palette="artist"] .case-card:hover,
     [data-palette="artist"] .advantage-card:hover,
     [data-palette="artist"] .showreel:hover,
@@ -693,30 +690,30 @@
     }
 
     @keyframes welcome-kicker-reveal {
-      0%, 4% { opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(8px); }
-      14%, 88% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+      0%, 36% { opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(8px); }
+      48%, 88% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
       100% { opacity: 0; transform: translate3d(0, -8px, 0); filter: blur(6px); }
     }
 
     @keyframes welcome-title-sweep {
-      0%, 10% { transform: translate3d(-118%, 0, 0) skewX(-14deg); opacity: 0; }
-      18% { opacity: 0.92; }
-      34% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
+      0%, 40% { transform: translate3d(-118%, 0, 0) skewX(-14deg); opacity: 0; }
+      48% { opacity: 0.92; }
+      62% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
       100% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
     }
 
     @keyframes welcome-title-reveal {
-      0%, 3% {
+      0%, 38% {
         opacity: 0;
         filter: blur(18px) brightness(2);
         transform: translate3d(0, 24px, 0) scale(0.96);
       }
-      12% {
+      48% {
         opacity: 0.72;
         filter: blur(5px) brightness(1.55);
         transform: translate3d(0, 6px, 0) scale(1.01);
       }
-      20%, 88% {
+      56%, 88% {
         opacity: 1;
         filter: blur(0) brightness(1);
         transform: translate3d(0, 0, 0) scale(1);
@@ -729,9 +726,9 @@
     }
 
     @keyframes welcome-title-light-wash {
-      0%, 4% { opacity: 0; transform: translate3d(-50%, -16%, 0) scale(0.72); }
-      14% { opacity: 0.9; transform: translate3d(-50%, -2%, 0) scale(1); }
-      34% { opacity: 0.34; transform: translate3d(-50%, 5%, 0) scale(1.18); }
+      0%, 34% { opacity: 0; transform: translate3d(-50%, -16%, 0) scale(0.72); }
+      47% { opacity: 0.9; transform: translate3d(-50%, -2%, 0) scale(1); }
+      66% { opacity: 0.34; transform: translate3d(-50%, 5%, 0) scale(1.18); }
       100% { opacity: 0; transform: translate3d(-50%, 8%, 0) scale(1.24); }
     }
 
@@ -758,17 +755,17 @@
     }
 
     @keyframes welcome-cloud-bloom {
-      0%, 100% { filter: blur(0.35px) drop-shadow(0 18px 26px rgba(79, 125, 193, 0.16)); }
-      50% { filter: blur(0.8px) drop-shadow(0 24px 36px rgba(255, 255, 255, 0.24)); }
+      0%, 100% { filter: blur(0.1px) drop-shadow(0 12px 18px rgba(215, 232, 255, 0.12)); }
+      50% { filter: blur(0.5px) drop-shadow(0 16px 26px rgba(255, 255, 255, 0.2)); }
     }
 
     @keyframes welcome-helicopter-flight {
       0% { transform: translate3d(-30vw, -12px, 0) rotate(-5deg) scale(var(--heli-scale)); opacity: 0; }
-      9% { opacity: 0.62; }
-      36% { transform: translate3d(37vw, 4px, 0) rotate(-1deg) scale(var(--heli-scale)); opacity: 0.68; }
-      48% { transform: translate3d(43vw, 0, 0) rotate(0deg) scale(var(--heli-scale)); opacity: 0.68; }
-      60% { transform: translate3d(43vw, -4px, 0) rotate(0.8deg) scale(var(--heli-scale)); opacity: 0.68; }
-      72% { transform: translate3d(58vw, -10px, 0) rotate(2deg) scale(var(--heli-scale)); opacity: 0.62; }
+      9% { opacity: 0.94; }
+      36% { transform: translate3d(37vw, 4px, 0) rotate(-1deg) scale(var(--heli-scale)); opacity: 1; }
+      48% { transform: translate3d(43vw, 0, 0) rotate(0deg) scale(var(--heli-scale)); opacity: 1; }
+      60% { transform: translate3d(43vw, -4px, 0) rotate(0.8deg) scale(var(--heli-scale)); opacity: 1; }
+      72% { transform: translate3d(58vw, -10px, 0) rotate(2deg) scale(var(--heli-scale)); opacity: 0.96; }
       100% { transform: translate3d(122vw, 14px, 0) rotate(5deg) scale(var(--heli-scale)); opacity: 0; }
     }
 
@@ -1183,7 +1180,7 @@
       filter: blur(18px);
       mix-blend-mode: screen;
       opacity: 0;
-      animation: welcome-title-light-wash 8s ease-out infinite;
+      animation: welcome-title-light-wash 17s ease-out infinite;
     }
 
     .welcome-kicker {
@@ -1199,7 +1196,7 @@
         0 0 16px rgba(239, 201, 135, 0.34),
         0 10px 28px rgba(53, 76, 184, 0.22);
       opacity: 0;
-      animation: welcome-kicker-reveal 8s ease-out infinite;
+      animation: welcome-kicker-reveal 17s ease-out infinite;
     }
 
     .welcome-kicker::before,
@@ -1246,7 +1243,7 @@
       filter: blur(1px);
       mix-blend-mode: screen;
       opacity: 0;
-      animation: welcome-title-sweep 8s ease-in-out infinite;
+      animation: welcome-title-sweep 17s ease-in-out infinite;
     }
 
     .blur-text {
@@ -1275,10 +1272,10 @@
       filter: blur(10px);
       transform: translate3d(0, -42px, 0);
       animation:
-        welcome-title-reveal 8s var(--ease-soft) infinite,
-        welcome-letter-light 6.4s ease-in-out 2.1s infinite,
-        welcome-letter-sparkle 6.4s ease-in-out 2.1s infinite;
-      animation-delay: calc(var(--i) * 90ms), 2.1s, 2.1s;
+        welcome-title-reveal 17s var(--ease-soft) infinite,
+        welcome-letter-light 6.4s ease-in-out 9.4s infinite,
+        welcome-letter-sparkle 6.4s ease-in-out 9.4s infinite;
+      animation-delay: calc(var(--i) * 190ms), 9.4s, 9.4s;
       will-change: transform, filter, opacity;
     }
 
@@ -1299,7 +1296,7 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), rgba(239, 201, 135, 0.62), transparent);
       box-shadow: 0 0 18px rgba(239, 201, 135, 0.46);
       transform-origin: center;
-      animation: welcome-word-glint 6.8s ease-in-out calc(2.3s + (var(--i) * 0.35s)) infinite;
+      animation: welcome-word-glint 6.8s ease-in-out calc(9.6s + (var(--i) * 0.7s)) infinite;
     }
 
     .blur-word::after {
@@ -1312,7 +1309,7 @@
         0 0 10px rgba(255, 255, 255, 0.9),
         0 0 22px rgba(133, 203, 255, 0.58),
         0 0 34px rgba(239, 201, 135, 0.4);
-      animation: welcome-title-spark-drift 7.4s ease-in-out calc(2.5s + (var(--i) * 0.55s)) infinite;
+      animation: welcome-title-spark-drift 7.4s ease-in-out calc(9.9s + (var(--i) * 1.1s)) infinite;
     }
 
     .welcome-title strong {
@@ -1334,31 +1331,29 @@
       inset: 0;
       pointer-events: none;
       overflow: hidden;
-      opacity: 0.92;
+      opacity: 0.84;
     }
 
     .welcome-cloud {
-      --cloud-width: clamp(86px, 10vw, 166px);
+      --cloud-width: clamp(110px, 13vw, 210px);
       --cloud-y: 16vh;
       --cloud-scale: 1;
-      --cloud-opacity: 0.82;
+      --cloud-opacity: 0.72;
       --cloud-lift: 26px;
       position: absolute;
       top: 0;
       left: 0;
       width: var(--cloud-width);
-      height: calc(var(--cloud-width) * 0.5);
+      height: calc(var(--cloud-width) * 0.34);
       border-radius: 999px;
       background:
-        radial-gradient(ellipse at 17% 65%, rgba(255, 255, 255, 1) 0 24%, transparent 25%),
-        radial-gradient(ellipse at 34% 38%, rgba(255, 255, 255, 1) 0 34%, transparent 36%),
-        radial-gradient(ellipse at 51% 26%, rgba(255, 255, 255, 0.99) 0 31%, transparent 33%),
-        radial-gradient(ellipse at 68% 48%, rgba(255, 255, 255, 0.97) 0 32%, transparent 34%),
-        radial-gradient(ellipse at 83% 66%, rgba(252, 254, 255, 0.93) 0 25%, transparent 27%),
-        radial-gradient(ellipse at 50% 88%, rgba(146, 177, 207, 0.3) 0 48%, transparent 62%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(233, 244, 255, 0.58) 64%, rgba(173, 204, 232, 0.2));
-      filter: blur(0.35px) drop-shadow(0 20px 28px rgba(48, 82, 176, 0.14));
-      mix-blend-mode: lighten;
+        radial-gradient(ellipse at 19% 58%, rgba(255, 255, 255, 0.98) 0 24%, transparent 26%),
+        radial-gradient(ellipse at 36% 40%, rgba(255, 255, 255, 0.96) 0 32%, transparent 34%),
+        radial-gradient(ellipse at 58% 44%, rgba(255, 255, 255, 0.92) 0 29%, transparent 31%),
+        radial-gradient(ellipse at 78% 62%, rgba(255, 255, 255, 0.78) 0 24%, transparent 26%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(232, 243, 255, 0.28));
+      filter: blur(0.2px) drop-shadow(0 18px 24px rgba(48, 82, 176, 0.12));
+      mix-blend-mode: screen;
       transform: translate3d(calc(-1 * var(--cloud-width) - 10vw), var(--cloud-y), 0) scale(var(--cloud-scale));
       animation:
         welcome-cloud-drift var(--cloud-speed, 46s) linear var(--cloud-delay, 0s) infinite,
@@ -1371,23 +1366,22 @@
       content: "";
       position: absolute;
       border-radius: 50%;
-      background:
-        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62) 56%, transparent 72%);
-      filter: blur(8px);
+      background: rgba(255, 255, 255, 0.72);
+      filter: blur(7px);
     }
 
     .welcome-cloud::before {
-      width: 54%;
-      height: 88%;
-      left: 24%;
-      top: -35%;
+      width: 46%;
+      height: 74%;
+      left: 18%;
+      top: -18%;
     }
 
     .welcome-cloud::after {
-      width: 46%;
-      height: 72%;
-      right: 8%;
-      top: -8%;
+      width: 42%;
+      height: 64%;
+      right: 12%;
+      top: -6%;
     }
 
     .welcome-island {
@@ -1426,13 +1420,13 @@
       z-index: 7;
       left: 0;
       top: clamp(142px, 22vh, 235px);
-      width: clamp(168px, 14vw, 238px);
+      width: clamp(170px, 15vw, 245px);
       color: rgba(255, 255, 255, 0.94);
       pointer-events: none;
       opacity: 0;
       filter:
-        drop-shadow(0 0 18px rgba(255, 255, 255, 0.42))
-        drop-shadow(0 18px 24px rgba(22, 48, 126, 0.34));
+        drop-shadow(0 0 20px rgba(255, 255, 255, 0.46))
+        drop-shadow(0 18px 24px rgba(22, 48, 126, 0.36));
       animation: welcome-helicopter-flight 17s linear 0s infinite;
       will-change: transform, opacity;
     }
@@ -1448,65 +1442,27 @@
     .welcome-helicopter .heli-body,
     .welcome-helicopter .heli-tail,
     .welcome-helicopter .heli-fin,
-    .welcome-helicopter .plane-wing,
     .welcome-helicopter .heli-skid {
       fill: currentColor;
-      stroke: rgba(20, 45, 84, 0.58);
+      stroke: rgba(6, 20, 58, 0.48);
       stroke-linejoin: round;
-      stroke-width: 2.2;
+      stroke-width: 2;
     }
 
     .welcome-helicopter .heli-strut {
-      stroke: rgba(235, 244, 255, 0.9);
-      stroke-width: 4.2;
+      stroke: rgba(255, 255, 255, 0.86);
+      stroke-width: 4;
       stroke-linecap: round;
     }
 
     .welcome-helicopter .heli-accent {
-      fill: #172a3f;
-      opacity: 0.92;
-    }
-
-    .welcome-helicopter .heli-panel {
-      fill: none;
-      stroke: rgba(23, 42, 63, 0.32);
-      stroke-width: 1.5;
-      stroke-linecap: round;
+      fill: #efc987;
+      opacity: 0.86;
     }
 
     .welcome-helicopter .heli-window {
-      fill: #2b5f8e;
-      opacity: 0.82;
-    }
-
-    .welcome-helicopter .heli-mark {
-      fill: #7fc7ec;
-    }
-
-    .welcome-helicopter .plane-red {
-      fill: #8fd3f4;
-      stroke: rgba(235, 249, 255, 0.58);
-      stroke-linejoin: round;
-      stroke-width: 1.7;
-    }
-
-    .welcome-helicopter .plane-stripe {
-      fill: #73bfe9;
-      opacity: 0.95;
-    }
-
-    .welcome-helicopter .plane-engine {
-      fill: #f7fbff;
-      stroke: rgba(20, 45, 84, 0.56);
-      stroke-width: 2;
-    }
-
-    .welcome-helicopter .heli-registration {
-      fill: rgba(17, 31, 48, 0.78);
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+      fill: #6488df;
+      opacity: 0.58;
     }
 
     .welcome-helicopter .heli-rotor {
@@ -1516,32 +1472,9 @@
     }
 
     .welcome-helicopter .heli-rotor line {
-      stroke: rgba(238, 247, 255, 0.72);
-      stroke-width: 5.5;
+      stroke: rgba(255, 255, 255, 0.82);
+      stroke-width: 6;
       stroke-linecap: round;
-    }
-
-    .welcome-helicopter .heli-rotor .heli-rotor-blur {
-      stroke: rgba(238, 247, 255, 0.34);
-      stroke-width: 9;
-    }
-
-    .welcome-helicopter .plane-prop-blur {
-      fill: rgba(238, 247, 255, 0.2);
-      stroke: rgba(238, 247, 255, 0.26);
-      stroke-width: 2;
-    }
-
-    .welcome-helicopter .plane-prop-hub {
-      fill: #f6fbff;
-      stroke: rgba(20, 45, 84, 0.45);
-      stroke-width: 1.7;
-    }
-
-    .welcome-helicopter .plane-wheel {
-      fill: #172a3f;
-      stroke: rgba(235, 244, 255, 0.82);
-      stroke-width: 1.5;
     }
 
     .welcome-helicopter .heli-tail-rotor {
@@ -1551,15 +1484,8 @@
     }
 
     .welcome-helicopter .heli-tail-rotor line {
-      stroke: rgba(238, 247, 255, 0.7);
-      stroke-width: 5;
-      stroke-linecap: round;
-    }
-
-    .welcome-helicopter .heli-tail-rotor-arc {
-      fill: none;
-      stroke: rgba(238, 247, 255, 0.36);
-      stroke-width: 3;
+      stroke: rgba(255, 255, 255, 0.72);
+      stroke-width: 4;
       stroke-linecap: round;
     }
 
@@ -2082,265 +2008,6 @@
         radial-gradient(ellipse at 20% 0%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 54%);
     }
 
-    #showreel-mix {
-      --panel-art-opacity: 0.82;
-      --panel-art:
-        radial-gradient(ellipse at 50% 116%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 48%),
-        radial-gradient(ellipse at 92% 108%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 52%);
-      --section-blend:
-        radial-gradient(ellipse at 36% 0%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 52%),
-        radial-gradient(ellipse at 82% 0%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 48%);
-    }
-
-    #showreel-mix .section-head {
-      display: block;
-      margin-bottom: clamp(24px, 4vw, 46px);
-    }
-
-    #showreel-mix .section-head h2 {
-      white-space: nowrap;
-      letter-spacing: 0.045em;
-    }
-
-    .mix-video-shell {
-      width: min(100%, 1120px);
-      margin-inline: auto;
-      display: grid;
-      gap: 18px;
-    }
-
-    .mix-video-frame {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--line);
-      background: var(--surface-2);
-      isolation: isolate;
-      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-      transition: border-color 260ms ease, box-shadow 320ms var(--ease-out), transform 320ms var(--ease-out);
-    }
-
-    .mix-video-frame::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0;
-      z-index: 1;
-      transition: opacity 260ms ease;
-      background: radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 58%);
-    }
-
-    .mix-video-frame video,
-    .mix-showreel-window,
-    .mix-showreel-window img {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    .mix-video-frame video {
-      object-fit: cover;
-      background: var(--surface-2);
-      transition: filter 260ms ease;
-    }
-
-    video.mix-showreel-video:fullscreen,
-    video.mix-showreel-video:-webkit-full-screen {
-      object-fit: contain;
-      background: #000;
-    }
-
-    .mix-showreel-play {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      z-index: 4;
-      display: inline-grid;
-      place-items: center;
-      width: clamp(68px, 8vw, 94px);
-      aspect-ratio: 1;
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      border-radius: 999px;
-      color: #fff;
-      background: rgba(7, 14, 34, 0.62);
-      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
-      transform: translate(-50%, -50%);
-      cursor: pointer;
-      backdrop-filter: blur(14px);
-      transition: opacity 180ms ease, transform 220ms var(--ease-out), background 180ms ease;
-    }
-
-    .mix-showreel-play::before {
-      content: "";
-      width: 0;
-      height: 0;
-      margin-left: 6px;
-      border-top: 15px solid transparent;
-      border-bottom: 15px solid transparent;
-      border-left: 22px solid currentColor;
-    }
-
-    .mix-showreel-play:hover {
-      background: rgba(18, 36, 78, 0.74);
-      transform: translate(-50%, -50%) scale(1.05);
-    }
-
-    .mix-showreel-play.is-hidden {
-      opacity: 0;
-      pointer-events: none;
-      transform: translate(-50%, -50%) scale(0.92);
-    }
-
-    .mix-showreel-window {
-      position: relative;
-      background:
-        linear-gradient(135deg, rgba(5, 10, 28, 0.88), rgba(10, 28, 62, 0.5)),
-        var(--surface-2);
-    }
-
-    .mix-showreel-window img {
-      object-fit: cover;
-      opacity: 0.64;
-      filter: saturate(1.08) contrast(1.08);
-      transform: scale(1.01);
-    }
-
-    .mix-showreel-window::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(5, 9, 24, 0.78), rgba(5, 9, 24, 0.18) 54%, rgba(5, 9, 24, 0.58)),
-        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 6px);
-      pointer-events: none;
-    }
-
-    .mix-showreel-content {
-      position: absolute;
-      inset: clamp(22px, 4vw, 54px);
-      z-index: 2;
-      display: grid;
-      align-content: end;
-      max-width: 640px;
-      color: #fff;
-      text-shadow: 0 16px 34px rgba(0, 0, 0, 0.46);
-    }
-
-    .mix-showreel-label {
-      margin: 0 0 12px;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: clamp(12px, 1.2vw, 14px);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-    }
-
-    .mix-showreel-title {
-      margin: 0;
-      font-size: clamp(34px, 7vw, 82px);
-      line-height: 0.95;
-      letter-spacing: 0.02em;
-    }
-
-    .mix-showreel-subtitle {
-      margin: 16px 0 0;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: clamp(14px, 1.7vw, 18px);
-      line-height: 1.72;
-    }
-
-    .mix-showreel-tags {
-      position: absolute;
-      right: clamp(18px, 3vw, 42px);
-      top: clamp(18px, 3vw, 42px);
-      z-index: 2;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-      max-width: min(380px, 42%);
-    }
-
-    .mix-showreel-tags span {
-      padding: 7px 10px;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      border-radius: 999px;
-      color: rgba(255, 255, 255, 0.78);
-      background: rgba(8, 14, 34, 0.46);
-      font-size: clamp(11px, 1vw, 13px);
-      line-height: 1;
-      backdrop-filter: blur(12px);
-    }
-
-    .mix-video-shell:hover .mix-video-frame {
-      transform: translateY(-8px) scale(1.008);
-      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
-      box-shadow: 0 24px 70px color-mix(in srgb, var(--accent) 12%, transparent);
-    }
-
-    .mix-video-shell:hover .mix-video-frame::after {
-      opacity: 1;
-    }
-
-    [data-palette="artist"] .mix-video-frame {
-      background: rgba(12, 32, 82, 0.7);
-      border-width: 2px;
-      border-color: var(--window-border);
-      box-shadow:
-        0 0 0 1px var(--window-inner-border) inset,
-        0 22px 68px rgba(3, 10, 35, 0.34),
-        0 0 18px rgba(91, 170, 255, 0.16);
-      animation: window-border-breathe 4.6s ease-in-out infinite;
-    }
-
-    [data-palette="artist"] .mix-video-shell:hover .mix-video-frame {
-      border-color: var(--window-border-strong);
-      box-shadow:
-        0 0 0 1px rgba(227, 248, 255, 0.34) inset,
-        0 28px 82px rgba(3, 10, 35, 0.42),
-        0 0 32px rgba(91, 219, 255, 0.28);
-    }
-
-    .mix-video-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 20px;
-      color: var(--muted);
-    }
-
-    .mix-video-meta p {
-      max-width: 720px;
-      margin: 0;
-      font-size: clamp(15px, 1.35vw, 17px);
-      line-height: 1.72;
-    }
-
-    .mix-video-tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .mix-video-tags li {
-      min-height: 34px;
-      display: inline-flex;
-      align-items: center;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0 14px;
-      background: color-mix(in srgb, var(--accent-2) 12%, var(--surface));
-      color: var(--text);
-      font-size: 13px;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
     #image-works {
       --panel-art-opacity: 0.88;
       --panel-art:
@@ -2382,14 +2049,6 @@
       --section-blend:
         radial-gradient(ellipse at 26% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 48%),
         radial-gradient(ellipse at 78% 0%, color-mix(in srgb, var(--accent-2) 13%, transparent), transparent 54%);
-    }
-
-    #cases .case-detail-grid .work-media {
-      aspect-ratio: 3 / 4;
-    }
-
-    #cases .case-detail-grid .work-detail-thumb img {
-      object-position: center;
     }
 
     #contact {
@@ -2555,7 +2214,6 @@
 
     #works .section-head,
     #image-works .section-head,
-    #image-gallery .section-head,
     #dynamic-wallpaper .section-head,
     #image-to-video .section-head {
       display: block;
@@ -2563,7 +2221,6 @@
 
     #works .section-head h2,
     #image-works .section-head h2,
-    #image-gallery .section-head h2,
     #dynamic-wallpaper .section-head h2,
     #image-to-video .section-head h2 {
       white-space: nowrap;
@@ -2686,11 +2343,6 @@
       aspect-ratio: 9 / 16;
     }
 
-    #image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid {
-      grid-template-columns: minmax(0, min(100%, 430px));
-      justify-content: center;
-    }
-
     .work-card {
       display: grid;
       gap: 18px;
@@ -2741,29 +2393,6 @@
       transition: filter 260ms ease;
     }
 
-    .video-status {
-      position: absolute;
-      left: 14px;
-      right: 14px;
-      bottom: 14px;
-      z-index: 3;
-      display: none;
-      padding: 10px 12px;
-      border-radius: 8px;
-      color: #fff;
-      background: rgba(8, 12, 24, 0.72);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      font-size: 13px;
-      line-height: 1.5;
-      text-align: center;
-      pointer-events: none;
-      backdrop-filter: blur(12px);
-    }
-
-    .video-status.is-visible {
-      display: block;
-    }
-
     video.work-cover:fullscreen,
     video.work-cover:-webkit-full-screen {
       object-fit: contain;
@@ -2797,7 +2426,7 @@
     }
 
     .image-work-switcher-wrap {
-      max-width: min(100%, 430px);
+      max-width: min(100%, 980px);
       margin-inline: auto;
       position: relative;
     }
@@ -2816,7 +2445,7 @@
       inset: 8px 0 10px;
       z-index: 0;
       display: grid;
-      grid-template-columns: minmax(0, 1fr);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: clamp(22px, 3.6vw, 38px);
       align-items: start;
       opacity: 0;
@@ -3121,9 +2750,9 @@
     }
 
     .image-collection-head {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: 0;
+      margin-top: clamp(92px, 11vw, 152px);
+      padding-top: clamp(28px, 4vw, 46px);
+      border-top: 1px solid rgba(244, 247, 255, 0.22);
     }
 
     .image-collection-grid {
@@ -3904,541 +3533,6 @@
       color: var(--accent-2);
     }
 
-    .work-card.is-detail-gated .work-meta {
-      grid-template-rows: auto;
-      min-height: 0;
-    }
-
-    .work-detail-thumb {
-      position: relative;
-      display: block;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      border: 0;
-      padding: 0;
-      color: #fff;
-      background: #05070c;
-    }
-
-    .work-detail-thumb img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.92;
-      transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1), opacity 220ms ease, filter 260ms ease;
-    }
-
-    .work-detail-thumb::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 30%, rgba(2, 4, 12, 0.08));
-      pointer-events: none;
-    }
-
-    .work-card:hover .work-detail-thumb img {
-      transform: scale(1.045);
-      opacity: 1;
-      filter: saturate(1.08);
-    }
-
-    .work-detail-dock {
-      position: relative;
-      min-height: 52px;
-      display: grid;
-      place-items: center;
-      overflow: hidden;
-      border: 1px solid rgba(169, 216, 255, 0.18);
-      border-radius: 999px;
-      background:
-        radial-gradient(ellipse at 50% 54%, rgba(112, 186, 255, 0.11), transparent 64%),
-        linear-gradient(180deg, rgba(229, 242, 255, 0.045), rgba(112, 186, 255, 0.035) 52%, rgba(8, 18, 44, 0.02)),
-        rgba(8, 14, 34, 0.3);
-      box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(14px);
-    }
-
-    .work-detail-lines {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      min-width: 0;
-      overflow: hidden;
-      pointer-events: none;
-    }
-
-    .work-detail-lines::before {
-      content: "";
-      position: absolute;
-      left: -16%;
-      right: -16%;
-      top: 20%;
-      height: 68px;
-      border-radius: 45% 55% 48% 52%;
-      background:
-        radial-gradient(ellipse at 18% 52%, rgba(236, 247, 255, 0.28), transparent 22%),
-        radial-gradient(ellipse at 54% 48%, rgba(112, 186, 255, 0.22), transparent 32%),
-        linear-gradient(180deg, transparent 18%, rgba(236, 247, 255, 0.18) 44%, rgba(112, 186, 255, 0.12) 58%, transparent 74%);
-      opacity: 0.9;
-      filter: blur(0.2px);
-      transform: translate3d(0, -50%, 0) rotate(-2deg);
-      animation: workOceanSwell 7.4s ease-in-out infinite alternate;
-    }
-
-    .work-detail-lines::after {
-      content: "";
-      position: absolute;
-      left: -22%;
-      right: -22%;
-      top: 58%;
-      height: 58px;
-      border-radius: 55% 45% 52% 48%;
-      background:
-        radial-gradient(ellipse at 40% 50%, rgba(229, 242, 255, 0.24), transparent 24%),
-        linear-gradient(180deg, transparent 20%, rgba(112, 186, 255, 0.18) 48%, rgba(236, 247, 255, 0.1) 60%, transparent 78%);
-      opacity: 0.8;
-      filter: blur(0.4px);
-      transform: translate3d(0, -50%, 0) rotate(2deg);
-      animation: workOceanSwellAlt 8.2s ease-in-out infinite alternate;
-    }
-
-    .work-detail-lines span {
-      position: absolute;
-      display: block;
-      border-radius: 999px;
-      pointer-events: none;
-    }
-
-    .work-detail-lines span:nth-child(1) {
-      left: -8%;
-      right: -8%;
-      top: 49%;
-      height: 18px;
-      border-radius: 50%;
-      border-top: 1px solid rgba(229, 242, 255, 0.28);
-      background: transparent;
-      opacity: 0.7;
-      transform: rotate(-1deg);
-      animation: workOceanCrest 5.8s ease-in-out infinite alternate;
-    }
-
-    .work-detail-lines span:nth-child(2) {
-      left: 0;
-      right: 0;
-      top: 40%;
-      height: 26px;
-      border-radius: 50%;
-      border-bottom: 1px solid rgba(112, 186, 255, 0.18);
-      opacity: 0.68;
-      transform: rotate(1deg);
-      animation: workOceanCrest 6.4s ease-in-out 0.8s infinite alternate;
-    }
-
-    .work-detail-lines span:nth-child(3) {
-      left: 18%;
-      top: 33%;
-      width: 5px;
-      height: 5px;
-      background: rgba(236, 247, 255, 0.5);
-      box-shadow: 0 0 10px rgba(112, 186, 255, 0.22);
-      animation: workOceanBubble 5.4s ease-in-out infinite;
-    }
-
-    .work-detail-lines span:nth-child(4) {
-      left: 78%;
-      top: 63%;
-      width: 4px;
-      height: 4px;
-      background: rgba(229, 242, 255, 0.42);
-      box-shadow: 0 0 10px rgba(112, 186, 255, 0.18);
-      animation: workOceanBubble 5.4s ease-in-out 1.4s infinite;
-    }
-
-    .work-detail-lines span:nth-child(5) {
-      left: 42%;
-      top: 69%;
-      width: 3px;
-      height: 3px;
-      background: rgba(236, 247, 255, 0.38);
-      box-shadow: 0 0 8px rgba(112, 186, 255, 0.16);
-      animation: workOceanBubble 5.4s ease-in-out 2s infinite;
-    }
-
-    @keyframes workOceanSwell {
-      from {
-        transform: translate3d(-2%, -50%, 0) rotate(-2deg) scaleX(1);
-        border-radius: 44% 56% 50% 50%;
-      }
-
-      to {
-        transform: translate3d(2%, -53%, 0) rotate(2deg) scaleX(1.05);
-        border-radius: 55% 45% 48% 52%;
-      }
-    }
-
-    @keyframes workOceanSwellAlt {
-      from {
-        transform: translate3d(2%, -50%, 0) rotate(2deg) scaleX(1.04);
-        border-radius: 55% 45% 52% 48%;
-      }
-
-      to {
-        transform: translate3d(-2%, -47%, 0) rotate(-2deg) scaleX(1);
-        border-radius: 45% 55% 48% 52%;
-      }
-    }
-
-    @keyframes workOceanCrest {
-      from {
-        transform: translateX(-2%) rotate(-1deg);
-        opacity: 0.48;
-      }
-
-      to {
-        transform: translateX(2%) rotate(1deg);
-        opacity: 0.78;
-      }
-    }
-
-    @keyframes workOceanBubble {
-      0%, 100% {
-        transform: translate3d(0, 2px, 0);
-        opacity: 0.44;
-      }
-
-      50% {
-        transform: translate3d(0, -2px, 0);
-        opacity: 0.9;
-      }
-    }
-
-    @keyframes workOceanDrift {
-      from {
-        transform: translateX(-2%) rotate(-1deg);
-      }
-
-      to {
-        transform: translateX(2%) rotate(1deg);
-      }
-    }
-
-    .work-detail-button {
-      position: relative;
-      z-index: 2;
-      isolation: isolate;
-      min-width: max-content;
-      min-height: 38px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      border: 0;
-      border-radius: 0;
-      padding: 3px 12px 5px 16px;
-      background: transparent;
-      color: rgba(238, 248, 255, 0.98);
-      cursor: pointer;
-      font-family: "PingFang SC", "HarmonyOS Sans SC", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
-      font-size: clamp(14px, 1.45vw, 16px);
-      font-weight: 800;
-      font-variation-settings: "wght" 800;
-      line-height: 1;
-      letter-spacing: 0.08em;
-      text-shadow: none;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: geometricPrecision;
-      filter: none;
-      transition: filter 220ms var(--ease-out), letter-spacing 220ms var(--ease-out), transform 220ms var(--ease-out);
-    }
-
-    .work-detail-button::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      right: 19px;
-      bottom: 2px;
-      z-index: -1;
-      height: 7px;
-      border-radius: 999px;
-      background:
-        linear-gradient(90deg, transparent, rgba(112, 186, 255, 0.48) 24%, rgba(255, 255, 255, 0.58) 52%, rgba(112, 186, 255, 0.3) 78%, transparent);
-      opacity: 0.78;
-      transform: scaleX(0.84);
-      transform-origin: center;
-      filter: blur(4px);
-      transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
-    }
-
-    .work-detail-button::after {
-      content: "";
-      position: relative;
-      width: 10px;
-      height: 13px;
-      background:
-        linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(125, 207, 255, 0.95));
-      clip-path: polygon(0 0, 100% 50%, 0 100%);
-      filter: drop-shadow(0 0 12px rgba(112, 186, 255, 0.42));
-      transform: translateX(-2px);
-      transition: transform 220ms var(--ease-out), filter 220ms var(--ease-out);
-    }
-
-    .work-detail-button:hover {
-      color: #ffffff;
-      letter-spacing: 0.1em;
-      filter: none;
-      transform: translateY(-1px);
-    }
-
-    .work-detail-button:hover::before {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    .work-detail-button:hover::after {
-      filter: drop-shadow(0 0 16px rgba(112, 186, 255, 0.58));
-      transform: translateX(1px);
-    }
-
-    .work-detail-button:focus-visible {
-      outline: 1px solid rgba(226, 243, 255, 0.72);
-      outline-offset: 7px;
-    }
-
-    .work-detail-viewer {
-      position: fixed;
-      inset: 0;
-      z-index: 82;
-      display: none;
-      place-items: center;
-      padding: clamp(16px, 3vw, 34px);
-      background:
-        radial-gradient(circle at 82% 12%, var(--ambient-a), transparent 30rem),
-        radial-gradient(circle at 18% 18%, var(--ambient-c), transparent 28rem),
-        linear-gradient(135deg, color-mix(in srgb, var(--ambient-b) 88%, transparent), transparent 38rem),
-        color-mix(in srgb, var(--bg) 92%, #020817);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease;
-      backdrop-filter: blur(20px);
-    }
-
-    .work-detail-viewer.is-open {
-      display: grid;
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .work-detail-panel {
-      position: relative;
-      width: min(1120px, 100%);
-      max-height: min(88vh, 840px);
-      display: grid;
-      grid-template-columns: minmax(0, 1fr);
-      gap: clamp(18px, 2.8vw, 28px);
-      overflow: auto;
-      border: 1px solid rgba(169, 216, 255, 0.28);
-      border-radius: 18px;
-      padding: clamp(20px, 3vw, 34px);
-      background:
-        linear-gradient(135deg, color-mix(in srgb, var(--surface-2) 92%, rgba(255, 255, 255, 0.08)), color-mix(in srgb, var(--surface) 88%, rgba(255, 255, 255, 0.04))),
-        var(--bg);
-      box-shadow:
-        0 34px 110px rgba(0, 0, 0, 0.62),
-        inset 0 1px 0 rgba(255, 255, 255, 0.16);
-      transform: translateY(14px) scale(0.98);
-      transition: transform 260ms var(--ease-out);
-    }
-
-    .work-detail-panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(90deg, color-mix(in srgb, var(--window-border) 18%, transparent), transparent 38%, color-mix(in srgb, var(--accent) 10%, transparent)),
-        repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 26px);
-      opacity: 0.42;
-    }
-
-    .work-detail-panel::after {
-      content: "";
-      position: absolute;
-      inset: -24% -18%;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 20% 24%, color-mix(in srgb, var(--window-border) 26%, transparent), transparent 24%),
-        linear-gradient(115deg, transparent 22%, color-mix(in srgb, var(--window-border-strong) 14%, transparent) 44%, transparent 64%);
-      opacity: 0.28;
-      transform: translate3d(-8%, -4%, 0);
-      animation: none;
-      mix-blend-mode: screen;
-    }
-
-    .work-detail-viewer.is-open .work-detail-panel::after {
-      animation: workDetailDrift 12s ease-in-out infinite alternate;
-    }
-
-    @keyframes workDetailDrift {
-      from {
-        transform: translate3d(-8%, -4%, 0) scale(1);
-      }
-
-      to {
-        transform: translate3d(8%, 5%, 0) scale(1.08);
-      }
-    }
-
-    .work-detail-viewer.is-open .work-detail-panel {
-      transform: translateY(0) scale(1);
-    }
-
-    .work-detail-media {
-      position: relative;
-      min-width: 0;
-      display: grid;
-      place-items: center;
-      padding: clamp(18px, 3vw, 34px);
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-    }
-
-    .work-detail-info {
-      position: relative;
-      z-index: 2;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: clamp(20px, 2.8vw, 30px);
-      padding: clamp(8px, 1.4vw, 16px) clamp(10px, 1.8vw, 20px) 0;
-    }
-
-    .work-detail-heading {
-      min-width: 0;
-      display: grid;
-      gap: clamp(16px, 2vw, 22px);
-    }
-
-    .work-detail-media video {
-      position: relative;
-      z-index: 1;
-      display: block;
-      width: min(92%, 880px);
-      max-height: 40vh;
-      aspect-ratio: 16 / 9;
-      object-fit: contain;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: 14px;
-      background: #05070c;
-      box-shadow: 0 20px 54px rgba(3, 10, 35, 0.44);
-    }
-
-    .work-detail-viewer[id^="work-detail-case-project-"] .work-detail-panel {
-      width: min(860px, 100%);
-      max-height: min(92vh, 900px);
-      grid-template-columns: minmax(0, 0.86fr) minmax(240px, 380px);
-      align-items: center;
-    }
-
-    .work-detail-viewer[id^="work-detail-case-project-"] .work-detail-info {
-      align-content: center;
-      padding: clamp(12px, 2vw, 24px);
-    }
-
-    .work-detail-viewer[id^="work-detail-case-project-"] .work-detail-media {
-      padding: clamp(12px, 2.4vw, 24px);
-    }
-
-    .work-detail-viewer[id^="work-detail-case-project-"] .work-detail-media video {
-      width: min(100%, 340px);
-      height: min(70vh, 680px);
-      max-height: min(70vh, 680px);
-      aspect-ratio: 9 / 16;
-      object-fit: contain;
-    }
-
-    .work-detail-copy {
-      position: relative;
-      z-index: 1;
-      min-width: 0;
-      display: grid;
-      overflow: auto;
-      padding: 0;
-      color: var(--text);
-    }
-
-    .work-detail-kicker {
-      display: inline-flex;
-      margin: 0;
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .work-detail-heading h3 {
-      margin: 0;
-      max-width: none;
-      font-size: clamp(34px, 4.6vw, 54px);
-      line-height: 1.12;
-      letter-spacing: 0;
-    }
-
-    .work-detail-copy p {
-      margin: 0;
-      color: var(--muted);
-      font-size: clamp(15px, 1.6vw, 17px);
-      line-height: 1.78;
-      overflow-wrap: anywhere;
-    }
-
-    .work-detail-description {
-      max-width: 74ch;
-      padding: 0;
-      border: 0;
-      border-radius: 0;
-      background: transparent;
-    }
-
-    .work-detail-facts {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .work-detail-facts li {
-      border: 1px solid color-mix(in srgb, var(--window-border) 34%, var(--line));
-      border-radius: 10px;
-      padding: 9px 11px;
-      color: rgba(255, 255, 255, 0.82);
-      font-size: 12px;
-      font-weight: 700;
-      background: color-mix(in srgb, var(--surface-2) 70%, transparent);
-    }
-
-    .work-detail-close {
-      position: fixed;
-      top: 18px;
-      right: 18px;
-      width: 42px;
-      height: 42px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      color: #fff;
-      cursor: pointer;
-      font-size: 24px;
-      line-height: 1;
-    }
-
     .index {
       color: var(--accent);
       font-weight: 900;
@@ -4975,9 +4069,9 @@
       }
 
       .welcome-helicopter {
-        --heli-scale: 0.72;
+        --heli-scale: 0.78;
         top: clamp(92px, 16vh, 140px);
-        width: clamp(120px, 17vw, 168px);
+        width: clamp(150px, 21vw, 210px);
       }
 
       .welcome-sailboat {
@@ -5080,15 +4174,6 @@
       .wallpaper-grid,
       .story-video-grid {
         grid-template-columns: 1fr;
-      }
-
-      .mix-video-meta {
-        display: grid;
-        gap: 14px;
-      }
-
-      .mix-video-tags {
-        justify-content: flex-start;
       }
 
       .section {
@@ -5250,9 +4335,9 @@
       }
 
       .welcome-helicopter {
-        --heli-scale: 0.52;
+        --heli-scale: 0.58;
         top: 86px;
-        width: 112px;
+        width: 142px;
       }
 
       .welcome-helicopter-light {
@@ -5439,11 +4524,6 @@
         white-space: normal;
       }
 
-      #image-gallery .section-head h2 {
-        white-space: nowrap;
-        font-size: clamp(30px, 9vw, 42px);
-      }
-
       #asset-gallery h2 {
         white-space: normal;
         font-size: clamp(32px, 10vw, 42px);
@@ -5452,67 +4532,6 @@
       .button {
         width: 100%;
         padding-inline: 16px;
-      }
-
-      .work-detail-button {
-        width: auto;
-      }
-
-      .work-detail-viewer {
-        padding: 14px;
-      }
-
-      .work-detail-panel {
-        max-height: 88vh;
-        grid-template-columns: 1fr;
-        overflow: auto;
-        padding: 14px;
-        gap: 14px;
-      }
-
-      .work-detail-media {
-        padding: 12px;
-      }
-
-      .work-detail-viewer[id^="work-detail-case-project-"] .work-detail-panel {
-        width: min(430px, 100%);
-        grid-template-columns: 1fr;
-        align-items: start;
-      }
-
-      .work-detail-viewer[id^="work-detail-case-project-"] .work-detail-media video {
-        width: min(100%, 300px);
-        height: min(58vh, 560px);
-        max-height: min(58vh, 560px);
-      }
-
-      .work-detail-info {
-        grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 16px;
-      }
-
-      .work-detail-heading {
-        padding: 0;
-      }
-
-      .work-detail-heading h3 {
-        max-width: none;
-        font-size: clamp(28px, 10vw, 40px);
-        line-height: 1.04;
-      }
-
-      .work-detail-facts {
-        gap: 7px;
-      }
-
-      .work-detail-media video {
-        max-height: 34vh;
-      }
-
-      .work-detail-copy {
-        align-content: start;
-        padding: 0;
       }
 
     }
@@ -5525,10 +4544,6 @@
       .ambient-field,
       .voyage-field,
       .cursor-light {
-        display: none;
-      }
-
-      .work-detail-panel::after {
         display: none;
       }
 
@@ -5669,7 +4684,6 @@
         Kevin <small>AI Video Design</small>
       </a>
       <nav class="nav" id="site-nav" aria-label="主导航">
-        <a href="#showreel-mix">混剪</a>
         <a href="#works">作品</a>
         <a href="#workflow">工作流</a>
         <a href="#cases">案例</a>
@@ -5686,10 +4700,10 @@
   <main id="top">
     <section class="welcome-cover page-shell" aria-label="Portfolio welcome cover">
       <div class="welcome-clouds" aria-hidden="true">
-        <span class="welcome-cloud" style="--cloud-y:12vh; --cloud-width:clamp(78px, 8.5vw, 140px); --cloud-scale:0.72; --cloud-opacity:0.7; --cloud-speed:54s; --cloud-delay:-24s; --cloud-lift:18px;"></span>
-        <span class="welcome-cloud" style="--cloud-y:24vh; --cloud-width:clamp(96px, 11vw, 178px); --cloud-scale:0.92; --cloud-opacity:0.8; --cloud-speed:62s; --cloud-delay:-44s; --cloud-lift:34px;"></span>
-        <span class="welcome-cloud" style="--cloud-y:38vh; --cloud-width:clamp(70px, 7.5vw, 128px); --cloud-scale:0.6; --cloud-opacity:0.62; --cloud-speed:48s; --cloud-delay:-10s; --cloud-lift:24px;"></span>
-        <span class="welcome-cloud" style="--cloud-y:58vh; --cloud-width:clamp(108px, 12vw, 202px); --cloud-scale:0.8; --cloud-opacity:0.5; --cloud-speed:72s; --cloud-delay:-58s; --cloud-lift:12px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:12vh; --cloud-width:clamp(100px, 11vw, 180px); --cloud-scale:0.78; --cloud-opacity:0.74; --cloud-speed:54s; --cloud-delay:-24s; --cloud-lift:18px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:24vh; --cloud-width:clamp(126px, 14vw, 230px); --cloud-scale:1.04; --cloud-opacity:0.86; --cloud-speed:62s; --cloud-delay:-44s; --cloud-lift:34px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:38vh; --cloud-width:clamp(92px, 10vw, 165px); --cloud-scale:0.66; --cloud-opacity:0.66; --cloud-speed:48s; --cloud-delay:-10s; --cloud-lift:24px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:58vh; --cloud-width:clamp(142px, 16vw, 260px); --cloud-scale:0.9; --cloud-opacity:0.54; --cloud-speed:72s; --cloud-delay:-58s; --cloud-lift:12px;"></span>
       </div>
       <div class="welcome-island" aria-hidden="true">
         <svg viewBox="0 0 280 170" role="presentation" focusable="false">
@@ -5752,28 +4766,24 @@
       </div>
       <div class="welcome-helicopter" aria-hidden="true">
         <span class="welcome-helicopter-light"></span>
-        <svg viewBox="0 0 360 160" role="presentation" focusable="false">
-          <path class="plane-red" d="M56 45 L92 65 L62 78 L38 52 Z"/>
-          <path class="heli-tail" d="M45 76 L105 65 L119 83 L50 93 Z"/>
-          <path class="plane-red" d="M54 95 L103 84 L76 120 L45 112 Z" opacity="0.92"/>
-          <path class="plane-wing" d="M172 83 L112 35 L153 33 L241 82 Z"/>
-          <path class="plane-red" d="M177 94 L108 139 L155 135 L252 92 Z"/>
-          <path class="heli-body" d="M75 78 C98 56 160 46 241 55 C289 61 323 75 341 90 C319 103 284 110 236 111 L116 107 C88 106 69 94 75 78 Z"/>
-          <path class="plane-stripe" d="M78 91 C125 96 246 101 326 90 C310 100 279 106 236 107 L116 104 C91 104 75 98 70 91 Z"/>
-          <path class="plane-stripe" d="M89 75 C134 70 247 72 318 83 L310 88 C240 79 138 78 84 84 Z" opacity="0.74"/>
-          <path class="heli-accent" d="M318 79 C331 82 339 86 342 90 C335 94 326 97 315 100 C321 92 322 85 318 79 Z"/>
-          <path class="heli-window" d="M228 61 C251 64 273 69 292 78 L267 90 L226 86 Z"/>
-          <path class="heli-window" d="M183 58 L216 60 L215 86 L181 85 Z" opacity="0.82"/>
-          <path class="heli-window" d="M142 62 L172 59 L171 84 L136 84 Z" opacity="0.78"/>
-          <path class="heli-window" d="M109 68 L132 63 L130 84 L103 84 Z" opacity="0.7"/>
-          <path class="heli-panel" d="M119 74 C171 66 246 70 307 82"/>
-          <path class="heli-panel" d="M118 101 C174 105 257 103 315 96"/>
-          <text class="heli-registration" x="199" y="100" transform="rotate(2 199 100)">N1757G</text>
-          <path class="plane-engine" d="M126 100 C145 98 161 102 166 111 C158 119 137 120 120 114 C116 108 119 103 126 100 Z"/>
-          <path class="plane-engine" d="M240 96 C260 94 277 99 282 108 C273 116 251 117 235 111 C232 105 234 100 240 96 Z"/>
-          <path class="heli-strut" d="M150 108 L143 121 M243 108 L252 120"/>
-          <circle class="plane-wheel" cx="143" cy="123" r="5"/>
-          <circle class="plane-wheel" cx="252" cy="122" r="5"/>
+        <svg viewBox="0 0 300 140" role="presentation" focusable="false">
+          <g class="heli-rotor" transform="translate(145 24)">
+            <line x1="-98" y1="0" x2="98" y2="0"/>
+            <line x1="-66" y1="-6" x2="66" y2="6" opacity="0.42"/>
+          </g>
+          <path class="heli-tail" d="M93 69 L24 48 L18 59 L88 84 Z"/>
+          <path class="heli-fin" d="M24 45 L48 31 L45 59 Z"/>
+          <g class="heli-tail-rotor" transform="translate(20 53)">
+            <line x1="-15" y1="0" x2="15" y2="0"/>
+            <line x1="0" y1="-15" x2="0" y2="15"/>
+          </g>
+          <path class="heli-body" d="M78 82 C80 55 108 39 150 39 L181 39 C205 40 226 58 232 78 C239 101 215 114 169 114 L115 114 C92 113 76 100 78 82 Z"/>
+          <path class="heli-window" d="M154 50 L181 50 C197 51 211 62 218 78 L163 76 Z"/>
+          <path class="heli-window" d="M113 55 C122 48 137 47 152 49 L154 75 L101 75 C103 66 107 60 113 55 Z" opacity="0.62"/>
+          <path class="heli-accent" d="M86 92 C121 104 182 104 223 90 C215 106 196 114 169 114 L115 114 C101 113 91 105 86 92 Z"/>
+          <path class="heli-body" d="M136 29 L152 29 L158 40 L130 40 Z"/>
+          <path class="heli-strut" d="M115 114 L104 128 M188 114 L202 128 M88 128 L220 128"/>
+          <path class="heli-skid" d="M88 128 C122 134 185 134 220 128" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
       <div class="welcome-panel reveal">
@@ -5963,7 +4973,6 @@
             <div class="advantage-body">
               <p class="hero-copy">我是一名专注于 AI视觉设计与AI视频创作的内容创作者，熟悉 AI图片、AI视频、AI漫剧、脚本、分镜、提示词、配音与声音克隆等完整制作流程。</p>
               <p class="hero-copy">我擅长使用 GPT、Gemini、Seedance 2.0、可灵、LibuTV、Photoshop、剪映等工具，完成海报设计、动态海报、宣传视频、产品包装、IP视觉、AI漫剧及新媒体内容创作。</p>
-              <p class="hero-copy">同时承接并完成过深圳南山文博会、厦门海野乐园、南山荔枝旅游消费季等商业项目的视觉与视频制作，具备从创意策划、内容生成到成片交付的项目落地能力。</p>
               <p class="hero-copy">曾参与 80集+ AI漫剧《别惹我，我防御力拉满》，项目获得红果平台 3294W+ 热度、250W+ 观看量；个人抖音账号总播放量 61W+，具备AI内容制作与新媒体传播经验。</p>
             </div>
             <ul class="advantage-tags">
@@ -5973,28 +4982,14 @@
               <li>新媒体传播</li>
             </ul>
           </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#works">查看作品 ↓</a>
+            <span class="button prototype-disabled" aria-disabled="true">下载 PDF 简历</span>
+            <a class="button" href="mailto:1214940856@qq.com">联系合作</a>
+          </div>
         </div>
         <div class="portrait-frame hero-portrait reveal" aria-label="个人照片展示窗口">
-          <img class="portrait-image" src="assets/images/fast/kevin-portrait-web-fast.jpg" alt="吴卓儒 Kevin 个人照片" loading="eager" fetchpriority="high" decoding="async">
-        </div>
-      </div>
-    </section>
-
-    <section class="section page-shell" id="showreel-mix">
-      <div class="section-head reveal">
-        <div>
-          <span class="kicker">Showreel Mix</span>
-          <h2>Kevin作品介绍</h2>
-        </div>
-      </div>
-
-      <div class="mix-video-shell reveal">
-        <div class="mix-video-frame" aria-label="Kevin 作品介绍 16:9 播放窗口">
-          <video class="mix-showreel-video" controls preload="metadata" playsinline muted poster="assets/images/fast/video-covers/showreel-mix-cover-fast.jpg" aria-label="Kevin 作品介绍混剪">
-            <source src="assets/videos/showreel-mix-web.mp4" type="video/mp4">
-            您的浏览器不支持视频播放。
-          </video>
-          <button class="mix-showreel-play" type="button" aria-label="播放 Kevin 作品介绍"></button>
+          <img class="portrait-image" src="assets/images/kevin-portrait-web.jpg" alt="吴卓儒 Kevin 个人照片" loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
@@ -6009,134 +5004,81 @@
 
       <div class="works-rail-wrap">
         <div class="works-grid" aria-label="作品瀑布流卡片">
-          <article class="work-card reveal is-detail-gated">
+          <article class="work-card reveal">
             <div class="work-media">
-              <div class="work-detail-thumb" aria-label="AI 漫剧项目视频封面">
-                <img src="assets/images/fast/video-covers/ai-comic-project-3d-fast.jpg" alt="AI 漫剧项目视频封面" loading="lazy" decoding="async">
-              </div>
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/ai-comic-project-3d.png?v=20260607" aria-label="AI 漫剧项目视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/3d%E6%BC%AB%E5%89%A7.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
             </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-comic-project" aria-label="查看 AI 漫剧项目详情并播放视频">进入详情播放</button>
+            <div class="work-meta">
+              <h3>AI 漫剧项目（已上线）</h3>
+              <p>该项目为《别惹我，我防御拉满》，目前红果热度3400W，观看量300W+，抖音短剧双强榜TOP11。该项目我负责资产、提示词、镜头生成，主要担任镜头生成小组长，日均生产10集。</p>
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated">
+          <article class="work-card reveal">
             <div class="work-media">
-              <div class="work-detail-thumb" aria-label="二维漫剧视频封面">
-                <img src="assets/images/fast/video-covers/comic-2d-fast.jpg" alt="二维漫剧视频封面" loading="lazy" decoding="async">
-              </div>
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/comic-2d.png?v=20260607" aria-label="二维漫剧视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/2d%E6%BC%AB%E5%89%A7.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
             </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-video-1" aria-label="查看二维漫剧详情并播放视频">进入详情播放</button>
+            <div class="work-meta">
+              <h3>二维漫剧</h3>
+              <p>《别惹我，我防御拉满》的二维画风尝试，后因平台政策转变为3D画风。</p>
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated">
+          <article class="work-card reveal">
             <div class="work-media">
-              <div class="work-detail-thumb" aria-label="个人实验短片《提线》视频封面">
-                <img src="assets/images/fast/video-covers/tixian-web-fast.jpg" alt="个人实验短片《提线》视频封面" loading="lazy" decoding="async">
-              </div>
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/tixian-web.jpg?v=20260602-2" aria-label="个人实验短片《提线》视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%8F%90%E7%BA%BF.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
             </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-video-2" aria-label="查看个人实验短片《提线》详情并播放视频">进入详情播放</button>
+            <div class="work-meta">
+              <h3>个人实验短片《提线》</h3>
+              <p>以赛博城市、幽暗走廊和黑衣人物为核心视觉，围绕“被操控”这一隐喻展开悬疑叙事。影片通过霓虹夜景、压迫性的长廊追逐、人物近景和线状光轨，营造出被无形力量牵引的紧张感；从创意、剧本、分镜、提示词到后期剪辑均采用 AI 流程完成，是一次偏电影化气质的个人实验短片。</p>
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated">
+          <article class="work-card reveal">
             <div class="work-media">
-              <div class="work-detail-thumb" aria-label="海外真人短剧《争执》视频封面">
-                <img src="assets/images/fast/video-covers/zhengzhi-web-fast.jpg" alt="海外真人短剧《争执》视频封面" loading="lazy" decoding="async">
-              </div>
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/zhengzhi-web.jpg?v=20260602-2" aria-label="海外真人短剧《争执》视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E4%BA%89%E6%89%A7.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
             </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-video-3" aria-label="查看海外真人短剧《争执》详情并播放视频">进入详情播放</button>
+            <div class="work-meta">
+              <h3>海外真人短剧</h3>
+              <p>以高端酒店大堂为主要场景，围绕两位女性角色久别重逢后的言语交锋展开。画面通过服务员制服、商务套装、安保人员和奢华空间建立阶层与权力关系，再用正面对峙、贴近耳语和英文对白字幕强化冲突张力，呈现出适合海外短剧语境的真人化叙事节奏与情绪反转。</p>
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated">
+          <article class="work-card reveal">
             <div class="work-media">
-              <div class="work-detail-thumb" aria-label="AI真人叙事剧（时光）视频封面">
-                <img src="assets/images/fast/video-covers/shiguang-web-fast.jpg" alt="AI真人叙事剧（时光）视频封面" loading="lazy" decoding="async">
-              </div>
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/shiguang-web.jpg?v=20260602-2" aria-label="AI真人叙事剧《时光》视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%97%B6%E5%85%89.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
             </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-video-4" aria-label="查看AI真人叙事剧（时光）详情并播放视频">进入详情播放</button>
+            <div class="work-meta">
+              <h3>AI真人叙事剧（时光）</h3>
+              <p>以废弃教室、昏暗走廊和青年回忆为线索，讲述一个关于求学、理解与迟来的和解的情感故事。影片在旧时光的压抑空间与现实生活场景之间切换，通过人物对话、录取通知书、孤独等待和外卖递送等细节，把成长中的遗憾与亲情牵挂连接起来，形成一段带有现实温度的 AI 真人叙事短片。</p>
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated">
+          <article class="work-card reveal">
             <div class="work-media">
-              <div class="work-detail-thumb" aria-label="凤归巢视频封面">
-                <img src="assets/images/fast/video-covers/fengguichao-cover-fast.jpg" alt="凤归巢视频封面" loading="lazy" decoding="async">
-              </div>
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/fengguichao-cover.png?v=20260607-2" aria-label="AI古风互动剧情Demo《凤归巢》视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%87%A4%E5%BD%92%E5%B7%A2.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
             </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-video-5" aria-label="查看凤归巢详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="那一段回忆视频封面">
-                <img src="assets/images/fast/video-covers/memory-cover-fast.jpg" alt="那一段回忆视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="ai-video-6" aria-label="查看那一段回忆详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
-
-          <article class="work-card reveal" aria-label="正在制作视频窗口">
-            <div class="work-media">
-              <div class="media-placeholder">正在制作</div>
+            <div class="work-meta">
+              <h3>凤归巢</h3>
+              <p>古风互动剧情 Demo，以庶出二小姐沈婉清的身份转折为线索，通过嫁衣、凤冠与闺阁镜像等镜头，展示 AI 生成角色、服化道和竖屏剧情演示的完整氛围。</p>
             </div>
           </article>
         </div>
@@ -6147,74 +5089,104 @@
       <div class="section-head reveal">
         <div>
           <span class="kicker">AI Motion Posters</span>
-          <h2>AI动态海报模板</h2>
+          <h2>AI动态海报合集</h2>
         </div>
       </div>
 
       <div class="works-rail-wrap">
-        <div class="works-grid" aria-label="AI动态海报视频切换窗口">
+        <div class="works-grid" aria-label="AI图片设计作品瀑布流卡片">
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/yushui-dynamic-poster-web.jpg" aria-label="雨水动态海报视频">
-                <source src="assets/videos/yushui-dynamic-poster-web.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-              </video>
+              <img loading="lazy" decoding="async" src="assets/images/yushui-poster.jpg" alt="雨水海报">
+            </div>
+            <div class="work-meta">
+              <h3>雨水AI节气海报</h3>
+              <p>作品说明：本作品以中国传统节气“雨水”为主题，结合IP角色进行创意海报设计。画面围绕“雨水润物”的节气意象展开，以雨中荷塘为主要场景，营造清新、生动的春雨氛围。角色动作设计加入恶作剧式互动情节：角色利用荷叶上的积水淋向青蛙，为画面增加趣味性与故事感，使节气海报在传统意境之外更具童趣和记忆点。</p>
             </div>
           </article>
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/new-year-motion-poster-web.jpg" aria-label="大年初一新年动态海报视频">
-                <source src="assets/videos/new-year-motion-poster-web.mp4" type="video/mp4">
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/yushui-dynamic-poster-web.jpg" aria-label="雨水动态海报视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%9B%A8%E6%B0%B4%E5%8A%A8%E6%80%81%E6%B5%B7%E6%8A%A5.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
+            </div>
+            <div class="work-meta">
+              <h3>AI 节气动态海报</h3>
+              <p>作品说明：本作品在原节气海报的基础上，通过图生视频技术进行动态化延展，将静态海报转化为更具表现力的动态海报。画面围绕“雨水”节气展开，通过细雨飘落、荷叶轻晃、水流倾泻、水面波纹扩散等动态效果，强化春日雨水滋润万物的氛围感。同时保留并突出角色之间的趣味互动情节：角色恶作剧般利用荷叶上的雨水淋湿青蛙，使画面在节气意境之外增添了故事性、趣味性与观赏性，让作品更具视觉吸引力和传播表现力。</p>
             </div>
           </article>
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="none" playsinline poster="assets/images/fast/nanshan-litchi-poster-fast.jpg" aria-label="美荔南山动态海报视频">
+              <img loading="lazy" decoding="async" src="assets/images/new-year-poster-web.jpg" alt="大年初一新年海报">
+            </div>
+            <div class="work-meta">
+              <h3>大年初一新年海报</h3>
+              <p>作品说明：本作品以“大年初一”为主题，围绕春节团圆、祈福与新年开端的节庆氛围展开视觉设计。画面将 IP 角色、舞龙、鞭炮、灯笼、祥云和年俗场景进行整合，通过红金色调和热闹的构图强化新春仪式感。整体风格兼顾传统节日元素与现代传播视觉，使海报具备鲜明的节日识别度、亲和力和社交媒体传播记忆点。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/new-year-motion-poster-web.jpg" aria-label="大年初一新年动态海报视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%A4%A7%E5%B9%B4%E5%88%9D%E4%B8%80%E5%8A%A8%E6%80%81%E6%B5%B7%E6%8A%A5..mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <div class="work-meta">
+              <h3>大年初一动态海报</h3>
+              <p>作品说明：本作品在大年初一静态海报基础上进行动态化延展，将原本的节庆画面转化为更具节奏感的动态传播素材。通过角色动作、舞龙动势、节庆元素飘动、光效变化和画面细节奏的推进，增强新年氛围的热闹感与观看吸引力。动态设计保留原海报的红金视觉基调，同时进一步放大节日情绪，使作品更适合短视频平台和活动传播场景。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <img loading="lazy" decoding="async" src="assets/images/nanshan-litchi-poster.png" alt="美荔南山荔枝旅游消费季海报">
+            </div>
+            <div class="work-meta">
+              <h3>美荔南山荔枝海报</h3>
+              <p>以南山荔枝旅游消费季为主题，结合荔枝、山水、地标建筑与邮轮等视觉元素，形成具有地域识别度和节庆传播感的竖版主题海报。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/nanshan-litchi-poster.png" aria-label="美荔南山动态海报视频">
                 <source src="assets/videos/nanshan-litchi-motion-poster.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
             </div>
+            <div class="work-meta">
+              <h3>美荔南山动态海报</h3>
+              <p>在原竖版海报基础上进行动态化演绎，保留红金主视觉、荔枝枝叶和南山地标氛围，让静态宣传画面转化为更适合短视频传播的动态海报。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <img loading="lazy" decoding="async" src="assets/images/shanghai-ip-expo-poster-web.jpg" alt="上海 IP 授权展会海报">
+            </div>
+            <div class="work-meta">
+              <h3>上海 IP 授权展会海报</h3>
+              <p>作品说明：本作品面向上海 IP 授权展会传播场景进行视觉设计，重点突出 IP 角色、展会信息和活动识别。画面通过明快的角色表情、轻松的场景氛围和清晰的信息层级，增强受众对展会内容的第一眼理解。整体设计在商业活动传播需求与角色亲和力之间取得平衡，使海报既具备展会视觉识别度，也能体现 IP 形象的活力与可传播性。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <img loading="lazy" decoding="async" src="assets/images/comic-poster-4.jpg" alt="AI 漫剧海报">
+            </div>
+            <div class="work-meta">
+              <h3>AI 漫剧海报</h3>
+              <p>作品说明：本作品为 AI 漫剧项目制作竖版宣传海报，围绕东方幻想、人物关系和剧情冲突建立视觉叙事。画面通过角色群像、服装气质、画面层次和剧情关键词组织信息，使观众能够快速感知作品类型与故事张力。整体风格强调戏剧感和点击吸引力，既服务于漫剧宣发场景，也强化了角色阵营、世界观氛围和内容传播的记忆点。</p>
+            </div>
           </article>
         </div>
       </div>
 
-    </section>
-
-    <section class="section page-shell" id="dynamic-wallpaper">
-      <div class="section-head reveal">
-        <div>
-          <span class="kicker">AI Dynamic Wallpaper</span>
-          <h2>AI动态壁纸</h2>
-        </div>
-      </div>
-
-      <div class="wallpaper-grid" aria-label="AI动态壁纸横屏窗口">
-        <article class="wallpaper-window reveal">
-          <div class="wallpaper-screen">
-            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-1-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 01">
-              <source src="assets/videos/ai-dynamic-wallpaper-1.mp4" type="video/mp4">
-            </video>
-            <span class="wallpaper-glow-line" aria-hidden="true"></span>
-          </div>
-        </article>
-
-        <article class="wallpaper-window reveal">
-          <div class="wallpaper-screen">
-            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-2-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 02">
-              <source src="assets/videos/ai-dynamic-wallpaper-2.mp4" type="video/mp4">
-            </video>
-            <span class="wallpaper-glow-line" aria-hidden="true"></span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section page-shell" id="image-gallery">
-      <div class="section-head image-collection-head reveal">
+      <div class="section-head image-collection-head reveal" id="image-gallery">
         <div>
           <span class="kicker">Image Collection</span>
           <h2>AI图片设计合集</h2>
@@ -6224,63 +5196,27 @@
       <div class="works-rail-wrap image-carousel-wrap">
         <div class="works-grid image-collection-grid" aria-label="AI图片设计合集卡片">
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/memory-romance-poster-fast.jpg" alt="那一段回忆漫剧海报"></div>
-            <div class="work-meta"><h3>那一段回忆漫剧海报</h3><p>以金色礼堂、人物对望和婚礼场景构建情绪张力，强化遗憾感与浪漫叙事氛围。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/parallel-gates-poster-fast.jpg" alt="Parallel Gates 科幻概念海报"></div>
-            <div class="work-meta"><h3>Parallel Gates 科幻概念海报</h3><p>围绕多重时空门与未来城市展开视觉叙事，突出宏大世界观、空间纵深和电影感构图。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/probio-balance-poster-fast.jpg" alt="益生菌产品海报"></div>
-            <div class="work-meta"><h3>益生菌产品海报</h3><p>以清爽生活方式和产品主视觉结合，呈现健康、轻盈、自然的功能型产品传播画面。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/massage-device-poster-fast.jpg" alt="按摩仪产品功能海报"></div>
-            <div class="work-meta"><h3>按摩仪产品功能海报</h3><p>通过黑橙科技感、产品拆解和功能卖点排版，突出按摩设备的效率、覆盖面积与舒适体验。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/estee-lauder-night-repair-poster-fast.jpg" alt="雅诗兰黛产品概念海报"></div>
-            <div class="work-meta"><h3>雅诗兰黛产品概念海报</h3><p>以金色流光、花瓣和精华瓶建立高端护肤质感，强化品牌调性与产品光泽表现。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/shenzhen-nanshan-cultural-expo-poster-fast.jpg" alt="深圳南山文博会主视觉海报"></div>
-            <div class="work-meta"><h3>深圳南山文博会主视觉</h3><p>结合深圳城市天际线、蓝金光效和会展标题，形成具有城市识别度与活动仪式感的商业海报。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/fenggui-chao-poster-fast.jpg" alt="凤归巢古风海报"></div>
-            <div class="work-meta"><h3>凤归巢古风海报</h3><p>以红金嫁衣、凤纹装饰和中式空间构建古风剧情感，强调东方幻想与角色命运氛围。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/defense-comic-chibi-poster-fast.jpg" alt="别惹我我防御力拉满角色海报"></div>
-            <div class="work-meta"><h3>AI漫剧角色海报</h3><p>以Q版修仙角色和夸张表情建立轻喜剧识别，突出防御、反杀和越级成长的爽点信息。</p></div>
-          </article>
-          <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-image-collection/defense-comic-group-poster-fast.jpg" alt="别惹我我防御力拉满群像海报"></div>
-            <div class="work-meta"><h3>AI漫剧群像主视觉</h3><p>通过角色群像、仙侠场景和大标题排版建立剧集主视觉，强化世界观、阵容感与点击吸引力。</p></div>
-          </article>
-          <article class="work-card reveal">
             <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/companion-toy-poster.jpg" alt="AI 智能陪伴玩偶概念海报"></div>
             <div class="work-meta"><h3>AI 智能陪伴玩偶概念海报</h3><p>产品概念视觉海报，突出智能陪伴、角色亲和力与情绪连接。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/guyu-poster-fast.jpg" alt="谷雨节气海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/guyu-poster.jpg" alt="谷雨节气海报"></div>
             <div class="work-meta"><h3>谷雨节气海报</h3><p>以传统节气意象延展视觉氛围，强调自然、角色与场景叙事。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/jingzhe-poster-fast.jpg" alt="惊蛰节气海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/jingzhe-poster.jpg" alt="惊蛰节气海报"></div>
             <div class="work-meta"><h3>惊蛰节气海报</h3><p>围绕春日苏醒与节气转折构建画面，强化动势和记忆点。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/children-day-poster-fast.jpg" alt="六一儿童节海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/children-day-poster.jpg" alt="六一儿童节海报"></div>
             <div class="work-meta"><h3>六一儿童节海报</h3><p>以明快色彩和轻松角色关系营造节日传播氛围。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/xiaoman-poster-fast.jpg" alt="小满节气海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/xiaoman-poster.jpg" alt="小满节气海报"></div>
             <div class="work-meta"><h3>小满节气海报</h3><p>结合节气中的饱满、生长与温润感，形成柔和的视觉表达。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/daxue-poster-web-fast.jpg" alt="大雪节气海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/daxue-poster-web.jpg" alt="大雪节气海报"></div>
             <div class="work-meta"><h3>大雪节气海报</h3><p>用冬日色调与场景层次强化节气氛围和画面纵深。</p></div>
           </article>
           <article class="work-card reveal">
@@ -6296,11 +5232,11 @@
             <div class="work-meta"><h3>AI 漫剧海报 03</h3><p>围绕角色气质与剧情关键词组织画面，形成系列化海报表达。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/shanghai-ip-expo-poster-1-web-fast.jpg" alt="上海 IP 授权展会海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/shanghai-ip-expo-poster-1-web.jpg" alt="上海 IP 授权展会海报"></div>
             <div class="work-meta"><h3>上海 IP 授权展会海报</h3><p>面向展会传播场景的补充视觉，强化活动识别和角色露出。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/comic-emperor-poster-fast.jpg" alt="AI 漫剧傀儡皇帝海报"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/comic-emperor-poster.jpg" alt="AI 漫剧傀儡皇帝海报"></div>
             <div class="work-meta"><h3>AI 漫剧傀儡皇帝海报</h3><p>以东方幻想和权谋氛围为核心，建立更强的故事感。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
@@ -6319,6 +5255,47 @@
       </div>
     </section>
 
+    <section class="section page-shell" id="dynamic-wallpaper">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">AI Dynamic Wallpaper</span>
+          <h2>AI动态壁纸</h2>
+        </div>
+      </div>
+
+      <div class="wallpaper-grid" aria-label="AI动态壁纸横屏窗口">
+        <article class="wallpaper-window reveal">
+          <div class="wallpaper-screen">
+            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/video-covers/ai-dynamic-wallpaper-1-first-frame.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 01">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%8A%A8%E6%80%81%E5%A3%81%E7%BA%B81.mp4" type="video/mp4">
+            </video>
+            <span class="wallpaper-glow-line" aria-hidden="true"></span>
+          </div>
+          <div class="wallpaper-caption">
+            <div>
+              <h3>猴王山水 · 云雾流动</h3>
+              <p>以横屏场景构建桌面壁纸氛围，通过镜头微推、光线扫过与粒子漂移模拟动态壁纸质感。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="wallpaper-window reveal">
+          <div class="wallpaper-screen">
+            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/video-covers/ai-dynamic-wallpaper-2-first-frame.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 02">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%8A%A8%E6%80%81%E5%A3%81%E7%BA%B82.mp4" type="video/mp4">
+            </video>
+            <span class="wallpaper-glow-line" aria-hidden="true"></span>
+          </div>
+          <div class="wallpaper-caption">
+            <div>
+              <h3>东方奇境 · 光影呼吸</h3>
+              <p>保留横屏视觉纵深，用缓慢推拉、环境高光和细密漂浮点增强沉浸式壁纸预览。</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section class="section page-shell" id="image-to-video">
       <div class="section-head reveal">
         <div>
@@ -6331,7 +5308,7 @@
         <div class="story-video-stage" data-video-workflow-stage>
           <article class="story-video-panel" data-workflow-card>
             <div class="story-video-media">
-              <img loading="lazy" decoding="async" src="https://wzr-u1p3sf15.cdn.7caiyun.com/31_%E6%8C%89%E6%91%A9%E4%BA%A7%E5%93%81%E5%A4%9A%E8%A7%92%E5%BA%A6%E4%BA%A7%E5%93%81%E7%B4%A0%E6%9D%90.jpg" alt="按摩产品多角度产品素材">
+              <img loading="lazy" decoding="async" src="assets/images/video-workflow-product.png" alt="按摩产品多角度产品素材">
             </div>
             <div class="story-video-caption">
               <span class="story-video-index">01</span>
@@ -6344,7 +5321,7 @@
 
           <article class="story-video-panel" data-workflow-card>
             <div class="story-video-media">
-              <img loading="lazy" decoding="async" src="https://wzr-u1p3sf15.cdn.7caiyun.com/32_GPT%20%E7%94%9F%E6%88%90%E8%84%9A%E6%9C%AC%E5%88%86%E9%95%9C%E8%8A%82%E7%82%B9.jpg" alt="GPT 生成脚本分镜节点">
+              <img loading="lazy" decoding="async" src="assets/images/video-workflow-gpt.png" alt="GPT 生成脚本分镜节点">
             </div>
             <div class="story-video-caption">
               <span class="story-video-index">02</span>
@@ -6357,7 +5334,7 @@
 
           <article class="story-video-panel" data-workflow-card>
             <div class="story-video-media">
-              <img loading="lazy" decoding="async" src="https://wzr-u1p3sf15.cdn.7caiyun.com/33_15%20%E7%A7%92%E4%BA%A7%E5%93%81%E8%90%A5%E9%94%80%E8%A7%86%E9%A2%91%E5%AE%8C%E6%95%B4%E5%88%86%E9%95%9C%E5%9B%BE.jpg" alt="15 秒产品营销视频完整分镜图">
+              <img loading="lazy" decoding="async" src="assets/images/video-workflow-storyboard.png" alt="15 秒产品营销视频完整分镜图">
             </div>
             <div class="story-video-caption">
               <span class="story-video-index">03</span>
@@ -6370,8 +5347,8 @@
 
           <article class="story-video-panel" data-workflow-card>
             <div class="story-video-media">
-              <video controls preload="none" playsinline poster="assets/images/fast/massage-chair-video-cover-fast.jpg" aria-label="按摩产品视频生成成片">
-                <source src="assets/videos/massage-chair-video-web.mp4" type="video/mp4">
+              <video controls preload="metadata" playsinline poster="assets/images/massage-chair-video-cover.png" aria-label="按摩产品视频生成成片">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%8C%89%E6%91%A9%E6%A4%85%E8%A7%86%E9%A2%91.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
             </div>
@@ -6451,114 +5428,84 @@
         </div>
       </div>
 
-      <div class="works-grid case-detail-grid">
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="南山文博会视频封面">
-                <img src="assets/images/fast/video-covers/shenzhen-cultural-expo-web-fast.jpg" alt="南山文博会视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="case-project-1" aria-label="查看南山文博会详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
+      <div class="case-grid">
+        <article class="case-card reveal">
+          <div class="case-image">
+            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/shenzhen-cultural-expo-web.jpg?v=20260602" aria-label="深圳文博会视频">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B1%E5%9C%B3%E6%96%87%E5%8D%9A%E4%BC%9A.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+            <h3 class="case-title-overlay">南山文博会（南山地标）</h3>
+          </div>
+          <div class="case-body">
+            <p>嗨萌马与南山区联合宣传，用于南山文博会播放宣传。</p>
+          </div>
+        </article>
 
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="厦门萌发地 海野乐园视频封面">
-                <img src="assets/images/fast/video-covers/mengfadi-web-fast.jpg" alt="厦门萌发地 海野乐园视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="case-project-2" aria-label="查看厦门萌发地 海野乐园详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
+        <article class="case-card reveal">
+          <div class="case-image">
+            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/mengfadi-web.jpg?v=20260602-2" aria-label="厦门萌发地 海野乐园视频">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%90%8C%E5%8F%91%E5%9C%B0.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="case-body">
+            <h3>厦门萌发地 海野乐园</h3>
+            <p>嗨萌马从深圳前往厦门，途中经过各个厦门热门景点，最终抵达萌发地 海野乐园。</p>
+          </div>
+        </article>
 
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="雅思兰黛广告片视频封面">
-                <img src="assets/images/fast/video-covers/estee-lauder-web-fast.jpg" alt="雅思兰黛广告片视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="case-project-3" aria-label="查看雅思兰黛广告片详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
+        <article class="case-card reveal">
+          <div class="case-image">
+            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/estee-lauder-web.jpg?v=20260602-2" aria-label="雅思兰黛广告片视频">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%9B%85%E6%80%9D%E5%85%B0%E9%BB%9B.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="case-body">
+            <h3>雅思兰黛广告片</h3>
+            <p>以雅思兰黛为案例，采用首尾图方式，生成广告宣传片。</p>
+          </div>
+        </article>
 
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="AI 智能陪伴玩偶概念片视频封面">
-                <img src="assets/images/fast/video-covers/companion-toy-concept-web-fast.jpg" alt="AI 智能陪伴玩偶概念片视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="case-project-4" aria-label="查看AI 智能陪伴玩偶概念片详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
+        <article class="case-card reveal">
+          <div class="case-image">
+            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/companion-toy-concept-web.jpg?v=20260602-2" aria-label="AI 智能陪伴玩偶概念片视频">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/AI%E9%99%AA%E4%BC%B4%E7%8E%A9%E5%81%B6%E6%A6%82%E5%BF%B5%E7%89%87.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="case-body">
+            <h3>AI 智能陪伴玩偶概念片</h3>
+            <p>围绕 AI 智能陪伴玩偶展开的产品概念视觉短片。</p>
+          </div>
+        </article>
 
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="非洲猴面包树科普视频封面">
-                <img src="assets/images/fast/video-covers/baobab-science-web-fast.jpg" alt="非洲猴面包树科普视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="case-project-5" aria-label="查看非洲猴面包树科普详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
+        <article class="case-card reveal">
+          <div class="case-image">
+            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/baobab-science-web.jpg?v=20260602-2" aria-label="非洲猴面包树科普视频">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E7%8C%B4%E9%9D%A2%E5%8C%85%E6%A0%91.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="case-body">
+            <h3>非洲猴面包树科普</h3>
+            <p>以轻量叙事方式呈现自然知识的动漫卡通风格 AI 科普短片。</p>
+          </div>
+        </article>
 
-          <article class="work-card reveal is-detail-gated">
-            <div class="work-media">
-              <div class="work-detail-thumb" aria-label="敢于说不视频封面">
-                <img src="assets/images/video-covers/dare-to-say-no-web.jpg" alt="敢于说不视频封面" loading="lazy" decoding="async">
-              </div>
-            </div>
-            <div class="work-detail-dock">
-              <div class="work-detail-lines" aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <button class="work-detail-button" type="button" data-detail-open="case-project-6" aria-label="查看敢于说不详情并播放视频">进入详情播放</button>
-            </div>
-          </article>
+        <article class="case-card reveal">
+          <div class="case-image">
+            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/dare-to-say-no-web.jpg?v=20260602-2" aria-label="敢于说不视频">
+              <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%95%A2%E4%BA%8E%E8%AF%B4%E4%B8%8D.mp4" type="video/mp4">
+              您的浏览器不支持视频播放。
+            </video>
+          </div>
+          <div class="case-body">
+            <h3>敢于说不</h3>
+            <p>围绕态度表达与成长主题制作的 AI 叙事短片。</p>
+          </div>
+        </article>
       </div>
 
       <div class="section-head image-collection-head reveal" id="asset-gallery">
@@ -6571,15 +5518,15 @@
       <div class="works-rail-wrap image-carousel-wrap">
         <div class="works-grid image-collection-grid asset-collection-grid" aria-label="AI资产设计合集卡片">
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-01-fast.jpg" alt="AI 资产设计 01"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-01.jpg" alt="AI 资产设计 01"></div>
             <div class="work-meta"><h3>AI 资产设计 01</h3><p>围绕角色、产品与场景资产展开的视觉设计，强调可复用素材质感与系列统一性。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-02-fast.jpg" alt="AI 资产设计 02"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-02.jpg" alt="AI 资产设计 02"></div>
             <div class="work-meta"><h3>AI 资产设计 02</h3><p>面向 AIGC 内容生产的资产图，兼顾造型辨识度、细节完整度与落地使用效率。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-03-fast.jpg" alt="AI 资产设计 03"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-03.jpg" alt="AI 资产设计 03"></div>
             <div class="work-meta"><h3>AI 资产设计 03</h3><p>横版资产视觉，适合用于项目展示、场景延展、视频封面和动态画面衔接。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
@@ -6587,11 +5534,11 @@
             <div class="work-meta"><h3>AI 资产设计 04</h3><p>以场景氛围和主体关系为核心，建立可用于后续创作的视觉资产基础。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-05-fast.jpg" alt="AI 资产设计 05"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-05.jpg" alt="AI 资产设计 05"></div>
             <div class="work-meta"><h3>AI 资产设计 05</h3><p>竖版资产图适配移动端传播场景，突出主体轮廓、色彩记忆点和画面完整度。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-06-fast.jpg" alt="AI 资产设计 06"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-06.jpg" alt="AI 资产设计 06"></div>
             <div class="work-meta"><h3>AI 资产设计 06</h3><p>通过统一风格控制与细节塑造，形成更适合系列化交付的 AI 视觉资产。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
@@ -6599,23 +5546,23 @@
             <div class="work-meta"><h3>AI 资产设计 07</h3><p>横向画幅强调空间叙事和素材延展，便于作为视频、海报和专题页视觉底图。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-08-fast.jpg" alt="AI 资产设计 08"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-08.jpg" alt="AI 资产设计 08"></div>
             <div class="work-meta"><h3>AI 资产设计 08</h3><p>面向项目制生产的资产设计，保留明确主体并强化画面可裁切、可组合能力。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-09-fast.jpg" alt="AI 资产设计 09"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-09.jpg" alt="AI 资产设计 09"></div>
             <div class="work-meta"><h3>AI 资产设计 09</h3><p>以视觉氛围和构图层次组织画面，支持多平台物料延展和后续动效制作。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-10-fast.jpg" alt="AI 资产设计 10"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-10.jpg" alt="AI 资产设计 10"></div>
             <div class="work-meta"><h3>AI 资产设计 10</h3><p>系列资产中的场景化表达，兼顾展示冲击力与后期编辑中的素材适配性。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-11-fast.jpg" alt="AI 资产设计 11"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-11.jpg" alt="AI 资产设计 11"></div>
             <div class="work-meta"><h3>AI 资产设计 11</h3><p>通过横版构图建立更宽的叙事空间，用于品牌视觉、内容封面和项目氛围图。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-12-fast.jpg" alt="AI 资产设计 12"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-12.jpg" alt="AI 资产设计 12"></div>
             <div class="work-meta"><h3>AI 资产设计 12</h3><p>资产画面保留较高完成度，方便在宣传短片、动态海报和合集展示中复用。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
@@ -6631,11 +5578,11 @@
             <div class="work-meta"><h3>AI 资产设计 15</h3><p>竖屏视觉资产面向手机端内容展示，突出画面中心、质感细节与传播识别。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-16-fast.jpg" alt="AI 资产设计 16"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-16.jpg" alt="AI 资产设计 16"></div>
             <div class="work-meta"><h3>AI 资产设计 16</h3><p>以完整主体和清晰层次组织画面，适配海报、封面和角色资产展示需求。</p></div>
           </article>
           <article class="work-card reveal">
-            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/fast/ai-assets/ai-asset-17-fast.jpg" alt="AI 资产设计 17"></div>
+            <div class="work-media"><img loading="lazy" decoding="async" src="assets/images/ai-assets/ai-asset-17.jpg" alt="AI 资产设计 17"></div>
             <div class="work-meta"><h3>AI 资产设计 17</h3><p>竖版资产延续系列风格，强化主体细节、光影质感与可交付素材完整度。</p></div>
           </article>
           <article class="work-card reveal is-landscape">
@@ -6669,6 +5616,9 @@
               <a href="tel:13560553809">13560553809</a>
             </li>
           </ul>
+          <div class="hero-actions" style="margin-top:0;">
+            <span class="button prototype-disabled" aria-disabled="true">下载 PDF 简历</span>
+          </div>
         </div>
         <aside class="contact-panel reveal" aria-label="合作方向">
           <div class="contact-panel-head">
@@ -6693,287 +5643,6 @@
   <div class="image-viewer" id="image-viewer" role="dialog" aria-modal="true" aria-label="放大查看图片">
     <button class="image-viewer-close" id="image-viewer-close" type="button" aria-label="关闭放大图片">×</button>
     <img id="image-viewer-img" src="assets/images/companion-toy-poster.jpg" alt="AI 智能陪伴玩偶概念海报放大图">
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-ai-comic-project" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-comic-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Case</span>
-          <h3 id="work-detail-ai-comic-title">AI 漫剧项目《别惹我，我防御拉满》</h3>
-          <ul class="work-detail-facts" aria-label="项目亮点">
-            <li>红果热度 3400W</li>
-            <li>观看量 300W+</li>
-            <li>抖音短剧双强榜 TOP11</li>
-            <li>镜头生成小组长</li>
-            <li>日均生产 10 集</li>
-          </ul>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">该项目为《别惹我，我防御拉满》，目前红果热度3400W，观看量300W+，抖音短剧双强榜TOP11。该项目我负责资产、提示词、镜头生成，主要担任镜头生成小组长，日均生产10集。详情页把视频和文字说明放在同一个放大观看窗口里，用户不用在卡片瀑布流中阅读过长文字，也能在需要时完整了解项目背景、个人职责和成果数据。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/02_AI%20%E6%BC%AB%E5%89%A7%E9%A1%B9%E7%9B%AE%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="AI 漫剧项目详情视频">
-          <source src="assets/videos/ai-comic-project-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="work-detail-viewer" id="work-detail-ai-video-1" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-1-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Works</span>
-          <h3 id="work-detail-ai-video-1-title">二维漫剧</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">《别惹我，我防御拉满》的二维画风尝试，后因平台政策转变为3D画风。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/03_%E4%BA%8C%E7%BB%B4%E6%BC%AB%E5%89%A7%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="二维漫剧视频封面">
-          <source src="assets/videos/comic-2d-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-ai-video-2" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-2-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Works</span>
-          <h3 id="work-detail-ai-video-2-title">个人实验短片《提线》</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">以赛博城市、幽暗走廊和黑衣人物为核心视觉，围绕“被操控”这一隐喻展开悬疑叙事。影片通过霓虹夜景、压迫性的长廊追逐、人物近景和线状光轨，营造出被无形力量牵引的紧张感；从创意、剧本、分镜、提示词到后期剪辑均采用 AI 流程完成，是一次偏电影化气质的个人实验短片。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/04_%E4%B8%AA%E4%BA%BA%E5%AE%9E%E9%AA%8C%E7%9F%AD%E7%89%87%E3%80%8A%E6%8F%90%E7%BA%BF%E3%80%8B%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="个人实验短片《提线》视频封面">
-          <source src="assets/videos/tixian-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-ai-video-3" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-3-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Works</span>
-          <h3 id="work-detail-ai-video-3-title">海外真人短剧《争执》</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">《争执》以高端酒店大堂为主要场景，围绕两位女性角色久别重逢后的言语交锋展开。画面通过服务员制服、商务套装、安保人员和奢华空间建立阶层与权力关系，再用正面对峙、贴近耳语和英文对白字幕强化冲突张力，呈现出适合海外短剧语境的真人化叙事节奏与情绪反转。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/05_%E6%B5%B7%E5%A4%96%E7%9C%9F%E4%BA%BA%E7%9F%AD%E5%89%A7%E3%80%8A%E4%BA%89%E6%89%A7%E3%80%8B%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="海外真人短剧《争执》视频封面">
-          <source src="assets/videos/zhengzhi-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-ai-video-4" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-4-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Works</span>
-          <h3 id="work-detail-ai-video-4-title">AI真人叙事剧（时光）</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">以废弃教室、昏暗走廊和青年回忆为线索，讲述一个关于求学、理解与迟来的和解的情感故事。影片在旧时光的压抑空间与现实生活场景之间切换，通过人物对话、录取通知书、孤独等待和外卖递送等细节，把成长中的遗憾与亲情牵挂连接起来，形成一段带有现实温度的 AI 真人叙事短片。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/06_AI%E7%9C%9F%E4%BA%BA%E5%8F%99%E4%BA%8B%E5%89%A7%EF%BC%88%E6%97%B6%E5%85%89%EF%BC%89%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="AI真人叙事剧（时光）视频封面">
-          <source src="assets/videos/shiguang-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-ai-video-5" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-5-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Works</span>
-          <h3 id="work-detail-ai-video-5-title">凤归巢</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">古风互动剧情 Demo，以庶出二小姐沈婉清的身份转折为线索，通过嫁衣、凤冠与闺阁镜像等镜头，展示 AI 生成角色、服化道和竖屏剧情演示的完整氛围。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/07_%E5%87%A4%E5%BD%92%E5%B7%A2%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="凤归巢视频封面">
-          <source src="assets/videos/fengguichao-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-ai-video-6" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-6-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">AI Video Works</span>
-          <h3 id="work-detail-ai-video-6-title">那一段回忆</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">从人物设定、服装造型、场景氛围到故事脚本均由本人设计并生成，以男主对女主的暗恋、不舍与想象为情绪线索，呈现一段带有遗憾感的记忆叙事。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/08_%E9%82%A3%E4%B8%80%E6%AE%B5%E5%9B%9E%E5%BF%86%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="那一段回忆视频封面">
-          <source src="assets/videos/memory-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-case-project-1" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-1-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">Case Study</span>
-          <h3 id="work-detail-case-project-1-title">南山文博会</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">嗨萌马与南山区联合宣传，用于南山文博会播放宣传。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/35_%E5%8D%97%E5%B1%B1%E6%96%87%E5%8D%9A%E4%BC%9A%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="南山文博会视频封面">
-          <source src="assets/videos/shenzhen-cultural-expo-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-case-project-2" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-2-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">Case Study</span>
-          <h3 id="work-detail-case-project-2-title">厦门萌发地 海野乐园</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">嗨萌马从深圳前往厦门，途中经过各个厦门热门景点，最终抵达萌发地 海野乐园。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/36_%E5%8E%A6%E9%97%A8%E8%90%8C%E5%8F%91%E5%9C%B0%20%E6%B5%B7%E9%87%8E%E4%B9%90%E5%9B%AD%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="厦门萌发地 海野乐园视频封面">
-          <source src="assets/videos/mengfadi-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-case-project-3" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-3-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">Case Study</span>
-          <h3 id="work-detail-case-project-3-title">雅思兰黛广告片</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">以雅思兰黛为案例，采用首尾图方式，生成广告宣传片。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/37_%E9%9B%85%E6%80%9D%E5%85%B0%E9%BB%9B%E5%B9%BF%E5%91%8A%E7%89%87%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="雅思兰黛广告片视频封面">
-          <source src="assets/videos/estee-lauder-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-case-project-4" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-4-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">Case Study</span>
-          <h3 id="work-detail-case-project-4-title">AI 智能陪伴玩偶概念片</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">围绕 AI 智能陪伴玩偶展开的产品概念视觉短片。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/38_AI%20%E6%99%BA%E8%83%BD%E9%99%AA%E4%BC%B4%E7%8E%A9%E5%81%B6%E6%A6%82%E5%BF%B5%E7%89%87%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="AI 智能陪伴玩偶概念片视频封面">
-          <source src="assets/videos/companion-toy-concept-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-case-project-5" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-5-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">Case Study</span>
-          <h3 id="work-detail-case-project-5-title">非洲猴面包树科普</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">以轻量叙事方式呈现自然知识的动漫卡通风格 AI 科普短片。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/39_%E9%9D%9E%E6%B4%B2%E7%8C%B4%E9%9D%A2%E5%8C%85%E6%A0%91%E7%A7%91%E6%99%AE%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="非洲猴面包树科普视频封面">
-          <source src="assets/videos/baobab-science-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
-  </div>
-
-  <div class="work-detail-viewer" id="work-detail-case-project-6" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-6-title">
-    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
-    <div class="work-detail-panel" role="document">
-      <div class="work-detail-info">
-        <div class="work-detail-heading">
-          <span class="work-detail-kicker">Case Study</span>
-          <h3 id="work-detail-case-project-6-title">敢于说不</h3>
-        </div>
-        <div class="work-detail-copy">
-          <p class="work-detail-description">围绕态度表达与成长主题制作的 AI 叙事短片。</p>
-        </div>
-      </div>
-      <div class="work-detail-media">
-        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/40_%E6%95%A2%E4%BA%8E%E8%AF%B4%E4%B8%8D%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.jpg" aria-label="敢于说不视频封面">
-          <source src="assets/videos/dare-to-say-no-web.mp4" type="video/mp4">
-          您的浏览器不支持视频播放。
-        </video>
-      </div>
-    </div>
   </div>
 
   <footer>
@@ -7092,178 +5761,6 @@
 
     updateThemeMeta();
 
-    const setupVideoLoadingStates = () => {
-      document.querySelectorAll("video[controls]").forEach((video) => {
-        video.preload = "none";
-
-        const container = video.closest(".work-media, .mix-video-frame, .story-video-media, .case-image") || video.parentElement;
-        let status = container?.querySelector(".video-status");
-        if (container && !status) {
-          status = document.createElement("div");
-          status.className = "video-status";
-          status.setAttribute("aria-live", "polite");
-          container.appendChild(status);
-        }
-
-        const showStatus = (message) => {
-          if (!status) return;
-          status.textContent = message;
-          status.classList.add("is-visible");
-        };
-
-        const hideStatus = () => {
-          status?.classList.remove("is-visible");
-        };
-
-        const showLoading = () => {
-          if (video.readyState < 3) {
-            showStatus("视频加载中，请稍候。");
-          }
-        };
-
-        video.addEventListener("play", showLoading);
-        video.addEventListener("waiting", showLoading);
-        video.addEventListener("stalled", () => showStatus("网络较慢，视频正在继续加载。"));
-        video.addEventListener("canplay", hideStatus);
-        video.addEventListener("playing", hideStatus);
-        video.addEventListener("error", () => {
-          showStatus("视频暂时无法播放，请刷新页面或稍后再试。");
-        });
-      });
-    };
-
-    setupVideoLoadingStates();
-
-    const setupShowreelVideo = () => {
-      const video = document.querySelector("#showreel-mix .mix-showreel-video");
-      const playButton = document.querySelector("#showreel-mix .mix-showreel-play");
-      if (!video || !playButton) return;
-
-      const syncPlayButton = () => {
-        playButton.classList.toggle("is-hidden", !video.paused && !video.ended);
-      };
-
-      playButton.dataset.ready = "true";
-        playButton.addEventListener("click", () => {
-          playButton.dataset.clicked = String(Date.now());
-          delete playButton.dataset.playError;
-          video.muted = true;
-          const playRequest = typeof video.play === "function" ? video.play() : null;
-          if (playRequest && typeof playRequest.catch === "function") {
-            playRequest
-              .then(() => {
-                syncPlayButton();
-              })
-              .catch((error) => {
-                playButton.dataset.playError = error?.name || "play-error";
-                playButton.classList.remove("is-hidden");
-              });
-          } else {
-            playButton.classList.remove("is-hidden");
-          }
-        });
-      video.addEventListener("play", syncPlayButton);
-      video.addEventListener("playing", syncPlayButton);
-      video.addEventListener("pause", syncPlayButton);
-      video.addEventListener("ended", syncPlayButton);
-      syncPlayButton();
-    };
-
-    setupShowreelVideo();
-
-    const forceImageLoad = (target) => {
-      if (!target) return;
-      const images = target instanceof HTMLImageElement
-        ? [target]
-        : Array.from(target.querySelectorAll?.("img") || []);
-
-      images.forEach((image) => {
-        image.loading = "eager";
-        if (!image.decoding) image.decoding = "async";
-
-        const source = image.getAttribute("src");
-        if (!source) return;
-
-        if (!image.complete && !image.currentSrc) {
-          image.removeAttribute("src");
-          image.setAttribute("src", source);
-        }
-
-        image.decode?.().catch(() => {});
-      });
-    };
-
-    const forceVideoPosterLoad = (target) => {
-      if (!target) return;
-      const videos = target instanceof HTMLVideoElement
-        ? [target]
-        : Array.from(target.querySelectorAll?.("video[poster]") || []);
-
-      videos.forEach((video) => {
-        const poster = video.getAttribute("poster");
-        if (!poster || video.dataset.posterReady === "true") return;
-
-        const posterUrl = new URL(poster, document.baseURI).href;
-        video.dataset.posterReady = "true";
-        video.style.backgroundImage = `url("${posterUrl.replace(/"/g, "%22")}")`;
-        video.style.backgroundSize = "cover";
-        video.style.backgroundPosition = "center";
-
-        const posterImage = new Image();
-        posterImage.decoding = "async";
-        posterImage.src = posterUrl;
-      });
-    };
-
-    const forceMediaLoad = (target) => {
-      forceImageLoad(target);
-      forceVideoPosterLoad(target);
-    };
-
-    const setupReliableLazyImages = () => {
-      const lazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
-      if (!lazyImages.length) return;
-
-      if (!("IntersectionObserver" in window)) {
-        lazyImages.forEach(forceImageLoad);
-        return;
-      }
-
-      const lazyImageObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          forceImageLoad(entry.target);
-          lazyImageObserver.unobserve(entry.target);
-        });
-      }, { rootMargin: "900px 0px", threshold: 0.01 });
-
-      lazyImages.forEach((image) => lazyImageObserver.observe(image));
-    };
-
-    setupReliableLazyImages();
-
-    const setupReliableVideoPosters = () => {
-      const posterVideos = Array.from(document.querySelectorAll("video[poster]"));
-      if (!posterVideos.length) return;
-
-      if (!("IntersectionObserver" in window)) {
-        posterVideos.forEach(forceVideoPosterLoad);
-        return;
-      }
-
-      const posterObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          forceVideoPosterLoad(entry.target);
-          posterObserver.unobserve(entry.target);
-        });
-      }, { rootMargin: "900px 0px", threshold: 0.01 });
-
-      posterVideos.forEach((video) => posterObserver.observe(video));
-    };
-
-    setupReliableVideoPosters();
-
     const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
     const setupImageWorksSwitcher = () => {
       if (!imageWorksSwitcherGrid || imageWorksSwitcherGrid.dataset.switcherReady === "true") return;
@@ -7275,7 +5772,7 @@
       collectionCards.forEach((card) => {
         imageCollectionGrid?.appendChild(card);
       });
-      if (switcherCards.length <= 1) return;
+      if (switcherCards.length <= 2) return;
 
       const switcherWrap = imageWorksSwitcherGrid.closest(".works-rail-wrap");
       const slides = [];
@@ -7286,13 +5783,13 @@
       switcherWrap?.classList.add("image-work-switcher-wrap");
       imageWorksSwitcherGrid.classList.add("image-work-switcher");
       imageWorksSwitcherGrid.dataset.switcherReady = "true";
-      imageWorksSwitcherGrid.setAttribute("aria-label", "AI动态海报视频上下切换窗口");
+      imageWorksSwitcherGrid.setAttribute("aria-label", "AI动态海报合集上下切换卡片");
 
-      for (let index = 0; index < switcherCards.length; index += 1) {
+      for (let index = 0; index < switcherCards.length; index += 2) {
         const slide = document.createElement("div");
         slide.className = "image-work-slide";
         slide.setAttribute("aria-hidden", index === 0 ? "false" : "true");
-        switcherCards.slice(index, index + 1).forEach((card) => slide.appendChild(card));
+        switcherCards.slice(index, index + 2).forEach((card) => slide.appendChild(card));
         imageWorksSwitcherGrid.appendChild(slide);
         slides.push(slide);
       }
@@ -7300,8 +5797,8 @@
       const controls = document.createElement("div");
       controls.className = "image-work-switcher-controls";
       controls.innerHTML = `
-        <button class="image-work-switch-prev" type="button" aria-label="上一个 AI 动态海报视频" title="上一个">↑</button>
-        <button class="image-work-switch-next" type="button" aria-label="下一个 AI 动态海报视频" title="下一个">↓</button>
+        <button class="image-work-switch-prev" type="button" aria-label="上一组 AI 图片作品" title="上一组">↑</button>
+        <button class="image-work-switch-next" type="button" aria-label="下一组 AI 图片作品" title="下一组">↓</button>
       `;
       switcherWrap?.appendChild(controls);
 
@@ -7325,22 +5822,11 @@
         slide?.querySelectorAll("video").forEach((video) => video.pause());
       };
 
-      const isSlideVideoPlaying = (slide) => {
-        const videos = Array.from(slide?.querySelectorAll("video") || []);
-        return videos.some((video) => !video.paused && !video.ended);
-      };
-
       const restartAutoSwitch = () => {
         window.clearInterval(switchTimer);
         switchTimer = window.setInterval(() => {
-          if (isSlideVideoPlaying(slides[activeIndex])) return;
           goToSlide(activeIndex + 1, 1, false);
         }, 5600);
-      };
-
-      const stopAutoSwitch = () => {
-        window.clearInterval(switchTimer);
-        switchTimer = 0;
       };
 
       function goToSlide(nextIndex, direction = 1, userInitiated = false) {
@@ -7353,8 +5839,6 @@
         const nextSlide = slides[normalizedIndex];
         const fromClass = direction > 0 ? "is-entering-from-bottom" : "is-entering-from-top";
         const exitClass = direction > 0 ? "is-exiting-to-top" : "is-exiting-to-bottom";
-
-        forceMediaLoad(nextSlide);
 
         slides.forEach((slide) => {
           slide.classList.remove("is-entering-from-top", "is-entering-from-bottom", "is-exiting-to-top", "is-exiting-to-bottom");
@@ -7387,85 +5871,15 @@
       }
 
       slides[0].classList.add("is-active");
-      forceMediaLoad(slides[0]);
-      forceMediaLoad(slides[1]);
       syncSwitcherHeight();
       window.addEventListener("resize", syncSwitcherHeight, { passive: true });
       prevButton?.addEventListener("click", () => goToSlide(activeIndex - 1, -1, true));
       nextButton?.addEventListener("click", () => goToSlide(activeIndex + 1, 1, true));
-      imageWorksSwitcherGrid.querySelectorAll("video").forEach((video) => {
-        video.addEventListener("play", stopAutoSwitch);
-        video.addEventListener("pause", () => {
-          if (canUseMotion && !isSlideVideoPlaying(slides[activeIndex])) restartAutoSwitch();
-        });
-        video.addEventListener("ended", () => {
-          if (!canUseMotion || isSwitching) return;
-          restartAutoSwitch();
-          if (slides[activeIndex]?.contains(video)) {
-            window.setTimeout(() => {
-              if (!isSwitching && !isSlideVideoPlaying(slides[activeIndex])) {
-                goToSlide(activeIndex + 1, 1, false);
-              }
-            }, 700);
-          }
-        });
-      });
 
       if (canUseMotion) restartAutoSwitch();
     };
 
     setupImageWorksSwitcher();
-
-    const workDetailButtons = Array.from(document.querySelectorAll("[data-detail-open]"));
-    const workDetailViewers = Array.from(document.querySelectorAll(".work-detail-viewer"));
-    let workDetailPreviousFocus = null;
-
-    const closeWorkDetail = (viewer) => {
-      if (!viewer) return;
-      viewer.classList.remove("is-open");
-      viewer.setAttribute("aria-hidden", "true");
-      viewer.querySelectorAll("video").forEach((video) => video.pause());
-      const openImageViewer = document.querySelector("#image-viewer.is-open");
-      document.body.style.overflow = openImageViewer ? "hidden" : "";
-      workDetailPreviousFocus?.focus?.();
-    };
-
-    const openWorkDetail = (detailId, trigger) => {
-      const viewer = document.querySelector(`#work-detail-${detailId}`);
-      if (!viewer) return;
-      workDetailViewers.forEach((item) => {
-        if (item !== viewer) closeWorkDetail(item);
-      });
-      document.querySelectorAll("video").forEach((video) => video.pause());
-      workDetailPreviousFocus = trigger || document.activeElement;
-      viewer.classList.add("is-open");
-      viewer.setAttribute("aria-hidden", "false");
-      document.body.style.overflow = "hidden";
-      viewer.querySelector("[data-detail-close]")?.focus();
-    };
-
-    workDetailButtons.forEach((button) => {
-      button.addEventListener("click", (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        openWorkDetail(button.dataset.detailOpen, button);
-      });
-    });
-
-    workDetailViewers.forEach((viewer) => {
-      viewer.querySelector("[data-detail-close]")?.addEventListener("click", () => closeWorkDetail(viewer));
-      viewer.addEventListener("click", (event) => {
-        if (event.target === viewer) closeWorkDetail(viewer);
-      });
-    });
-
-    document.addEventListener("keydown", (event) => {
-      if (event.defaultPrevented || event.key !== "Escape") return;
-      const openDetail = workDetailViewers.find((viewer) => viewer.classList.contains("is-open"));
-      if (!openDetail) return;
-      event.preventDefault();
-      closeWorkDetail(openDetail);
-    });
 
     const imageCarousel = document.querySelector(".image-collection-grid");
     const imageCarouselCards = imageCarousel ? Array.from(imageCarousel.querySelectorAll(".work-card")) : [];
@@ -7540,7 +5954,6 @@
         card.setAttribute("aria-label", (index === imageCarouselIndex ? "单击预览，双击放大图片 " : "切换到图片 ") + String(index + 1));
         if (index === imageCarouselIndex) card.setAttribute("title", "单击预览，双击放大");
         else card.removeAttribute("title");
-        if (visible) forceMediaLoad(card);
       });
 
       if (imageCarouselStatus) {
@@ -7821,7 +6234,6 @@
         card.setAttribute("aria-label", (index === assetCarouselIndex ? "单击预览，双击放大图片 " : "切换到图片 ") + String(index + 1));
         if (index === assetCarouselIndex) card.setAttribute("title", "单击预览，双击放大");
         else card.removeAttribute("title");
-        if (visible) forceMediaLoad(card);
       });
 
       if (assetCarouselStatus) {
