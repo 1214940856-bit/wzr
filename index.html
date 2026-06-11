@@ -162,6 +162,7 @@
     }
 
     [data-palette="artist"] .work-media,
+    [data-palette="artist"] .mix-video-frame,
     [data-palette="artist"] .case-card,
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
@@ -171,6 +172,7 @@
     }
 
     [data-palette="artist"] .work-media,
+    [data-palette="artist"] .mix-video-frame,
     [data-palette="artist"] .case-card,
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
@@ -188,6 +190,7 @@
     }
 
     [data-palette="artist"] .work-card:hover .work-media,
+    [data-palette="artist"] .mix-video-shell:hover .mix-video-frame,
     [data-palette="artist"] .case-card:hover,
     [data-palette="artist"] .advantage-card:hover,
     [data-palette="artist"] .showreel:hover,
@@ -2038,15 +2041,13 @@
     .mix-video-frame {
       position: relative;
       aspect-ratio: 16 / 9;
-      border-radius: 8px;
+      border-radius: var(--radius);
       overflow: hidden;
-      border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--line));
-      background:
-        linear-gradient(135deg, color-mix(in srgb, var(--accent) 14%, transparent), transparent 48%),
-        color-mix(in srgb, var(--surface-2) 88%, transparent);
-      box-shadow:
-        0 26px 78px rgba(0, 0, 0, 0.34),
-        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      isolation: isolate;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: border-color 260ms ease, box-shadow 320ms var(--ease-out), transform 320ms var(--ease-out);
     }
 
     .mix-video-frame::after {
@@ -2054,10 +2055,10 @@
       position: absolute;
       inset: 0;
       pointer-events: none;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 20%),
-        radial-gradient(ellipse at 50% 110%, rgba(239, 201, 135, 0.18), transparent 52%);
-      mix-blend-mode: screen;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 260ms ease;
+      background: radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 58%);
     }
 
     .mix-video-frame video {
@@ -2065,7 +2066,37 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      background: #050b1e;
+      background: var(--surface-2);
+      transition: filter 260ms ease;
+    }
+
+    .mix-video-shell:hover .mix-video-frame {
+      transform: translateY(-8px) scale(1.008);
+      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+      box-shadow: 0 24px 70px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+
+    .mix-video-shell:hover .mix-video-frame::after {
+      opacity: 1;
+    }
+
+    [data-palette="artist"] .mix-video-frame {
+      background: rgba(12, 32, 82, 0.7);
+      border-width: 2px;
+      border-color: var(--window-border);
+      box-shadow:
+        0 0 0 1px var(--window-inner-border) inset,
+        0 22px 68px rgba(3, 10, 35, 0.34),
+        0 0 18px rgba(91, 170, 255, 0.16);
+      animation: window-border-breathe 4.6s ease-in-out infinite;
+    }
+
+    [data-palette="artist"] .mix-video-shell:hover .mix-video-frame {
+      border-color: var(--window-border-strong);
+      box-shadow:
+        0 0 0 1px rgba(227, 248, 255, 0.34) inset,
+        0 28px 82px rgba(3, 10, 35, 0.42),
+        0 0 32px rgba(91, 219, 255, 0.28);
     }
 
     .mix-video-meta {
