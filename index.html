@@ -63,23 +63,27 @@
 
     [data-palette="artist"] {
       color-scheme: dark;
-      --bg: #697ee8;
-      --surface: rgba(86, 103, 205, 0.72);
-      --surface-2: rgba(123, 121, 218, 0.66);
-      --surface-3: #b6b7f4;
+      --bg: #0b1d4d;
+      --surface: rgba(12, 32, 82, 0.78);
+      --surface-2: rgba(20, 46, 109, 0.72);
+      --surface-3: #315aa6;
       --text: #ffffff;
-      --muted: rgba(255, 255, 255, 0.76);
-      --dim: rgba(255, 255, 255, 0.6);
-      --line: rgba(229, 232, 255, 0.34);
+      --muted: rgba(238, 245, 255, 0.78);
+      --dim: rgba(218, 231, 255, 0.62);
+      --line: rgba(191, 214, 255, 0.28);
       --accent: #efc987;
-      --accent-2: #e9e6ff;
-      --accent-ink: #485ab4;
-      --shadow: 0 30px 96px rgba(71, 74, 161, 0.34);
-      --ambient-a: rgba(194, 199, 255, 0.58);
-      --ambient-b: rgba(95, 91, 203, 0.5);
-      --ambient-c: rgba(233, 230, 255, 0.48);
-      --cursor-light: rgba(229, 232, 255, 0.26);
-      --cursor-light-2: rgba(239, 201, 135, 0.18);
+      --accent-2: #d8e7ff;
+      --accent-ink: #071741;
+      --shadow: 0 30px 96px rgba(3, 10, 35, 0.46);
+      --ambient-a: rgba(86, 132, 218, 0.34);
+      --ambient-b: rgba(15, 42, 112, 0.62);
+      --ambient-c: rgba(130, 169, 244, 0.28);
+      --cursor-light: rgba(126, 169, 255, 0.22);
+      --cursor-light-2: rgba(239, 201, 135, 0.16);
+      --window-border: rgba(138, 202, 255, 0.82);
+      --window-border-strong: rgba(91, 226, 255, 1);
+      --window-border-mid: rgba(178, 224, 255, 0.9);
+      --window-inner-border: rgba(232, 248, 255, 0.32);
     }
 
     * {
@@ -131,10 +135,10 @@
 
     [data-palette="artist"] body {
       background:
-        radial-gradient(circle at 78% 16%, rgba(194, 199, 255, 0.58), transparent 24rem),
-        radial-gradient(circle at 14% 18%, rgba(133, 163, 244, 0.5), transparent 28rem),
-        radial-gradient(circle at 22% 88%, rgba(179, 133, 182, 0.42), transparent 32rem),
-        linear-gradient(135deg, #586fcf 0%, #697ee8 40%, #7979e6 72%, #9e87b9 100%);
+        radial-gradient(circle at 78% 16%, rgba(93, 136, 230, 0.38), transparent 24rem),
+        radial-gradient(circle at 14% 18%, rgba(39, 82, 169, 0.5), transparent 28rem),
+        radial-gradient(circle at 22% 88%, rgba(53, 92, 168, 0.34), transparent 32rem),
+        linear-gradient(135deg, #06143a 0%, #0b1d4d 38%, #12306f 72%, #1f4a98 100%);
     }
 
     [data-palette="artist"] body::after {
@@ -146,14 +150,14 @@
       z-index: 0;
       opacity: 0.72;
       background:
-        radial-gradient(ellipse at 18% 100%, rgba(229, 232, 255, 0.22), transparent 54%),
-        radial-gradient(ellipse at 78% 86%, rgba(91, 80, 174, 0.3), transparent 58%),
+        radial-gradient(ellipse at 18% 100%, rgba(157, 188, 255, 0.18), transparent 54%),
+        radial-gradient(ellipse at 78% 86%, rgba(28, 65, 143, 0.32), transparent 58%),
         radial-gradient(circle at 52% 118%, rgba(239, 201, 135, 0.14), transparent 42%);
       mask-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.44) 18%, black 58%);
     }
 
     [data-palette="artist"] .topbar {
-      background: rgba(73, 84, 178, 0.72);
+      background: rgba(6, 20, 58, 0.78);
       backdrop-filter: blur(20px);
     }
 
@@ -162,8 +166,98 @@
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
     [data-palette="artist"] .workflow-visual {
-      background: rgba(86, 103, 205, 0.62);
-      box-shadow: 0 22px 68px rgba(71, 74, 161, 0.28);
+      background: rgba(12, 32, 82, 0.7);
+      box-shadow: 0 22px 68px rgba(3, 10, 35, 0.34);
+    }
+
+    [data-palette="artist"] .work-media,
+    [data-palette="artist"] .case-card,
+    [data-palette="artist"] .advantage-card,
+    [data-palette="artist"] .showreel,
+    [data-palette="artist"] .workflow-visual,
+    [data-palette="artist"] .wallpaper-screen,
+    [data-palette="artist"] .story-video-media,
+    [data-palette="artist"] .portrait-frame {
+      border-width: 2px;
+      border-color: var(--window-border);
+      box-shadow:
+        0 0 0 1px var(--window-inner-border) inset,
+        0 22px 68px rgba(3, 10, 35, 0.34),
+        0 0 18px rgba(91, 170, 255, 0.16);
+      animation: window-border-breathe 4.6s ease-in-out infinite;
+    }
+
+    [data-palette="artist"] .work-card:hover .work-media,
+    [data-palette="artist"] .case-card:hover,
+    [data-palette="artist"] .advantage-card:hover,
+    [data-palette="artist"] .showreel:hover,
+    [data-palette="artist"] .wallpaper-window:hover .wallpaper-screen {
+      border-color: var(--window-border-strong);
+      box-shadow:
+        0 0 0 1px rgba(227, 248, 255, 0.34) inset,
+        0 28px 82px rgba(3, 10, 35, 0.42),
+        0 0 32px rgba(91, 219, 255, 0.28);
+    }
+
+    [data-palette="artist"] .image-collection-grid .work-card {
+      border-width: 2px;
+      border-color: var(--window-border);
+      box-shadow:
+        0 0 0 1px var(--window-inner-border) inset,
+        0 28px 76px rgba(3, 10, 35, 0.38),
+        0 0 24px rgba(91, 170, 255, 0.2);
+      animation: window-border-breathe 4.8s ease-in-out infinite;
+    }
+
+    [data-palette="artist"] .image-collection-grid .work-card.is-active {
+      border-color: var(--window-border-strong);
+      box-shadow:
+        0 0 0 1px rgba(227, 248, 255, 0.38) inset,
+        0 36px 98px rgba(3, 10, 35, 0.48),
+        0 0 38px rgba(91, 219, 255, 0.32);
+    }
+
+    [data-palette="artist"] .story-video-media {
+      border: 0;
+      box-shadow: 0 28px 86px rgba(0, 0, 0, 0.4);
+      animation: none;
+    }
+
+    [data-palette="artist"] .work-card:nth-child(2n) .work-media,
+    [data-palette="artist"] .case-card:nth-child(2n),
+    [data-palette="artist"] .image-collection-grid .work-card:nth-child(2n),
+    [data-palette="artist"] .wallpaper-window:nth-child(2n) .wallpaper-screen {
+      animation-delay: -1.4s;
+    }
+
+    [data-palette="artist"] .work-card:nth-child(3n) .work-media,
+    [data-palette="artist"] .case-card:nth-child(3n),
+    [data-palette="artist"] .image-collection-grid .work-card:nth-child(3n) {
+      animation-delay: -2.6s;
+    }
+
+    @keyframes window-border-breathe {
+      0%, 100% {
+        border-color: var(--window-border);
+        box-shadow:
+          0 0 0 1px var(--window-inner-border) inset,
+          0 24px 76px rgba(3, 10, 35, 0.36),
+          0 0 20px rgba(91, 184, 255, 0.2);
+      }
+      42% {
+        border-color: var(--window-border-strong);
+        box-shadow:
+          0 0 0 1px rgba(227, 248, 255, 0.38) inset,
+          0 28px 86px rgba(3, 10, 35, 0.42),
+          0 0 40px rgba(91, 226, 255, 0.38);
+      }
+      68% {
+        border-color: var(--window-border-mid);
+        box-shadow:
+          0 0 0 1px rgba(226, 244, 255, 0.3) inset,
+          0 26px 80px rgba(3, 10, 35, 0.39),
+          0 0 30px rgba(138, 202, 255, 0.3);
+      }
     }
 
     .ambient-field,
@@ -1614,13 +1708,15 @@
 
     #works .section-head,
     #image-works .section-head,
-    #dynamic-wallpaper .section-head {
+    #dynamic-wallpaper .section-head,
+    #image-to-video .section-head {
       display: block;
     }
 
     #works .section-head h2,
     #image-works .section-head h2,
-    #dynamic-wallpaper .section-head h2 {
+    #dynamic-wallpaper .section-head h2,
+    #image-to-video .section-head h2 {
       white-space: nowrap;
       letter-spacing: 0.045em;
     }
@@ -1821,6 +1917,138 @@
 
     .work-card:hover .work-media::after {
       opacity: 1;
+    }
+
+    .image-work-switcher-wrap {
+      max-width: min(100%, 980px);
+      margin-inline: auto;
+      position: relative;
+    }
+
+    .image-work-switcher.works-grid {
+      display: block;
+      min-height: var(--image-work-switch-height, 760px);
+      overflow: hidden;
+      position: relative;
+      padding: 8px 0 10px;
+      transition: min-height 520ms var(--ease-soft);
+    }
+
+    .image-work-slide {
+      position: absolute;
+      inset: 8px 0 10px;
+      z-index: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(22px, 3.6vw, 38px);
+      align-items: start;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(68px) scale(0.982);
+      filter: blur(10px);
+      transition:
+        opacity 760ms ease,
+        transform 1080ms cubic-bezier(0.18, 0.82, 0.22, 1),
+        filter 1080ms cubic-bezier(0.18, 0.82, 0.22, 1);
+      will-change: opacity, transform, filter;
+    }
+
+    .image-work-slide.is-active {
+      z-index: 2;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+
+    .image-work-slide.is-entering-from-top {
+      transform: translateY(-110px) scale(0.982);
+    }
+
+    .image-work-slide.is-entering-from-bottom {
+      transform: translateY(110px) scale(0.982);
+    }
+
+    .image-work-slide.is-exiting-to-top {
+      opacity: 0;
+      transform: translateY(-110px) scale(0.982);
+      filter: blur(12px);
+    }
+
+    .image-work-slide.is-exiting-to-bottom {
+      opacity: 0;
+      transform: translateY(110px) scale(0.982);
+      filter: blur(12px);
+    }
+
+    .image-work-slide .work-card {
+      transition:
+        transform 1080ms cubic-bezier(0.18, 0.82, 0.22, 1),
+        opacity 760ms ease;
+    }
+
+    .image-work-slide.is-entering-from-top .work-card,
+    .image-work-slide.is-exiting-to-top .work-card {
+      transform: translateY(-34px);
+    }
+
+    .image-work-slide.is-entering-from-bottom .work-card,
+    .image-work-slide.is-exiting-to-bottom .work-card {
+      transform: translateY(34px);
+    }
+
+    .image-work-slide.is-active .work-card {
+      transform: translateY(0);
+    }
+
+    .image-work-slide .work-card:nth-child(2) {
+      transition-delay: 70ms;
+    }
+
+    .image-work-switcher-controls {
+      position: absolute;
+      top: var(--image-work-control-y, 36%);
+      left: clamp(-74px, -5.4vw, -42px);
+      right: clamp(-74px, -5.4vw, -42px);
+      z-index: 6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transform: translateY(-50%);
+      pointer-events: none;
+      color: var(--muted);
+    }
+
+    .image-work-switcher-controls button {
+      width: 38px;
+      height: 38px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid color-mix(in srgb, var(--window-border) 76%, transparent);
+      border-radius: 50%;
+      background:
+        linear-gradient(180deg, color-mix(in srgb, var(--surface-2) 76%, transparent), color-mix(in srgb, var(--surface) 76%, transparent));
+      color: var(--text);
+      font-size: 18px;
+      line-height: 1;
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow:
+        0 0 0 1px color-mix(in srgb, var(--window-inner-border) 62%, transparent) inset,
+        0 16px 38px rgba(3, 10, 35, 0.28),
+        0 0 18px rgba(91, 226, 255, 0.14);
+      backdrop-filter: blur(14px);
+      transition: transform 180ms ease, border-color 180ms ease, color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .image-work-switcher-controls button:hover {
+      transform: scale(1.06);
+      border-color: var(--window-border-strong);
+      color: var(--window-border-strong);
+      background: color-mix(in srgb, var(--surface-2) 88%, transparent);
+      box-shadow:
+        0 0 0 1px rgba(227, 248, 255, 0.34) inset,
+        0 0 20px rgba(91, 226, 255, 0.24);
     }
 
     .gallery {
@@ -2447,6 +2675,246 @@
     .wallpaper-window:hover .wallpaper-screen {
       border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
       box-shadow: 0 30px 88px color-mix(in srgb, var(--accent) 18%, rgba(0, 0, 0, 0.3));
+    }
+
+    .story-video-grid {
+      --workflow-progress: 0%;
+      display: grid;
+      gap: clamp(18px, 3vw, 30px);
+      align-items: center;
+    }
+
+    .story-video-stage {
+      position: relative;
+      min-height: clamp(460px, 58vw, 660px);
+      overflow: hidden;
+      isolation: isolate;
+      border-radius: calc(var(--radius) + 10px);
+      background:
+        radial-gradient(ellipse at 50% 76%, color-mix(in srgb, var(--accent) 17%, transparent), transparent 42%),
+        radial-gradient(ellipse at 50% 16%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 48%),
+        color-mix(in srgb, var(--surface) 74%, transparent);
+      box-shadow: var(--shadow);
+      perspective: 1200px;
+    }
+
+    .story-video-stage::before {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      top: 20%;
+      height: 58%;
+      border-top: 1px solid color-mix(in srgb, var(--accent-2) 42%, transparent);
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      opacity: 0.72;
+      transform: rotate(-5deg);
+      pointer-events: none;
+    }
+
+    .story-video-stage::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(color-mix(in srgb, var(--text) 8%, transparent) 1px, transparent 1px),
+        linear-gradient(90deg, color-mix(in srgb, var(--text) 8%, transparent) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: radial-gradient(ellipse at 50% 46%, black, transparent 70%);
+      opacity: 0.34;
+    }
+
+    .story-video-panel {
+      --card-x: 0px;
+      --card-y: 0px;
+      --card-scale: 1;
+      --card-rotate: 0deg;
+      --card-opacity: 1;
+      --card-blur: 0px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: var(--card-z, 1);
+      width: min(780px, 76vw);
+      display: grid;
+      gap: 14px;
+      color: inherit;
+      opacity: var(--card-opacity);
+      filter: blur(var(--card-blur));
+      transform:
+        translate(-50%, -50%)
+        translate3d(var(--card-x), var(--card-y), 0)
+        rotateZ(var(--card-rotate))
+        scale(var(--card-scale));
+      transition: opacity 260ms ease, filter 260ms ease, transform 420ms var(--ease-soft);
+      pointer-events: none;
+      will-change: transform, opacity, filter;
+    }
+
+    .story-video-panel.is-active {
+      pointer-events: auto;
+    }
+
+    .story-video-media {
+      overflow: hidden;
+      position: relative;
+      isolation: isolate;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      border-radius: var(--radius);
+      background:
+        linear-gradient(135deg, color-mix(in srgb, var(--surface-2) 86%, transparent), color-mix(in srgb, #05070c 92%, transparent));
+      box-shadow:
+        0 28px 86px rgba(0, 0, 0, 0.4);
+      animation: none;
+    }
+
+    .story-video-media img,
+    .story-video-media video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #050507;
+    }
+
+    .story-video-caption {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.65;
+      padding: 0 4px;
+    }
+
+    .story-video-caption h3 {
+      margin: 0 0 6px;
+      color: var(--text);
+      font-size: clamp(20px, 2.4vw, 28px);
+      line-height: 1.15;
+    }
+
+    .story-video-caption p {
+      margin: 0;
+      max-width: 560px;
+    }
+
+    .story-video-index {
+      flex: 0 0 auto;
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      color: var(--accent-ink);
+      background: var(--accent);
+      font-weight: 950;
+      line-height: 1;
+      box-shadow: 0 12px 32px color-mix(in srgb, var(--accent) 28%, transparent);
+    }
+
+    .story-video-controls {
+      display: grid;
+      gap: 12px;
+      width: min(840px, 100%);
+      justify-self: center;
+      padding: 0 4px;
+    }
+
+    .story-video-range {
+      width: 100%;
+      height: 38px;
+      margin: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: grab;
+      background: transparent;
+      touch-action: pan-y;
+    }
+
+    .story-video-range:active {
+      cursor: grabbing;
+    }
+
+    .story-video-range:focus {
+      outline: none;
+    }
+
+    .story-video-range::-webkit-slider-runnable-track {
+      height: 8px;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          90deg,
+          #fff4cf 0%,
+          #efc987 var(--workflow-progress),
+          #7f6c50 var(--workflow-progress),
+          rgba(230, 238, 255, 0.28) var(--workflow-progress),
+          rgba(89, 125, 190, 0.2) 72%,
+          rgba(8, 24, 62, 0.42) 100%
+        );
+      box-shadow: 0 8px 22px rgba(3, 10, 35, 0.18);
+    }
+
+    .story-video-range::-moz-range-track {
+      height: 8px;
+      border-radius: 999px;
+      background:
+        linear-gradient(
+          90deg,
+          #fff4cf 0%,
+          #efc987 var(--workflow-progress),
+          #7f6c50 var(--workflow-progress),
+          rgba(230, 238, 255, 0.28) var(--workflow-progress),
+          rgba(89, 125, 190, 0.2) 72%,
+          rgba(8, 24, 62, 0.42) 100%
+        );
+      box-shadow: 0 8px 22px rgba(3, 10, 35, 0.18);
+    }
+
+    .story-video-range::-webkit-slider-thumb {
+      width: 26px;
+      height: 26px;
+      margin-top: -10px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff7dc 0%, #efc987 48%, #7f6c50 100%);
+      box-shadow:
+        0 14px 34px color-mix(in srgb, var(--accent) 34%, transparent),
+        0 0 0 5px rgba(239, 201, 135, 0.16);
+    }
+
+    .story-video-range::-moz-range-thumb {
+      width: 26px;
+      height: 26px;
+      border: 0;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff7dc 0%, #efc987 48%, #7f6c50 100%);
+      box-shadow:
+        0 14px 34px color-mix(in srgb, var(--accent) 34%, transparent),
+        0 0 0 5px rgba(239, 201, 135, 0.16);
+    }
+
+    .story-video-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      color: var(--dim);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .story-video-steps span {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: center;
     }
 
     .lightbox {
@@ -3167,8 +3635,38 @@
       }
 
       .works-grid,
-      .wallpaper-grid {
+      .wallpaper-grid,
+      .story-video-grid {
         grid-template-columns: 1fr;
+      }
+
+      .story-video-stage {
+        min-height: clamp(410px, 96vw, 560px);
+      }
+
+      .story-video-panel {
+        top: 48%;
+        width: min(620px, 88vw);
+      }
+
+      .story-video-caption {
+        gap: 12px;
+      }
+
+      .story-video-index {
+        width: 36px;
+        height: 36px;
+        font-size: 13px;
+      }
+
+      .image-work-slide {
+        grid-template-columns: 1fr;
+      }
+
+      .image-work-switcher-controls {
+        top: var(--image-work-control-y, 38%);
+        left: 12px;
+        right: 12px;
       }
 
       .image-collection-grid {
@@ -3796,8 +4294,8 @@
     <section class="section page-shell" id="image-works">
       <div class="section-head reveal">
         <div>
-          <span class="kicker">AI Image Works</span>
-          <h2>AI图片作品集</h2>
+          <span class="kicker">AI Motion Posters</span>
+          <h2>AI动态海报合集</h2>
         </div>
       </div>
 
@@ -3846,6 +4344,29 @@
             <div class="work-meta">
               <h3>大年初一动态海报</h3>
               <p>作品说明：本作品在大年初一静态海报基础上进行动态化延展，将原本的节庆画面转化为更具节奏感的动态传播素材。通过角色动作、舞龙动势、节庆元素飘动、光效变化和画面细节奏的推进，增强新年氛围的热闹感与观看吸引力。动态设计保留原海报的红金视觉基调，同时进一步放大节日情绪，使作品更适合短视频平台和活动传播场景。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <img loading="lazy" decoding="async" src="assets/images/nanshan-litchi-poster.png" alt="美荔南山荔枝旅游消费季海报">
+            </div>
+            <div class="work-meta">
+              <h3>美荔南山荔枝海报</h3>
+              <p>以南山荔枝旅游消费季为主题，结合荔枝、山水、地标建筑与邮轮等视觉元素，形成具有地域识别度和节庆传播感的竖版主题海报。</p>
+            </div>
+          </article>
+
+          <article class="work-card reveal">
+            <div class="work-media">
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/nanshan-litchi-poster.png" aria-label="美荔南山动态海报视频">
+                <source src="assets/videos/nanshan-litchi-motion-poster.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <div class="work-meta">
+              <h3>美荔南山动态海报</h3>
+              <p>在原竖版海报基础上进行动态化演绎，保留红金主视觉、荔枝枝叶和南山地标氛围，让静态宣传画面转化为更适合短视频传播的动态海报。</p>
             </div>
           </article>
 
@@ -3978,6 +4499,84 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section class="section page-shell" id="image-to-video">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Video Generation Workflow</span>
+          <h2>视频生成工作流</h2>
+        </div>
+      </div>
+
+      <div class="story-video-grid reveal" aria-label="视频生成工作流四步展示">
+        <div class="story-video-stage" data-video-workflow-stage>
+          <article class="story-video-panel" data-workflow-card>
+            <div class="story-video-media">
+              <img loading="lazy" decoding="async" src="assets/images/video-workflow-product.png" alt="按摩产品多角度产品素材">
+            </div>
+            <div class="story-video-caption">
+              <span class="story-video-index">01</span>
+              <div>
+                <h3>产品素材输入</h3>
+                <p>先整理产品外观、结构和卖点信息，明确视频要表现的主体、功能和视觉重点。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-video-panel" data-workflow-card>
+            <div class="story-video-media">
+              <img loading="lazy" decoding="async" src="assets/images/video-workflow-gpt.png" alt="GPT 生成脚本分镜节点">
+            </div>
+            <div class="story-video-caption">
+              <span class="story-video-index">02</span>
+              <div>
+                <h3>GPT 生成脚本分镜</h3>
+                <p>先用 GPT 拆解产品卖点、生成视频脚本和镜头分镜，为后续画面生成建立清晰结构。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-video-panel" data-workflow-card>
+            <div class="story-video-media">
+              <img loading="lazy" decoding="async" src="assets/images/video-workflow-storyboard.png" alt="15 秒产品营销视频完整分镜图">
+            </div>
+            <div class="story-video-caption">
+              <span class="story-video-index">03</span>
+              <div>
+                <h3>16宫格分镜</h3>
+                <p>把视频节奏整理成 16 个关键画面，确定对比、特写、结构解析、使用场景和 CTA 收尾。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="story-video-panel" data-workflow-card>
+            <div class="story-video-media">
+              <video controls preload="metadata" playsinline poster="assets/images/massage-chair-video-cover.png" aria-label="按摩产品视频生成成片">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%8C%89%E6%91%A9%E6%A4%85%E8%A7%86%E9%A2%91.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <div class="story-video-caption">
+              <span class="story-video-index">04</span>
+              <div>
+                <h3>视频生成成片</h3>
+                <p>根据分镜和产品卖点生成动态视频，完成镜头衔接、节奏强化和最终展示。</p>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="story-video-controls" aria-label="拖动切换视频生成工作流">
+          <input class="story-video-range" data-video-workflow-range type="range" min="0" max="3" step="0.01" value="0" aria-label="拖动查看视频生成工作流步骤">
+          <div class="story-video-steps" aria-hidden="true">
+            <span>产品</span>
+            <span>脚本分镜</span>
+            <span>16宫格</span>
+            <span>视频</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -4328,7 +4927,7 @@
 
     const updateThemeMeta = () => {
       if (root.dataset.palette === "artist") {
-        themeMeta?.setAttribute("content", "#697ee8");
+        themeMeta?.setAttribute("content", "#0b1d4d");
         paletteButton.textContent = "◆";
         paletteButton.setAttribute("aria-pressed", "true");
         paletteButton.setAttribute("title", "切回旧配色");
@@ -4367,6 +4966,126 @@
     }
 
     updateThemeMeta();
+
+    const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
+    const setupImageWorksSwitcher = () => {
+      if (!imageWorksSwitcherGrid || imageWorksSwitcherGrid.dataset.switcherReady === "true") return;
+
+      const sourceCards = Array.from(imageWorksSwitcherGrid.children).filter((child) => child.classList.contains("work-card"));
+      const imageCollectionGrid = document.querySelector(".image-collection-grid");
+      const switcherCards = sourceCards.slice(0, 6);
+      const collectionCards = sourceCards.slice(6);
+      collectionCards.forEach((card) => {
+        imageCollectionGrid?.appendChild(card);
+      });
+      if (switcherCards.length <= 2) return;
+
+      const switcherWrap = imageWorksSwitcherGrid.closest(".works-rail-wrap");
+      const slides = [];
+      let activeIndex = 0;
+      let switchTimer = 0;
+      let isSwitching = false;
+
+      switcherWrap?.classList.add("image-work-switcher-wrap");
+      imageWorksSwitcherGrid.classList.add("image-work-switcher");
+      imageWorksSwitcherGrid.dataset.switcherReady = "true";
+      imageWorksSwitcherGrid.setAttribute("aria-label", "AI动态海报合集上下切换卡片");
+
+      for (let index = 0; index < switcherCards.length; index += 2) {
+        const slide = document.createElement("div");
+        slide.className = "image-work-slide";
+        slide.setAttribute("aria-hidden", index === 0 ? "false" : "true");
+        switcherCards.slice(index, index + 2).forEach((card) => slide.appendChild(card));
+        imageWorksSwitcherGrid.appendChild(slide);
+        slides.push(slide);
+      }
+
+      const controls = document.createElement("div");
+      controls.className = "image-work-switcher-controls";
+      controls.innerHTML = `
+        <button class="image-work-switch-prev" type="button" aria-label="上一组 AI 图片作品" title="上一组">↑</button>
+        <button class="image-work-switch-next" type="button" aria-label="下一组 AI 图片作品" title="下一组">↓</button>
+      `;
+      switcherWrap?.appendChild(controls);
+
+      const prevButton = controls.querySelector(".image-work-switch-prev");
+      const nextButton = controls.querySelector(".image-work-switch-next");
+
+      const syncSwitcherHeight = () => {
+        const activeSlide = slides[activeIndex];
+        if (!activeSlide) return;
+        const height = Math.ceil(activeSlide.scrollHeight + 18);
+        imageWorksSwitcherGrid.style.setProperty("--image-work-switch-height", height + "px");
+        const activeMedia = activeSlide.querySelector(".work-media");
+        if (activeMedia) {
+          const mediaCenter = activeMedia.offsetTop + (activeMedia.offsetHeight / 2);
+          imageWorksSwitcherGrid.style.setProperty("--image-work-control-y", mediaCenter + "px");
+          switcherWrap?.style.setProperty("--image-work-control-y", mediaCenter + "px");
+        }
+      };
+
+      const pauseSlideVideos = (slide) => {
+        slide?.querySelectorAll("video").forEach((video) => video.pause());
+      };
+
+      const restartAutoSwitch = () => {
+        window.clearInterval(switchTimer);
+        switchTimer = window.setInterval(() => {
+          goToSlide(activeIndex + 1, 1, false);
+        }, 5600);
+      };
+
+      function goToSlide(nextIndex, direction = 1, userInitiated = false) {
+        if (isSwitching || slides.length < 2) return;
+        const normalizedIndex = ((nextIndex % slides.length) + slides.length) % slides.length;
+        if (normalizedIndex === activeIndex) return;
+
+        isSwitching = true;
+        const currentSlide = slides[activeIndex];
+        const nextSlide = slides[normalizedIndex];
+        const fromClass = direction > 0 ? "is-entering-from-bottom" : "is-entering-from-top";
+        const exitClass = direction > 0 ? "is-exiting-to-top" : "is-exiting-to-bottom";
+
+        slides.forEach((slide) => {
+          slide.classList.remove("is-entering-from-top", "is-entering-from-bottom", "is-exiting-to-top", "is-exiting-to-bottom");
+          slide.setAttribute("aria-hidden", "true");
+        });
+
+        nextSlide.classList.add(fromClass);
+        nextSlide.setAttribute("aria-hidden", "false");
+        pauseSlideVideos(currentSlide);
+
+        nextSlide.offsetHeight;
+
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            currentSlide.classList.remove("is-active");
+            currentSlide.classList.add(exitClass);
+            nextSlide.classList.remove(fromClass);
+            nextSlide.classList.add("is-active");
+            activeIndex = normalizedIndex;
+            syncSwitcherHeight();
+          });
+        });
+
+        window.setTimeout(() => {
+          currentSlide.classList.remove(exitClass);
+          isSwitching = false;
+        }, 1120);
+
+        if (userInitiated) restartAutoSwitch();
+      }
+
+      slides[0].classList.add("is-active");
+      syncSwitcherHeight();
+      window.addEventListener("resize", syncSwitcherHeight, { passive: true });
+      prevButton?.addEventListener("click", () => goToSlide(activeIndex - 1, -1, true));
+      nextButton?.addEventListener("click", () => goToSlide(activeIndex + 1, 1, true));
+
+      if (canUseMotion) restartAutoSwitch();
+    };
+
+    setupImageWorksSwitcher();
 
     const imageCarousel = document.querySelector(".image-collection-grid");
     const imageCarouselCards = imageCarousel ? Array.from(imageCarousel.querySelectorAll(".work-card")) : [];
@@ -4886,6 +5605,88 @@
       assetCarousel.addEventListener("pointerup", stopAssetCarouselDrag);
       assetCarousel.addEventListener("pointercancel", stopAssetCarouselDrag);
       renderAssetCarousel();
+    }
+
+    const videoWorkflow = document.querySelector("[data-video-workflow-stage]");
+    const videoWorkflowRange = document.querySelector("[data-video-workflow-range]");
+    const videoWorkflowCards = Array.from(document.querySelectorAll("[data-workflow-card]"));
+
+    const renderVideoWorkflow = () => {
+      if (!videoWorkflow || !videoWorkflowRange || !videoWorkflowCards.length) return;
+      const value = Number(videoWorkflowRange.value);
+      const stageWidth = videoWorkflow.clientWidth || window.innerWidth;
+      const activeIndex = Math.round(value);
+      videoWorkflowRange.style.setProperty("--workflow-progress", ((value / 3) * 100) + "%");
+
+      videoWorkflowCards.forEach((card, index) => {
+        const offset = index - value;
+        const distance = Math.min(Math.abs(offset), 2.2);
+        const visibleDistance = Math.min(Math.abs(offset), 1.55);
+        const x = offset * Math.min(stageWidth * 0.46, 460);
+        const y = -34 + Math.pow(visibleDistance, 1.45) * 130;
+        const scale = Math.max(0.58, 1 - distance * 0.24);
+        const opacity = distance > 1.55 ? 0 : Math.max(0, 1 - Math.max(0, distance - 0.18) * 0.62);
+        const rotate = offset * -6;
+
+        card.style.setProperty("--card-x", x + "px");
+        card.style.setProperty("--card-y", y + "px");
+        card.style.setProperty("--card-scale", scale);
+        card.style.setProperty("--card-rotate", rotate + "deg");
+        card.style.setProperty("--card-opacity", opacity);
+        card.style.setProperty("--card-blur", Math.max(0, distance - 0.35) * 2.5 + "px");
+        card.style.setProperty("--card-z", String(20 - Math.round(distance * 8)));
+        card.classList.toggle("is-active", index === activeIndex);
+        card.setAttribute("aria-hidden", index === activeIndex ? "false" : "true");
+
+        const video = card.querySelector("video");
+        if (video && index !== activeIndex) video.pause();
+      });
+    };
+
+    if (videoWorkflow && videoWorkflowRange && videoWorkflowCards.length) {
+      let videoWorkflowPointerDragging = false;
+
+      const snapVideoWorkflow = () => {
+        videoWorkflowRange.value = String(Math.round(Number(videoWorkflowRange.value)));
+        renderVideoWorkflow();
+      };
+
+      const setVideoWorkflowFromPointer = (clientX) => {
+        const rect = videoWorkflowRange.getBoundingClientRect();
+        const ratio = rect.width ? (clientX - rect.left) / rect.width : 0;
+        const nextValue = Math.max(0, Math.min(3, ratio * 3));
+        videoWorkflowRange.value = nextValue.toFixed(2);
+        renderVideoWorkflow();
+      };
+
+      videoWorkflowRange.addEventListener("input", renderVideoWorkflow);
+      videoWorkflowRange.addEventListener("change", snapVideoWorkflow);
+      videoWorkflowRange.addEventListener("pointerdown", (event) => {
+        if (event.pointerType === "mouse" && event.button !== 0) return;
+        videoWorkflowPointerDragging = true;
+        videoWorkflowRange.setPointerCapture?.(event.pointerId);
+        setVideoWorkflowFromPointer(event.clientX);
+        event.preventDefault();
+      });
+      videoWorkflowRange.addEventListener("pointermove", (event) => {
+        if (!videoWorkflowPointerDragging) return;
+        setVideoWorkflowFromPointer(event.clientX);
+      });
+      const stopVideoWorkflowPointer = (event) => {
+        if (!videoWorkflowPointerDragging) return;
+        videoWorkflowPointerDragging = false;
+        videoWorkflowRange.releasePointerCapture?.(event.pointerId);
+        snapVideoWorkflow();
+      };
+      videoWorkflowRange.addEventListener("pointerup", stopVideoWorkflowPointer);
+      videoWorkflowRange.addEventListener("pointercancel", stopVideoWorkflowPointer);
+      videoWorkflowRange.addEventListener("keyup", (event) => {
+        if (event.key === "ArrowLeft" || event.key === "ArrowRight" || event.key === "Home" || event.key === "End") {
+          snapVideoWorkflow();
+        }
+      });
+      window.addEventListener("resize", renderVideoWorkflow, { passive: true });
+      renderVideoWorkflow();
     }
 
     if (canUseMotion && window.matchMedia("(pointer: fine)").matches) {
