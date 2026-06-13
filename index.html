@@ -162,6 +162,7 @@
     }
 
     [data-palette="artist"] .work-media,
+    [data-palette="artist"] .mix-video-frame,
     [data-palette="artist"] .case-card,
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
@@ -171,6 +172,7 @@
     }
 
     [data-palette="artist"] .work-media,
+    [data-palette="artist"] .mix-video-frame,
     [data-palette="artist"] .case-card,
     [data-palette="artist"] .advantage-card,
     [data-palette="artist"] .showreel,
@@ -188,6 +190,7 @@
     }
 
     [data-palette="artist"] .work-card:hover .work-media,
+    [data-palette="artist"] .mix-video-shell:hover .mix-video-frame,
     [data-palette="artist"] .case-card:hover,
     [data-palette="artist"] .advantage-card:hover,
     [data-palette="artist"] .showreel:hover,
@@ -663,16 +666,141 @@
       100% { filter: blur(0); opacity: 1; transform: translate3d(0, 0, 0); }
     }
 
-    @keyframes welcome-title-shimmer {
+    @keyframes welcome-letter-light {
       0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
+      52% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
     }
 
+    @keyframes welcome-title-aura {
+      0%, 100% {
+        filter:
+          drop-shadow(0 10px 18px rgba(130, 166, 255, 0.14))
+          drop-shadow(0 0 18px rgba(239, 201, 135, 0.08));
+      }
+      50% {
+        filter:
+          drop-shadow(0 12px 28px rgba(226, 238, 255, 0.28))
+          drop-shadow(0 0 34px rgba(111, 183, 255, 0.2));
+      }
+    }
+
+    @keyframes welcome-letter-sparkle {
+      0%, 100% { text-shadow: 0 10px 26px rgba(17, 28, 106, 0.18); }
+      45% { text-shadow: 0 10px 26px rgba(17, 28, 106, 0.18); }
+      52% { text-shadow: 0 0 18px rgba(226, 238, 255, 0.28), 0 12px 30px rgba(17, 28, 106, 0.2); }
+      60% { text-shadow: 0 10px 26px rgba(17, 28, 106, 0.18); }
+    }
+
+    @keyframes welcome-kicker-reveal {
+      0%, 36% { opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(8px); }
+      48%, 88% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+      100% { opacity: 0; transform: translate3d(0, -8px, 0); filter: blur(6px); }
+    }
+
     @keyframes welcome-title-sweep {
-      0% { transform: translateX(-150%) skewX(-16deg); opacity: 0; }
-      20%, 58% { opacity: 0.72; }
-      82%, 100% { transform: translateX(150%) skewX(-16deg); opacity: 0; }
+      0%, 40% { transform: translate3d(-118%, 0, 0) skewX(-14deg); opacity: 0; }
+      48% { opacity: 0.92; }
+      62% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
+      100% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
+    }
+
+    @keyframes welcome-title-reveal {
+      0%, 38% {
+        opacity: 0;
+        filter: blur(18px) brightness(2);
+        transform: translate3d(0, 24px, 0) scale(0.96);
+      }
+      48% {
+        opacity: 0.72;
+        filter: blur(5px) brightness(1.55);
+        transform: translate3d(0, 6px, 0) scale(1.01);
+      }
+      56%, 88% {
+        opacity: 1;
+        filter: blur(0) brightness(1);
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      100% {
+        opacity: 0;
+        filter: blur(10px) brightness(1.35);
+        transform: translate3d(0, -12px, 0) scale(0.99);
+      }
+    }
+
+    @keyframes welcome-title-light-wash {
+      0%, 34% { opacity: 0; transform: translate3d(-50%, -16%, 0) scale(0.72); }
+      47% { opacity: 0.9; transform: translate3d(-50%, -2%, 0) scale(1); }
+      66% { opacity: 0.34; transform: translate3d(-50%, 5%, 0) scale(1.18); }
+      100% { opacity: 0; transform: translate3d(-50%, 8%, 0) scale(1.24); }
+    }
+
+    @keyframes welcome-word-glint {
+      0%, 20% { transform: translate3d(-140%, 0.12em, 0) rotate(18deg) scale(0.42); opacity: 0; }
+      32% { opacity: 0.95; }
+      52% { transform: translate3d(360%, -0.2em, 0) rotate(18deg) scale(1); opacity: 0; }
+      100% { transform: translate3d(360%, -0.2em, 0) rotate(18deg) scale(1); opacity: 0; }
+    }
+
+    @keyframes welcome-title-spark-drift {
+      0%, 16% { transform: translate3d(-0.22em, 0.2em, 0) scale(0.46); opacity: 0; }
+      24% { opacity: 0.82; }
+      48% { transform: translate3d(0.72em, -0.22em, 0) scale(1); opacity: 0; }
+      100% { transform: translate3d(0.72em, -0.22em, 0) scale(1); opacity: 0; }
+    }
+
+    @keyframes welcome-cloud-drift {
+      0% { transform: translate3d(calc(-1 * var(--cloud-width) - 10vw), var(--cloud-y), 0) scale(var(--cloud-scale)); opacity: 0; }
+      10% { opacity: var(--cloud-opacity); }
+      50% { transform: translate3d(48vw, calc(var(--cloud-y) - var(--cloud-lift)), 0) scale(var(--cloud-scale)); }
+      88% { opacity: var(--cloud-opacity); }
+      100% { transform: translate3d(112vw, calc(var(--cloud-y) + 8px), 0) scale(var(--cloud-scale)); opacity: 0; }
+    }
+
+    @keyframes welcome-cloud-bloom {
+      0%, 100% { filter: blur(0.35px) drop-shadow(0 18px 26px rgba(79, 125, 193, 0.16)); }
+      50% { filter: blur(0.8px) drop-shadow(0 24px 36px rgba(255, 255, 255, 0.24)); }
+    }
+
+    @keyframes welcome-helicopter-flight {
+      0% { transform: translate3d(-30vw, -12px, 0) rotate(-5deg) scale(var(--heli-scale)); opacity: 0; }
+      9% { opacity: 0.62; }
+      36% { transform: translate3d(37vw, 4px, 0) rotate(-1deg) scale(var(--heli-scale)); opacity: 0.68; }
+      48% { transform: translate3d(43vw, 0, 0) rotate(0deg) scale(var(--heli-scale)); opacity: 0.68; }
+      60% { transform: translate3d(43vw, -4px, 0) rotate(0.8deg) scale(var(--heli-scale)); opacity: 0.68; }
+      72% { transform: translate3d(58vw, -10px, 0) rotate(2deg) scale(var(--heli-scale)); opacity: 0.62; }
+      100% { transform: translate3d(122vw, 14px, 0) rotate(5deg) scale(var(--heli-scale)); opacity: 0; }
+    }
+
+    @keyframes welcome-helicopter-float {
+      0%, 100% { transform: translate3d(0, 0, 0) rotate(-1.4deg); }
+      50% { transform: translate3d(0, -5px, 0) rotate(1deg); }
+    }
+
+    @keyframes welcome-helicopter-rotor {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes welcome-helicopter-light {
+      0%, 32% { opacity: 0; transform: translate3d(-50%, 0, 0) rotate(-4deg) scaleY(0.68); }
+      42% { opacity: 0.4; transform: translate3d(-50%, 0, 0) rotate(-2deg) scaleY(0.9); }
+      50%, 62% { opacity: 0.88; transform: translate3d(-50%, 0, 0) rotate(0deg) scaleY(1); }
+      74%, 100% { opacity: 0; transform: translate3d(-50%, 0, 0) rotate(3deg) scaleY(0.78); }
+    }
+
+    @keyframes welcome-helicopter-light-core {
+      0%, 34% { opacity: 0; transform: translate3d(-50%, 0, 0) scale(0.62); }
+      50%, 62% { opacity: 0.96; transform: translate3d(-50%, 0, 0) scale(1); }
+      74%, 100% { opacity: 0; transform: translate3d(-50%, 0, 0) scale(0.78); }
+    }
+
+    @keyframes welcome-lighthouse-beam {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes welcome-lighthouse-pulse {
+      0%, 100% { opacity: 0.62; filter: drop-shadow(0 0 8px rgba(255, 248, 215, 0.5)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(255, 248, 215, 0.82)); }
     }
 
     @keyframes welcome-boat-drift {
@@ -787,6 +915,35 @@
       28% { opacity: 0.78; transform: translate3d(0, -8px, 0) scaleY(1); }
       46% { opacity: 0.44; transform: translate3d(0, -26px, 0) scaleY(1.24); }
       62% { opacity: 0; transform: translate3d(0, -38px, 0) scaleY(0.86); }
+    }
+
+    @keyframes welcome-dolphin-leap {
+      0%, 58% { opacity: 0; transform: translate3d(-16vw, var(--dolphin-y), 0) scale(var(--dolphin-scale)) rotate(12deg); }
+      63% { opacity: 0.78; transform: translate3d(12vw, calc(var(--dolphin-y) - 4px), 0) scale(var(--dolphin-scale)) rotate(10deg); }
+      70% { opacity: 0.86; transform: translate3d(34vw, calc(var(--dolphin-y) - 92px), 0) scale(var(--dolphin-scale)) rotate(-22deg); }
+      77% { opacity: 0.68; transform: translate3d(56vw, calc(var(--dolphin-y) - 2px), 0) scale(var(--dolphin-scale)) rotate(18deg); }
+      82%, 100% { opacity: 0; transform: translate3d(66vw, calc(var(--dolphin-y) + 18px), 0) scale(var(--dolphin-scale)) rotate(22deg); }
+    }
+
+    @keyframes welcome-dolphin-splash {
+      0%, 61%, 79%, 100% { opacity: 0; stroke-dashoffset: 0; transform: translate3d(0, 0, 0) scaleX(0.84); }
+      65%, 76% { opacity: 0.62; }
+      78% { opacity: 0; stroke-dashoffset: -48; transform: translate3d(0, 10px, 0) scaleX(1.18); }
+    }
+
+    @keyframes welcome-whale-surface {
+      0%, 18% { opacity: 0; transform: translate3d(106vw, var(--whale-y), 0) scaleX(-1) scale(var(--whale-scale)); }
+      30% { opacity: 0.58; transform: translate3d(78vw, calc(var(--whale-y) - 2px), 0) scaleX(-1) scale(var(--whale-scale)); }
+      48% { opacity: 0.64; transform: translate3d(55vw, calc(var(--whale-y) - 22px), 0) scaleX(-1) scale(var(--whale-scale)); }
+      62% { opacity: 0.5; transform: translate3d(32vw, calc(var(--whale-y) - 6px), 0) scaleX(-1) scale(var(--whale-scale)); }
+      74%, 100% { opacity: 0; transform: translate3d(8vw, calc(var(--whale-y) + 18px), 0) scaleX(-1) scale(var(--whale-scale)); }
+    }
+
+    @keyframes welcome-whale-spout {
+      0%, 36%, 74%, 100% { opacity: 0; transform: translate3d(0, 12px, 0) scaleY(0.28); }
+      44% { opacity: 0.78; transform: translate3d(0, -8px, 0) scaleY(1); }
+      55% { opacity: 0.42; transform: translate3d(0, -28px, 0) scaleY(1.22); }
+      66% { opacity: 0; transform: translate3d(0, -40px, 0) scaleY(0.84); }
     }
 
     @keyframes turtle-drift {
@@ -983,18 +1140,18 @@
       width: min(92vw, 1040px);
       height: min(86vh, 760px);
       pointer-events: none;
-      opacity: 0.78;
+      opacity: 0.48;
       background:
-        radial-gradient(circle at 76% 24%, rgba(255, 250, 226, 0.78) 0 3%, rgba(239, 201, 135, 0.32) 8%, rgba(255, 255, 255, 0.16) 18%, transparent 34%),
-        radial-gradient(ellipse at 72% 28%, rgba(255, 246, 214, 0.28), transparent 38%),
-        linear-gradient(142deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 246, 214, 0.2) 16%, rgba(255, 255, 255, 0.08) 34%, transparent 58%);
-      filter: blur(9px);
+        radial-gradient(circle at 76% 24%, rgba(255, 250, 226, 0.58) 0 3%, rgba(239, 201, 135, 0.22) 9%, rgba(255, 255, 255, 0.1) 20%, transparent 40%),
+        radial-gradient(ellipse at 70% 30%, rgba(255, 246, 214, 0.2), transparent 48%),
+        linear-gradient(142deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 246, 214, 0.1) 22%, rgba(255, 255, 255, 0.04) 42%, transparent 72%);
+      filter: blur(22px);
       mix-blend-mode: screen;
       transform: rotate(-7deg);
       transform-origin: 88% 10%;
       animation: welcome-sun-rays 10s ease-in-out infinite alternate;
-      -webkit-mask-image: linear-gradient(135deg, black 0%, rgba(0, 0, 0, 0.82) 30%, rgba(0, 0, 0, 0.42) 56%, transparent 82%);
-      mask-image: linear-gradient(135deg, black 0%, rgba(0, 0, 0, 0.82) 30%, rgba(0, 0, 0, 0.42) 56%, transparent 82%);
+      -webkit-mask-image: radial-gradient(ellipse at 72% 28%, black 0 22%, rgba(0, 0, 0, 0.58) 44%, transparent 78%);
+      mask-image: radial-gradient(ellipse at 72% 28%, black 0 22%, rgba(0, 0, 0, 0.58) 44%, transparent 78%);
     }
 
     .welcome-cover > * {
@@ -1008,7 +1165,25 @@
       justify-items: center;
       text-align: center;
       gap: clamp(18px, 2.6vw, 30px);
-      z-index: 3;
+      z-index: 8;
+    }
+
+    .welcome-panel::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 46%;
+      width: min(74vw, 860px);
+      height: clamp(170px, 20vw, 260px);
+      border-radius: 50%;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.62), rgba(239, 201, 135, 0.18) 34%, rgba(115, 183, 255, 0.1) 56%, transparent 72%);
+      filter: blur(18px);
+      mix-blend-mode: screen;
+      opacity: 0;
+      animation: welcome-title-light-wash 17s ease-out infinite;
     }
 
     .welcome-kicker {
@@ -1023,6 +1198,8 @@
       text-shadow:
         0 0 16px rgba(239, 201, 135, 0.34),
         0 10px 28px rgba(53, 76, 184, 0.22);
+      opacity: 0;
+      animation: welcome-kicker-reveal 17s ease-out infinite;
     }
 
     .welcome-kicker::before,
@@ -1038,50 +1215,38 @@
       position: relative;
       margin: 0;
       max-width: min(11em, 100%);
-      color: transparent;
+      color: #ffffff;
       font-family: "Cinzel Decorative", Didot, "Bodoni 72", "Cormorant Garamond", Georgia, "Times New Roman", serif;
       font-size: clamp(46px, 7.4vw, 104px);
       font-weight: 900;
       line-height: 0.9;
       letter-spacing: 0.012em;
       text-wrap: balance;
-      background:
-        linear-gradient(112deg, #ffffff 0%, #eaf1ff 22%, #fff1bd 43%, #efc987 54%, #ffffff 72%, #b9d2ff 100%);
-      background-size: 240% 100%;
-      -webkit-background-clip: text;
-      background-clip: text;
-      animation: welcome-title-shimmer 7.5s ease-in-out infinite;
+      background: none;
       text-shadow:
-        0 0 18px rgba(255, 255, 255, 0.24),
-        0 18px 48px rgba(55, 66, 160, 0.4),
-        0 34px 94px rgba(17, 28, 106, 0.32);
+        0 10px 26px rgba(17, 28, 106, 0.24),
+        0 0 42px rgba(185, 216, 255, 0.2);
+      animation: welcome-title-aura 6.8s ease-in-out infinite;
       overflow: visible;
     }
 
     .welcome-title::before {
-      content: "";
-      position: absolute;
-      inset: -0.08em -0.18em;
-      z-index: -1;
-      opacity: 0.58;
-      background:
-        radial-gradient(ellipse at 50% 44%, rgba(255, 240, 190, 0.22), transparent 54%),
-        radial-gradient(ellipse at 50% 70%, rgba(142, 176, 255, 0.2), transparent 62%);
-      filter: blur(12px);
+      content: none;
     }
 
     .welcome-title::after {
       content: "";
       position: absolute;
-      top: 6%;
-      bottom: 8%;
-      left: 0;
-      width: 38%;
+      z-index: 3;
+      inset: -0.1em -0.32em;
       pointer-events: none;
-      opacity: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.74), transparent);
+      background:
+        linear-gradient(105deg, transparent 22%, rgba(255, 255, 255, 0.08) 38%, rgba(255, 255, 255, 0.72) 48%, rgba(239, 201, 135, 0.52) 52%, transparent 66%),
+        linear-gradient(105deg, transparent 46%, rgba(133, 203, 255, 0.34) 51%, transparent 58%);
+      filter: blur(1px);
       mix-blend-mode: screen;
-      animation: welcome-title-sweep 5.8s ease-in-out 1.4s infinite;
+      opacity: 0;
+      animation: welcome-title-sweep 17s ease-in-out infinite;
     }
 
     .blur-text {
@@ -1093,26 +1258,342 @@
 
     .blur-word {
       display: inline-block;
+      position: relative;
+      z-index: 2;
+      color: transparent;
+      background:
+        linear-gradient(112deg, #ffffff 0%, #ffffff 20%, #dbe9ff 38%, #ffffff 50%, #f8fbff 64%, #cbdcff 82%, #ffffff 100%);
+      background-size: 320% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-stroke: 0.012em rgba(255, 255, 255, 0.72);
+      text-shadow:
+        0 5px 16px rgba(3, 10, 35, 0.58),
+        0 18px 34px rgba(6, 18, 70, 0.42),
+        0 0 34px rgba(204, 225, 255, 0.36);
       opacity: 0;
       filter: blur(10px);
       transform: translate3d(0, -42px, 0);
-      animation: welcome-blur-word 0.9s var(--ease-soft) forwards;
-      animation-delay: calc(0.28s + (var(--i) * 150ms));
+      animation:
+        welcome-title-reveal 17s var(--ease-soft) infinite,
+        welcome-letter-light 6.4s ease-in-out 9.4s infinite,
+        welcome-letter-sparkle 6.4s ease-in-out 9.4s infinite;
+      animation-delay: calc(var(--i) * 190ms), 9.4s, 9.4s;
       will-change: transform, filter, opacity;
+    }
+
+    .blur-word::before,
+    .blur-word::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      border-radius: 999px;
+      mix-blend-mode: screen;
+    }
+
+    .blur-word::before {
+      top: 0.1em;
+      left: 0.1em;
+      width: 0.52em;
+      height: 0.08em;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), rgba(239, 201, 135, 0.62), transparent);
+      box-shadow: 0 0 18px rgba(239, 201, 135, 0.46);
+      transform-origin: center;
+      animation: welcome-word-glint 6.8s ease-in-out calc(9.6s + (var(--i) * 0.7s)) infinite;
+    }
+
+    .blur-word::after {
+      top: -0.04em;
+      right: 0.18em;
+      width: 0.09em;
+      height: 0.09em;
+      background: #ffffff;
+      box-shadow:
+        0 0 10px rgba(255, 255, 255, 0.9),
+        0 0 22px rgba(133, 203, 255, 0.58),
+        0 0 34px rgba(239, 201, 135, 0.4);
+      animation: welcome-title-spark-drift 7.4s ease-in-out calc(9.9s + (var(--i) * 1.1s)) infinite;
     }
 
     .welcome-title strong {
       display: inline-block;
       color: transparent;
       background:
-        linear-gradient(110deg, #ffffff 0%, #fff4cc 28%, #efc987 52%, #ffffff 84%);
-      background-size: 180% 100%;
+        linear-gradient(110deg, #ffffff 0%, #f8fbff 28%, #d7e7ff 48%, #ffffff 60%, #eaf2ff 84%);
+      background-size: 320% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       font-style: normal;
       text-shadow:
-        0 0 22px rgba(239, 201, 135, 0.3),
-        0 18px 42px rgba(239, 201, 135, 0.18);
+        0 10px 26px rgba(17, 28, 106, 0.18);
+    }
+
+    .welcome-clouds {
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.92;
+    }
+
+    .welcome-cloud {
+      --cloud-width: clamp(86px, 10vw, 166px);
+      --cloud-y: 16vh;
+      --cloud-scale: 1;
+      --cloud-opacity: 0.82;
+      --cloud-lift: 26px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: var(--cloud-width);
+      height: calc(var(--cloud-width) * 0.5);
+      border-radius: 999px;
+      background:
+        radial-gradient(ellipse at 17% 65%, rgba(255, 255, 255, 1) 0 24%, transparent 25%),
+        radial-gradient(ellipse at 34% 38%, rgba(255, 255, 255, 1) 0 34%, transparent 36%),
+        radial-gradient(ellipse at 51% 26%, rgba(255, 255, 255, 0.99) 0 31%, transparent 33%),
+        radial-gradient(ellipse at 68% 48%, rgba(255, 255, 255, 0.97) 0 32%, transparent 34%),
+        radial-gradient(ellipse at 83% 66%, rgba(252, 254, 255, 0.93) 0 25%, transparent 27%),
+        radial-gradient(ellipse at 50% 88%, rgba(146, 177, 207, 0.3) 0 48%, transparent 62%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(233, 244, 255, 0.58) 64%, rgba(173, 204, 232, 0.2));
+      filter: blur(0.35px) drop-shadow(0 20px 28px rgba(48, 82, 176, 0.14));
+      mix-blend-mode: lighten;
+      transform: translate3d(calc(-1 * var(--cloud-width) - 10vw), var(--cloud-y), 0) scale(var(--cloud-scale));
+      animation:
+        welcome-cloud-drift var(--cloud-speed, 46s) linear var(--cloud-delay, 0s) infinite,
+        welcome-cloud-bloom 8.5s ease-in-out var(--cloud-delay, 0s) infinite;
+      will-change: transform, opacity, filter;
+    }
+
+    .welcome-cloud::before,
+    .welcome-cloud::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background:
+        radial-gradient(ellipse at 50% 50%, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.62) 56%, transparent 72%);
+      filter: blur(8px);
+    }
+
+    .welcome-cloud::before {
+      width: 54%;
+      height: 88%;
+      left: 24%;
+      top: -35%;
+    }
+
+    .welcome-cloud::after {
+      width: 46%;
+      height: 72%;
+      right: 8%;
+      top: -8%;
+    }
+
+    .welcome-island {
+      position: absolute;
+      z-index: 2;
+      right: clamp(38px, 10vw, 150px);
+      bottom: clamp(320px, 44vh, 500px);
+      width: clamp(190px, 22vw, 330px);
+      pointer-events: none;
+      opacity: 0.82;
+      filter: drop-shadow(0 18px 28px rgba(3, 10, 35, 0.18));
+      mix-blend-mode: screen;
+    }
+
+    .welcome-island svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+    }
+
+    .welcome-island .lighthouse-beam {
+      transform-box: view-box;
+      transform-origin: 161px 58px;
+      animation: welcome-lighthouse-beam 9.5s linear infinite;
+      mix-blend-mode: screen;
+    }
+
+    .welcome-island .lighthouse-lamp {
+      animation: welcome-lighthouse-pulse 2.8s ease-in-out infinite;
+    }
+
+    .welcome-helicopter {
+      --heli-scale: 1;
+      position: absolute;
+      z-index: 7;
+      left: 0;
+      top: clamp(142px, 22vh, 235px);
+      width: clamp(168px, 14vw, 238px);
+      color: rgba(255, 255, 255, 0.94);
+      pointer-events: none;
+      opacity: 0;
+      filter:
+        drop-shadow(0 0 18px rgba(255, 255, 255, 0.42))
+        drop-shadow(0 18px 24px rgba(22, 48, 126, 0.34));
+      animation: welcome-helicopter-flight 17s linear 0s infinite;
+      will-change: transform, opacity;
+    }
+
+    .welcome-helicopter svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      animation: welcome-helicopter-float 3.8s ease-in-out infinite;
+    }
+
+    .welcome-helicopter .heli-body,
+    .welcome-helicopter .heli-tail,
+    .welcome-helicopter .heli-fin,
+    .welcome-helicopter .plane-wing,
+    .welcome-helicopter .heli-skid {
+      fill: currentColor;
+      stroke: rgba(20, 45, 84, 0.58);
+      stroke-linejoin: round;
+      stroke-width: 2.2;
+    }
+
+    .welcome-helicopter .heli-strut {
+      stroke: rgba(235, 244, 255, 0.9);
+      stroke-width: 4.2;
+      stroke-linecap: round;
+    }
+
+    .welcome-helicopter .heli-accent {
+      fill: #172a3f;
+      opacity: 0.92;
+    }
+
+    .welcome-helicopter .heli-panel {
+      fill: none;
+      stroke: rgba(23, 42, 63, 0.32);
+      stroke-width: 1.5;
+      stroke-linecap: round;
+    }
+
+    .welcome-helicopter .heli-window {
+      fill: #2b5f8e;
+      opacity: 0.82;
+    }
+
+    .welcome-helicopter .heli-mark {
+      fill: #7fc7ec;
+    }
+
+    .welcome-helicopter .plane-red {
+      fill: #8fd3f4;
+      stroke: rgba(235, 249, 255, 0.58);
+      stroke-linejoin: round;
+      stroke-width: 1.7;
+    }
+
+    .welcome-helicopter .plane-stripe {
+      fill: #73bfe9;
+      opacity: 0.95;
+    }
+
+    .welcome-helicopter .plane-engine {
+      fill: #f7fbff;
+      stroke: rgba(20, 45, 84, 0.56);
+      stroke-width: 2;
+    }
+
+    .welcome-helicopter .heli-registration {
+      fill: rgba(17, 31, 48, 0.78);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .welcome-helicopter .heli-rotor {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: welcome-helicopter-rotor 0.42s linear infinite;
+    }
+
+    .welcome-helicopter .heli-rotor line {
+      stroke: rgba(238, 247, 255, 0.72);
+      stroke-width: 5.5;
+      stroke-linecap: round;
+    }
+
+    .welcome-helicopter .heli-rotor .heli-rotor-blur {
+      stroke: rgba(238, 247, 255, 0.34);
+      stroke-width: 9;
+    }
+
+    .welcome-helicopter .plane-prop-blur {
+      fill: rgba(238, 247, 255, 0.2);
+      stroke: rgba(238, 247, 255, 0.26);
+      stroke-width: 2;
+    }
+
+    .welcome-helicopter .plane-prop-hub {
+      fill: #f6fbff;
+      stroke: rgba(20, 45, 84, 0.45);
+      stroke-width: 1.7;
+    }
+
+    .welcome-helicopter .plane-wheel {
+      fill: #172a3f;
+      stroke: rgba(235, 244, 255, 0.82);
+      stroke-width: 1.5;
+    }
+
+    .welcome-helicopter .heli-tail-rotor {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: welcome-helicopter-rotor 0.34s linear infinite reverse;
+    }
+
+    .welcome-helicopter .heli-tail-rotor line {
+      stroke: rgba(238, 247, 255, 0.7);
+      stroke-width: 5;
+      stroke-linecap: round;
+    }
+
+    .welcome-helicopter .heli-tail-rotor-arc {
+      fill: none;
+      stroke: rgba(238, 247, 255, 0.36);
+      stroke-width: 3;
+      stroke-linecap: round;
+    }
+
+    .welcome-helicopter-light {
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 58%;
+      width: clamp(150px, 13vw, 230px);
+      height: clamp(230px, 25vw, 380px);
+      pointer-events: none;
+      transform-origin: 50% 0;
+      background:
+        radial-gradient(ellipse at 50% 82%, rgba(255, 255, 255, 0.62), rgba(239, 201, 135, 0.28) 26%, rgba(136, 195, 255, 0.12) 48%, transparent 70%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.54), rgba(239, 201, 135, 0.22) 34%, rgba(116, 181, 255, 0.08) 70%, transparent);
+      clip-path: polygon(48% 0, 52% 0, 100% 100%, 0 100%);
+      filter: blur(7px);
+      mix-blend-mode: screen;
+      opacity: 0;
+      animation: welcome-helicopter-light 17s ease-in-out 0s infinite;
+    }
+
+    .welcome-helicopter-light::after {
+      content: none;
+      position: absolute;
+      left: 50%;
+      bottom: 5%;
+      width: 78%;
+      height: 18%;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.56);
+      filter: blur(16px);
+      opacity: 0;
+      animation: welcome-helicopter-light-core 17s ease-in-out 0s infinite;
     }
 
     .welcome-ocean {
@@ -1130,6 +1611,53 @@
       display: block;
       width: 100%;
       height: 100%;
+    }
+
+    .welcome-sea-life {
+      position: absolute;
+      z-index: 3;
+      inset: auto calc(50% - 50vw) 0;
+      height: min(48vh, 430px);
+      pointer-events: none;
+      overflow: hidden;
+      mix-blend-mode: screen;
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 86%, transparent);
+      mask-image: linear-gradient(to bottom, transparent, black 12%, black 86%, transparent);
+    }
+
+    .welcome-sea-life .sea-dolphin {
+      --dolphin-y: clamp(210px, 31vh, 306px);
+      --dolphin-scale: 0.68;
+      width: clamp(74px, 7.6vw, 112px);
+      animation: welcome-dolphin-leap 28s ease-in-out -7s infinite;
+      color: rgba(244, 247, 255, 0.56);
+      filter: blur(0.1px) drop-shadow(0 10px 18px rgba(109, 143, 255, 0.16));
+    }
+
+    .welcome-sea-life .sea-dolphin svg {
+      animation: dolphin-roll 28s ease-in-out -7s infinite;
+    }
+
+    .welcome-sea-life .dolphin-splash {
+      animation: welcome-dolphin-splash 28s ease-in-out -7s infinite;
+    }
+
+    .welcome-sea-life .sea-whale {
+      --whale-y: clamp(200px, 30vh, 292px);
+      --whale-scale: 0.72;
+      width: clamp(124px, 13vw, 188px);
+      color: rgba(232, 239, 255, 0.48);
+      animation: welcome-whale-surface 38s ease-in-out -22s infinite;
+      filter: blur(0.15px) drop-shadow(0 14px 22px rgba(71, 95, 185, 0.16));
+    }
+
+    .welcome-sea-life .sea-whale svg {
+      animation: whale-bob 7s ease-in-out infinite;
+    }
+
+    .welcome-sea-life .whale-spout path,
+    .welcome-sea-life .whale-spout circle {
+      animation: welcome-whale-spout 38s ease-out -22s infinite;
     }
 
     .welcome-wave {
@@ -1552,6 +2080,133 @@
       --section-blend:
         radial-gradient(ellipse at 68% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 46%),
         radial-gradient(ellipse at 20% 0%, color-mix(in srgb, var(--accent-2) 12%, transparent), transparent 54%);
+    }
+
+    #showreel-mix {
+      --panel-art-opacity: 0.82;
+      --panel-art:
+        radial-gradient(ellipse at 50% 116%, color-mix(in srgb, var(--accent-2) 20%, transparent), transparent 48%),
+        radial-gradient(ellipse at 92% 108%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 52%);
+      --section-blend:
+        radial-gradient(ellipse at 36% 0%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 52%),
+        radial-gradient(ellipse at 82% 0%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 48%);
+    }
+
+    #showreel-mix .section-head {
+      display: block;
+      margin-bottom: clamp(24px, 4vw, 46px);
+    }
+
+    #showreel-mix .section-head h2 {
+      white-space: nowrap;
+      letter-spacing: 0.045em;
+    }
+
+    .mix-video-shell {
+      width: min(100%, 1120px);
+      margin-inline: auto;
+      display: grid;
+      gap: 18px;
+    }
+
+    .mix-video-frame {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      isolation: isolate;
+      box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      transition: border-color 260ms ease, box-shadow 320ms var(--ease-out), transform 320ms var(--ease-out);
+    }
+
+    .mix-video-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 1;
+      transition: opacity 260ms ease;
+      background: radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 58%);
+    }
+
+    .mix-video-frame video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: var(--surface-2);
+      transition: filter 260ms ease;
+    }
+
+    .mix-video-shell:hover .mix-video-frame {
+      transform: translateY(-8px) scale(1.008);
+      border-color: color-mix(in srgb, var(--accent) 48%, var(--line));
+      box-shadow: 0 24px 70px color-mix(in srgb, var(--accent) 12%, transparent);
+    }
+
+    .mix-video-shell:hover .mix-video-frame::after {
+      opacity: 1;
+    }
+
+    [data-palette="artist"] .mix-video-frame {
+      background: rgba(12, 32, 82, 0.7);
+      border-width: 2px;
+      border-color: var(--window-border);
+      box-shadow:
+        0 0 0 1px var(--window-inner-border) inset,
+        0 22px 68px rgba(3, 10, 35, 0.34),
+        0 0 18px rgba(91, 170, 255, 0.16);
+      animation: window-border-breathe 4.6s ease-in-out infinite;
+    }
+
+    [data-palette="artist"] .mix-video-shell:hover .mix-video-frame {
+      border-color: var(--window-border-strong);
+      box-shadow:
+        0 0 0 1px rgba(227, 248, 255, 0.34) inset,
+        0 28px 82px rgba(3, 10, 35, 0.42),
+        0 0 32px rgba(91, 219, 255, 0.28);
+    }
+
+    .mix-video-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      color: var(--muted);
+    }
+
+    .mix-video-meta p {
+      max-width: 720px;
+      margin: 0;
+      font-size: clamp(15px, 1.35vw, 17px);
+      line-height: 1.72;
+    }
+
+    .mix-video-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 10px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .mix-video-tags li {
+      min-height: 34px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0 14px;
+      background: color-mix(in srgb, var(--accent-2) 12%, var(--surface));
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 800;
+      white-space: nowrap;
     }
 
     #image-works {
@@ -3599,6 +4254,27 @@
         max-width: 8.8em;
       }
 
+      .welcome-clouds {
+        opacity: 0.72;
+      }
+
+      .welcome-cloud {
+        --cloud-scale: 0.68;
+      }
+
+      .welcome-island {
+        right: 20px;
+        bottom: clamp(304px, 42vh, 390px);
+        width: clamp(160px, 28vw, 240px);
+        opacity: 0.68;
+      }
+
+      .welcome-helicopter {
+        --heli-scale: 0.72;
+        top: clamp(92px, 16vh, 140px);
+        width: clamp(120px, 17vw, 168px);
+      }
+
       .welcome-sailboat {
         left: clamp(22px, 12vw, 120px);
         bottom: 96px;
@@ -3699,6 +4375,15 @@
       .wallpaper-grid,
       .story-video-grid {
         grid-template-columns: 1fr;
+      }
+
+      .mix-video-meta {
+        display: grid;
+        gap: 14px;
+      }
+
+      .mix-video-tags {
+        justify-content: flex-start;
       }
 
       .section {
@@ -3834,8 +4519,40 @@
         font-size: clamp(48px, 15vw, 72px);
       }
 
+      .welcome-title::after {
+        inset: -0.08em -0.22em;
+      }
+
       .blur-text {
         gap: 0 0.18em;
+      }
+
+      .welcome-clouds {
+        opacity: 0.58;
+      }
+
+      .welcome-cloud:nth-child(3),
+      .welcome-cloud:nth-child(4) {
+        display: none;
+      }
+
+      .welcome-island {
+        right: 12px;
+        top: 160px;
+        bottom: auto;
+        width: 150px;
+        opacity: 0.62;
+      }
+
+      .welcome-helicopter {
+        --heli-scale: 0.52;
+        top: 86px;
+        width: 112px;
+      }
+
+      .welcome-helicopter-light {
+        width: 132px;
+        height: 230px;
       }
 
       .welcome-sailboat {
@@ -4177,6 +4894,7 @@
         Kevin <small>AI Video Design</small>
       </a>
       <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="#showreel-mix">混剪</a>
         <a href="#works">作品</a>
         <a href="#workflow">工作流</a>
         <a href="#cases">案例</a>
@@ -4192,6 +4910,97 @@
 
   <main id="top">
     <section class="welcome-cover page-shell" aria-label="Portfolio welcome cover">
+      <div class="welcome-clouds" aria-hidden="true">
+        <span class="welcome-cloud" style="--cloud-y:12vh; --cloud-width:clamp(78px, 8.5vw, 140px); --cloud-scale:0.72; --cloud-opacity:0.7; --cloud-speed:54s; --cloud-delay:-24s; --cloud-lift:18px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:24vh; --cloud-width:clamp(96px, 11vw, 178px); --cloud-scale:0.92; --cloud-opacity:0.8; --cloud-speed:62s; --cloud-delay:-44s; --cloud-lift:34px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:38vh; --cloud-width:clamp(70px, 7.5vw, 128px); --cloud-scale:0.6; --cloud-opacity:0.62; --cloud-speed:48s; --cloud-delay:-10s; --cloud-lift:24px;"></span>
+        <span class="welcome-cloud" style="--cloud-y:58vh; --cloud-width:clamp(108px, 12vw, 202px); --cloud-scale:0.8; --cloud-opacity:0.5; --cloud-speed:72s; --cloud-delay:-58s; --cloud-lift:12px;"></span>
+      </div>
+      <div class="welcome-island" aria-hidden="true">
+        <svg viewBox="0 0 280 170" role="presentation" focusable="false">
+          <defs>
+            <linearGradient id="island-rock" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#8fb0ff" stop-opacity="0.38"/>
+            </linearGradient>
+            <linearGradient id="tower-fill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#d7e7ff"/>
+            </linearGradient>
+            <radialGradient id="lamp-glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff8d7" stop-opacity="0.95"/>
+              <stop offset="44%" stop-color="#efc987" stop-opacity="0.46"/>
+              <stop offset="100%" stop-color="#efc987" stop-opacity="0"/>
+            </radialGradient>
+            <linearGradient id="palm-trunk" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff7dc" stop-opacity="0.9"/>
+              <stop offset="100%" stop-color="#c99555" stop-opacity="0.72"/>
+            </linearGradient>
+            <linearGradient id="palm-leaf" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#ffffff" stop-opacity="0.86"/>
+              <stop offset="100%" stop-color="#6fd6b5" stop-opacity="0.58"/>
+            </linearGradient>
+          </defs>
+          <g class="lighthouse-beam" opacity="0.7">
+            <path d="M156 50 L272 13 L274 36 L158 63 Z" fill="url(#lamp-glow)"/>
+            <path d="M154 50 L42 8 L40 30 L153 63 Z" fill="url(#lamp-glow)" opacity="0.58"/>
+          </g>
+          <path d="M24 140 C48 112 82 112 112 130 C135 106 176 106 204 132 C230 126 252 132 268 146 C206 156 89 157 24 140 Z" fill="url(#island-rock)" opacity="0.72"/>
+          <path d="M63 145 C110 136 184 139 242 147" fill="none" stroke="#ffffff" stroke-opacity="0.42" stroke-width="3" stroke-linecap="round"/>
+          <g opacity="0.88">
+            <g transform="translate(78 112) rotate(-9)">
+              <path d="M0 28 C6 15 8 3 5 -15" fill="none" stroke="url(#palm-trunk)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M5 -17 C-17 -18 -32 -9 -42 7 C-19 5 -4 -3 5 -17 Z" fill="url(#palm-leaf)"/>
+              <path d="M5 -17 C-8 -34 -25 -39 -43 -32 C-24 -21 -9 -18 5 -17 Z" fill="url(#palm-leaf)" opacity="0.82"/>
+              <path d="M5 -17 C22 -34 42 -36 58 -26 C35 -20 18 -17 5 -17 Z" fill="url(#palm-leaf)" opacity="0.86"/>
+              <path d="M5 -17 C27 -13 43 -3 51 15 C30 10 15 -1 5 -17 Z" fill="url(#palm-leaf)" opacity="0.78"/>
+              <circle cx="1" cy="-12" r="3" fill="#b47a43" opacity="0.82"/>
+              <circle cx="8" cy="-11" r="3" fill="#b47a43" opacity="0.78"/>
+            </g>
+            <g transform="translate(105 116) rotate(8) scale(0.72)">
+              <path d="M0 24 C5 12 6 1 3 -14" fill="none" stroke="url(#palm-trunk)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M3 -15 C-15 -18 -31 -9 -39 5 C-17 4 -4 -3 3 -15 Z" fill="url(#palm-leaf)" opacity="0.86"/>
+              <path d="M3 -15 C18 -31 38 -31 52 -20 C31 -17 16 -15 3 -15 Z" fill="url(#palm-leaf)" opacity="0.82"/>
+              <path d="M3 -15 C24 -10 40 0 48 16 C28 10 13 -1 3 -15 Z" fill="url(#palm-leaf)" opacity="0.72"/>
+            </g>
+          </g>
+          <g transform="translate(136 40)">
+            <path d="M15 25 L35 25 L42 102 L8 102 Z" fill="url(#tower-fill)" stroke="#ffffff" stroke-width="2"/>
+            <path d="M12 48 L38 48" stroke="#5e7fd8" stroke-opacity="0.42" stroke-width="4"/>
+            <path d="M10 70 L40 70" stroke="#5e7fd8" stroke-opacity="0.36" stroke-width="4"/>
+            <path d="M18 8 L32 8 L39 25 L11 25 Z" fill="#ffffff" stroke="#ffffff" stroke-width="2"/>
+            <rect x="15" y="12" width="20" height="13" rx="3" fill="#efc987" opacity="0.78"/>
+            <circle class="lighthouse-lamp" cx="25" cy="18" r="15" fill="url(#lamp-glow)"/>
+            <path d="M10 8 L25 -4 L40 8 Z" fill="#ffffff"/>
+          </g>
+        </svg>
+      </div>
+      <div class="welcome-helicopter" aria-hidden="true">
+        <span class="welcome-helicopter-light"></span>
+        <svg viewBox="0 0 360 160" role="presentation" focusable="false">
+          <path class="plane-red" d="M56 45 L92 65 L62 78 L38 52 Z"/>
+          <path class="heli-tail" d="M45 76 L105 65 L119 83 L50 93 Z"/>
+          <path class="plane-red" d="M54 95 L103 84 L76 120 L45 112 Z" opacity="0.92"/>
+          <path class="plane-wing" d="M172 83 L112 35 L153 33 L241 82 Z"/>
+          <path class="plane-red" d="M177 94 L108 139 L155 135 L252 92 Z"/>
+          <path class="heli-body" d="M75 78 C98 56 160 46 241 55 C289 61 323 75 341 90 C319 103 284 110 236 111 L116 107 C88 106 69 94 75 78 Z"/>
+          <path class="plane-stripe" d="M78 91 C125 96 246 101 326 90 C310 100 279 106 236 107 L116 104 C91 104 75 98 70 91 Z"/>
+          <path class="plane-stripe" d="M89 75 C134 70 247 72 318 83 L310 88 C240 79 138 78 84 84 Z" opacity="0.74"/>
+          <path class="heli-accent" d="M318 79 C331 82 339 86 342 90 C335 94 326 97 315 100 C321 92 322 85 318 79 Z"/>
+          <path class="heli-window" d="M228 61 C251 64 273 69 292 78 L267 90 L226 86 Z"/>
+          <path class="heli-window" d="M183 58 L216 60 L215 86 L181 85 Z" opacity="0.82"/>
+          <path class="heli-window" d="M142 62 L172 59 L171 84 L136 84 Z" opacity="0.78"/>
+          <path class="heli-window" d="M109 68 L132 63 L130 84 L103 84 Z" opacity="0.7"/>
+          <path class="heli-panel" d="M119 74 C171 66 246 70 307 82"/>
+          <path class="heli-panel" d="M118 101 C174 105 257 103 315 96"/>
+          <text class="heli-registration" x="199" y="100" transform="rotate(2 199 100)">N1757G</text>
+          <path class="plane-engine" d="M126 100 C145 98 161 102 166 111 C158 119 137 120 120 114 C116 108 119 103 126 100 Z"/>
+          <path class="plane-engine" d="M240 96 C260 94 277 99 282 108 C273 116 251 117 235 111 C232 105 234 100 240 96 Z"/>
+          <path class="heli-strut" d="M150 108 L143 121 M243 108 L252 120"/>
+          <circle class="plane-wheel" cx="143" cy="123" r="5"/>
+          <circle class="plane-wheel" cx="252" cy="122" r="5"/>
+        </svg>
+      </div>
       <div class="welcome-panel reveal">
         <span class="welcome-kicker">Kevin Portfolio</span>
         <h1 class="welcome-title blur-text" aria-label="Welcome to Kevin's Portfolio">
@@ -4227,7 +5036,6 @@
               <stop offset="100%" stop-color="#efc987" stop-opacity="0"/>
             </radialGradient>
           </defs>
-          <circle cx="1120" cy="92" r="118" fill="url(#welcome-moon)"/>
           <path d="M0 205 C180 164 282 224 438 188 C624 145 758 230 936 184 C1122 136 1264 174 1440 126 L1440 520 L0 520 Z" fill="url(#welcome-sea)"/>
           <path class="welcome-wave" d="M-120 252 C92 192 236 282 456 226 C666 174 800 268 1038 214 C1196 178 1308 184 1560 132" stroke-width="3"/>
           <path class="welcome-wave is-soft" d="M-140 326 C104 260 274 352 510 292 C740 234 890 334 1114 276 C1284 232 1386 250 1564 208" stroke-width="2.2"/>
@@ -4245,6 +5053,34 @@
             <path d="M104 72 C130 92 146 88 154 70 C130 66 118 64 98 64 Z" opacity="0.46"/>
           </g>
         </svg>
+      </div>
+      <div class="welcome-sea-life" aria-hidden="true">
+        <div class="sea-animal sea-dolphin">
+          <svg viewBox="0 0 180 112" role="presentation" focusable="false">
+            <path class="dolphin-splash" d="M18 92 C44 82 70 102 104 90 C126 82 146 86 164 94"/>
+            <path d="M42 58 C66 24 116 18 148 44 C126 46 114 58 100 74 C76 74 58 68 42 58 Z" fill="currentColor"/>
+            <path d="M134 42 C150 28 162 26 174 34 C158 42 148 48 136 56 Z" fill="currentColor" opacity="0.72"/>
+            <path d="M84 70 C76 88 60 96 45 95 C56 84 64 74 67 61 Z" fill="currentColor" opacity="0.56"/>
+            <path d="M90 35 C86 20 94 10 108 5 C107 20 103 30 94 42 Z" fill="currentColor" opacity="0.68"/>
+            <circle cx="128" cy="39" r="2.4" fill="#ffffff" opacity="0.72"/>
+          </svg>
+        </div>
+        <div class="sea-animal sea-whale">
+          <svg viewBox="0 0 230 142" role="presentation" focusable="false">
+            <g class="whale-spout" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-width="4" opacity="0.7">
+              <path d="M118 36 C110 18 102 10 88 6"/>
+              <path d="M124 36 C125 14 134 6 150 2"/>
+              <path d="M130 38 C142 20 156 16 174 20"/>
+              <circle class="spout-drop" cx="92" cy="8" r="3" fill="#ffffff" stroke="none"/>
+              <circle class="spout-drop" cx="154" cy="6" r="2.5" fill="#ffffff" stroke="none"/>
+            </g>
+            <path d="M31 84 C46 42 116 40 158 62 C178 72 191 83 213 72 C205 91 190 103 166 100 C138 118 84 120 47 101 C33 94 25 91 12 96 C17 88 22 85 31 84 Z" fill="currentColor"/>
+            <path d="M24 84 C10 73 3 60 4 44 C19 54 30 64 40 82 Z" fill="currentColor" opacity="0.68"/>
+            <path d="M158 98 C146 122 124 134 98 132 C112 115 126 102 146 92 Z" fill="currentColor" opacity="0.52"/>
+            <path d="M70 96 C102 106 138 102 164 88" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-opacity="0.24" stroke-width="3"/>
+            <circle cx="142" cy="64" r="2.8" fill="#ffffff" opacity="0.68"/>
+          </svg>
+        </div>
       </div>
       <div class="welcome-sailboat" aria-hidden="true">
         <svg viewBox="0 0 150 150" role="presentation" focusable="false">
@@ -4373,6 +5209,24 @@
       </div>
     </section>
 
+    <section class="section page-shell" id="showreel-mix">
+      <div class="section-head reveal">
+        <div>
+          <span class="kicker">Showreel Mix</span>
+          <h2>Kevin视频作品</h2>
+        </div>
+      </div>
+
+      <div class="mix-video-shell reveal">
+        <div class="mix-video-frame" aria-label="混剪大视频 16:9 播放窗口">
+          <video controls preload="metadata" playsinline poster="assets/images/video-covers/showreel-mix-cover.png?v=20260612" aria-label="混剪大视频">
+            <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B7%E5%89%AA.mp4" type="video/mp4">
+            您的浏览器不支持视频播放。
+          </video>
+        </div>
+      </div>
+    </section>
+
     <section class="section page-shell" id="works">
       <div class="section-head reveal">
         <div>
@@ -4458,6 +5312,23 @@
             <div class="work-meta">
               <h3>凤归巢</h3>
               <p>古风互动剧情 Demo，以庶出二小姐沈婉清的身份转折为线索，通过嫁衣、凤冠与闺阁镜像等镜头，展示 AI 生成角色、服化道和竖屏剧情演示的完整氛围。</p>
+            </div>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-media">
+              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/memory-cover.jpg" aria-label="那一段回忆视频">
+                <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%82%A3%E4%B8%80%E6%AE%B5%E5%9B%9E%E5%BF%86.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+            <div class="work-meta">
+              <h3>那一段回忆</h3>
+            </div>
+          </article>
+
+          <article class="work-card reveal" aria-label="正在制作视频窗口">
+            <div class="work-media">
+              <div class="media-placeholder">正在制作</div>
             </div>
           </article>
         </div>
