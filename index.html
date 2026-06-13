@@ -2594,6 +2594,29 @@
       transition: filter 260ms ease;
     }
 
+    .video-status {
+      position: absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 3;
+      display: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #fff;
+      background: rgba(8, 12, 24, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+      pointer-events: none;
+      backdrop-filter: blur(12px);
+    }
+
+    .video-status.is-visible {
+      display: block;
+    }
+
     video.work-cover:fullscreen,
     video.work-cover:-webkit-full-screen {
       object-fit: contain;
@@ -5219,7 +5242,7 @@
 
       <div class="mix-video-shell reveal">
         <div class="mix-video-frame" aria-label="混剪大视频 16:9 播放窗口">
-          <video controls preload="metadata" playsinline poster="assets/images/video-covers/showreel-mix-cover.png?v=20260612" aria-label="混剪大视频">
+          <video controls preload="none" playsinline poster="assets/images/video-covers/showreel-mix-cover.png?v=20260612" aria-label="混剪大视频">
             <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B7%E5%89%AA.mp4" type="video/mp4">
             您的浏览器不支持视频播放。
           </video>
@@ -5239,7 +5262,7 @@
         <div class="works-grid" aria-label="作品瀑布流卡片">
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/ai-comic-project-3d.png?v=20260607" aria-label="AI 漫剧项目视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/ai-comic-project-3d.png?v=20260607" aria-label="AI 漫剧项目视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/3d%E6%BC%AB%E5%89%A7.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5252,7 +5275,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/comic-2d.png?v=20260607" aria-label="二维漫剧视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/comic-2d.png?v=20260607" aria-label="二维漫剧视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/2d%E6%BC%AB%E5%89%A7.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5265,7 +5288,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/tixian-web.jpg?v=20260602-2" aria-label="个人实验短片《提线》视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/tixian-web.jpg?v=20260602-2" aria-label="个人实验短片《提线》视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%8F%90%E7%BA%BF.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5278,7 +5301,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/zhengzhi-web.jpg?v=20260602-2" aria-label="海外真人短剧《争执》视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/zhengzhi-web.jpg?v=20260602-2" aria-label="海外真人短剧《争执》视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E4%BA%89%E6%89%A7.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5291,7 +5314,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/shiguang-web.jpg?v=20260602-2" aria-label="AI真人叙事剧《时光》视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/shiguang-web.jpg?v=20260602-2" aria-label="AI真人叙事剧《时光》视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%97%B6%E5%85%89.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5304,7 +5327,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/fengguichao-cover.png?v=20260607-2" aria-label="AI古风互动剧情Demo《凤归巢》视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/fengguichao-cover.png?v=20260607-2" aria-label="AI古风互动剧情Demo《凤归巢》视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%87%A4%E5%BD%92%E5%B7%A2.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5316,7 +5339,7 @@
           </article>
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/memory-cover.jpg" aria-label="那一段回忆视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/memory-cover.jpg" aria-label="那一段回忆视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%82%A3%E4%B8%80%E6%AE%B5%E5%9B%9E%E5%BF%86.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5357,7 +5380,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/yushui-dynamic-poster-web.jpg" aria-label="雨水动态海报视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/yushui-dynamic-poster-web.jpg" aria-label="雨水动态海报视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%9B%A8%E6%B0%B4%E5%8A%A8%E6%80%81%E6%B5%B7%E6%8A%A5.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5380,7 +5403,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/new-year-motion-poster-web.jpg" aria-label="大年初一新年动态海报视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/new-year-motion-poster-web.jpg" aria-label="大年初一新年动态海报视频">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%A4%A7%E5%B9%B4%E5%88%9D%E4%B8%80%E5%8A%A8%E6%80%81%E6%B5%B7%E6%8A%A5..mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5403,7 +5426,7 @@
 
           <article class="work-card reveal">
             <div class="work-media">
-              <video class="work-cover" controls preload="metadata" playsinline poster="assets/images/nanshan-litchi-poster.png" aria-label="美荔南山动态海报视频">
+              <video class="work-cover" controls preload="none" playsinline poster="assets/images/nanshan-litchi-poster.png" aria-label="美荔南山动态海报视频">
                 <source src="assets/videos/nanshan-litchi-motion-poster.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5597,7 +5620,7 @@
 
           <article class="story-video-panel" data-workflow-card>
             <div class="story-video-media">
-              <video controls preload="metadata" playsinline poster="assets/images/massage-chair-video-cover.png" aria-label="按摩产品视频生成成片">
+              <video controls preload="none" playsinline poster="assets/images/massage-chair-video-cover.png" aria-label="按摩产品视频生成成片">
                 <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%8C%89%E6%91%A9%E6%A4%85%E8%A7%86%E9%A2%91.mp4" type="video/mp4">
                 您的浏览器不支持视频播放。
               </video>
@@ -5681,7 +5704,7 @@
       <div class="case-grid">
         <article class="case-card reveal">
           <div class="case-image">
-            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/shenzhen-cultural-expo-web.jpg?v=20260602" aria-label="深圳文博会视频">
+            <video class="case-cover" controls preload="none" playsinline poster="assets/images/video-covers/shenzhen-cultural-expo-web.jpg?v=20260602" aria-label="深圳文博会视频">
               <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B1%E5%9C%B3%E6%96%87%E5%8D%9A%E4%BC%9A.mp4" type="video/mp4">
               您的浏览器不支持视频播放。
             </video>
@@ -5694,7 +5717,7 @@
 
         <article class="case-card reveal">
           <div class="case-image">
-            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/mengfadi-web.jpg?v=20260602-2" aria-label="厦门萌发地 海野乐园视频">
+            <video class="case-cover" controls preload="none" playsinline poster="assets/images/video-covers/mengfadi-web.jpg?v=20260602-2" aria-label="厦门萌发地 海野乐园视频">
               <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%90%8C%E5%8F%91%E5%9C%B0.mp4" type="video/mp4">
               您的浏览器不支持视频播放。
             </video>
@@ -5707,7 +5730,7 @@
 
         <article class="case-card reveal">
           <div class="case-image">
-            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/estee-lauder-web.jpg?v=20260602-2" aria-label="雅思兰黛广告片视频">
+            <video class="case-cover" controls preload="none" playsinline poster="assets/images/video-covers/estee-lauder-web.jpg?v=20260602-2" aria-label="雅思兰黛广告片视频">
               <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%9B%85%E6%80%9D%E5%85%B0%E9%BB%9B.mp4" type="video/mp4">
               您的浏览器不支持视频播放。
             </video>
@@ -5720,7 +5743,7 @@
 
         <article class="case-card reveal">
           <div class="case-image">
-            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/companion-toy-concept-web.jpg?v=20260602-2" aria-label="AI 智能陪伴玩偶概念片视频">
+            <video class="case-cover" controls preload="none" playsinline poster="assets/images/video-covers/companion-toy-concept-web.jpg?v=20260602-2" aria-label="AI 智能陪伴玩偶概念片视频">
               <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/AI%E9%99%AA%E4%BC%B4%E7%8E%A9%E5%81%B6%E6%A6%82%E5%BF%B5%E7%89%87.mp4" type="video/mp4">
               您的浏览器不支持视频播放。
             </video>
@@ -5733,7 +5756,7 @@
 
         <article class="case-card reveal">
           <div class="case-image">
-            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/baobab-science-web.jpg?v=20260602-2" aria-label="非洲猴面包树科普视频">
+            <video class="case-cover" controls preload="none" playsinline poster="assets/images/video-covers/baobab-science-web.jpg?v=20260602-2" aria-label="非洲猴面包树科普视频">
               <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E7%8C%B4%E9%9D%A2%E5%8C%85%E6%A0%91.mp4" type="video/mp4">
               您的浏览器不支持视频播放。
             </video>
@@ -5746,7 +5769,7 @@
 
         <article class="case-card reveal">
           <div class="case-image">
-            <video class="case-cover" controls preload="metadata" playsinline poster="assets/images/video-covers/dare-to-say-no-web.jpg?v=20260602-2" aria-label="敢于说不视频">
+            <video class="case-cover" controls preload="none" playsinline poster="assets/images/video-covers/dare-to-say-no-web.jpg?v=20260602-2" aria-label="敢于说不视频">
               <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%95%A2%E4%BA%8E%E8%AF%B4%E4%B8%8D.mp4" type="video/mp4">
               您的浏览器不支持视频播放。
             </video>
@@ -6010,6 +6033,48 @@
     }
 
     updateThemeMeta();
+
+    const setupVideoLoadingStates = () => {
+      document.querySelectorAll("video[controls]").forEach((video) => {
+        video.preload = "none";
+
+        const container = video.closest(".work-media, .mix-video-frame, .story-video-media, .case-image") || video.parentElement;
+        let status = container?.querySelector(".video-status");
+        if (container && !status) {
+          status = document.createElement("div");
+          status.className = "video-status";
+          status.setAttribute("aria-live", "polite");
+          container.appendChild(status);
+        }
+
+        const showStatus = (message) => {
+          if (!status) return;
+          status.textContent = message;
+          status.classList.add("is-visible");
+        };
+
+        const hideStatus = () => {
+          status?.classList.remove("is-visible");
+        };
+
+        const showLoading = () => {
+          if (video.readyState < 3) {
+            showStatus("视频加载中，请稍候。");
+          }
+        };
+
+        video.addEventListener("play", showLoading);
+        video.addEventListener("waiting", showLoading);
+        video.addEventListener("stalled", () => showStatus("网络较慢，视频正在继续加载。"));
+        video.addEventListener("canplay", hideStatus);
+        video.addEventListener("playing", hideStatus);
+        video.addEventListener("error", () => {
+          showStatus("视频暂时无法播放，请刷新页面或稍后再试。");
+        });
+      });
+    };
+
+    setupVideoLoadingStates();
 
     const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
     const setupImageWorksSwitcher = () => {
