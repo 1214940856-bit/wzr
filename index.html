@@ -5238,7 +5238,7 @@
 
       <div class="mix-video-shell reveal">
         <div class="mix-video-frame" aria-label="混剪大视频 16:9 播放窗口">
-          <video controls preload="none" playsinline poster="assets/images/video-covers/kevin-video-cover.png" aria-label="混剪大视频">
+          <video controls preload="none" playsinline aria-label="混剪大视频">
             <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B7%E5%89%AA%E5%8E%8B%E7%BC%A9.mp4" type="video/mp4">
             您的浏览器不支持视频播放。
           </video>
@@ -6167,11 +6167,22 @@
         slide?.querySelectorAll("video").forEach((video) => video.pause());
       };
 
+      const isSlideVideoPlaying = (slide) => {
+        const videos = Array.from(slide?.querySelectorAll("video") || []);
+        return videos.some((video) => !video.paused && !video.ended);
+      };
+
       const restartAutoSwitch = () => {
         window.clearInterval(switchTimer);
         switchTimer = window.setInterval(() => {
+          if (isSlideVideoPlaying(slides[activeIndex])) return;
           goToSlide(activeIndex + 1, 1, false);
         }, 5600);
+      };
+
+      const stopAutoSwitch = () => {
+        window.clearInterval(switchTimer);
+        switchTimer = 0;
       };
 
       function goToSlide(nextIndex, direction = 1, userInitiated = false) {
@@ -6220,6 +6231,23 @@
       window.addEventListener("resize", syncSwitcherHeight, { passive: true });
       prevButton?.addEventListener("click", () => goToSlide(activeIndex - 1, -1, true));
       nextButton?.addEventListener("click", () => goToSlide(activeIndex + 1, 1, true));
+      imageWorksSwitcherGrid.querySelectorAll("video").forEach((video) => {
+        video.addEventListener("play", stopAutoSwitch);
+        video.addEventListener("pause", () => {
+          if (canUseMotion && !isSlideVideoPlaying(slides[activeIndex])) restartAutoSwitch();
+        });
+        video.addEventListener("ended", () => {
+          if (!canUseMotion || isSwitching) return;
+          restartAutoSwitch();
+          if (slides[activeIndex]?.contains(video)) {
+            window.setTimeout(() => {
+              if (!isSwitching && !isSlideVideoPlaying(slides[activeIndex])) {
+                goToSlide(activeIndex + 1, 1, false);
+              }
+            }, 700);
+          }
+        });
+      });
 
       if (canUseMotion) restartAutoSwitch();
     };
