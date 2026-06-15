@@ -6276,6 +6276,99 @@
 
     setupShowreelVideo();
 
+    const forceImageLoad = (target) => {
+      if (!target) return;
+      const images = target instanceof HTMLImageElement
+        ? [target]
+        : Array.from(target.querySelectorAll?.("img") || []);
+
+      images.forEach((image) => {
+        image.loading = "eager";
+        if (!image.decoding) image.decoding = "async";
+
+        const source = image.getAttribute("src");
+        if (!source) return;
+
+        if (!image.complete && !image.currentSrc) {
+          image.removeAttribute("src");
+          image.setAttribute("src", source);
+        }
+
+        image.decode?.().catch(() => {});
+      });
+    };
+
+    const forceVideoPosterLoad = (target) => {
+      if (!target) return;
+      const videos = target instanceof HTMLVideoElement
+        ? [target]
+        : Array.from(target.querySelectorAll?.("video[poster]") || []);
+
+      videos.forEach((video) => {
+        const poster = video.getAttribute("poster");
+        if (!poster || video.dataset.posterReady === "true") return;
+
+        const posterUrl = new URL(poster, document.baseURI).href;
+        video.dataset.posterReady = "true";
+        video.style.backgroundImage = `url("${posterUrl.replace(/"/g, "%22")}")`;
+        video.style.backgroundSize = "cover";
+        video.style.backgroundPosition = "center";
+
+        const posterImage = new Image();
+        posterImage.decoding = "async";
+        posterImage.src = posterUrl;
+      });
+    };
+
+    const forceMediaLoad = (target) => {
+      forceImageLoad(target);
+      forceVideoPosterLoad(target);
+    };
+
+    const setupReliableLazyImages = () => {
+      const lazyImages = Array.from(document.querySelectorAll('img[loading="lazy"]'));
+      if (!lazyImages.length) return;
+
+      if (!("IntersectionObserver" in window)) {
+        lazyImages.forEach(forceImageLoad);
+        return;
+      }
+
+      const lazyImageObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          forceImageLoad(entry.target);
+          lazyImageObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: "900px 0px", threshold: 0.01 });
+
+      lazyImages.forEach((image) => lazyImageObserver.observe(image));
+    };
+
+    setupReliableLazyImages();
+
+    const setupReliableVideoPosters = () => {
+      const posterVideos = Array.from(document.querySelectorAll("video[poster]"));
+      if (!posterVideos.length) return;
+
+      if (!("IntersectionObserver" in window)) {
+        posterVideos.forEach(forceVideoPosterLoad);
+        return;
+      }
+
+      const posterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          forceVideoPosterLoad(entry.target);
+          posterObserver.unobserve(entry.target);
+        });
+      }, { rootMargin: "900px 0px", threshold: 0.01 });
+
+      posterVideos.forEach((video) => posterObserver.observe(video));
+    };
+
+    setupReliableVideoPosters();
+
     const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
     const setupImageWorksSwitcher = () => {
       if (!imageWorksSwitcherGrid || imageWorksSwitcherGrid.dataset.switcherReady === "true") return;
@@ -6366,6 +6459,8 @@
         const fromClass = direction > 0 ? "is-entering-from-bottom" : "is-entering-from-top";
         const exitClass = direction > 0 ? "is-exiting-to-top" : "is-exiting-to-bottom";
 
+        forceMediaLoad(nextSlide);
+
         slides.forEach((slide) => {
           slide.classList.remove("is-entering-from-top", "is-entering-from-bottom", "is-exiting-to-top", "is-exiting-to-bottom");
           slide.setAttribute("aria-hidden", "true");
@@ -6397,6 +6492,8 @@
       }
 
       slides[0].classList.add("is-active");
+      forceMediaLoad(slides[0]);
+      forceMediaLoad(slides[1]);
       syncSwitcherHeight();
       window.addEventListener("resize", syncSwitcherHeight, { passive: true });
       prevButton?.addEventListener("click", () => goToSlide(activeIndex - 1, -1, true));
@@ -6497,6 +6594,7 @@
         card.setAttribute("aria-label", (index === imageCarouselIndex ? "单击预览，双击放大图片 " : "切换到图片 ") + String(index + 1));
         if (index === imageCarouselIndex) card.setAttribute("title", "单击预览，双击放大");
         else card.removeAttribute("title");
+        if (visible) forceMediaLoad(card);
       });
 
       if (imageCarouselStatus) {
@@ -6777,6 +6875,7 @@
         card.setAttribute("aria-label", (index === assetCarouselIndex ? "单击预览，双击放大图片 " : "切换到图片 ") + String(index + 1));
         if (index === assetCarouselIndex) card.setAttribute("title", "单击预览，双击放大");
         else card.removeAttribute("title");
+        if (visible) forceMediaLoad(card);
       });
 
       if (assetCarouselStatus) {
