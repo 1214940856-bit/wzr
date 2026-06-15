@@ -2132,13 +2132,145 @@
       background: radial-gradient(circle at 50% 28%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 58%);
     }
 
-    .mix-video-frame video {
+    .mix-video-frame video,
+    .mix-showreel-window,
+    .mix-showreel-window img {
       display: block;
       width: 100%;
       height: 100%;
+    }
+
+    .mix-video-frame video {
       object-fit: cover;
       background: var(--surface-2);
       transition: filter 260ms ease;
+    }
+
+    video.mix-showreel-video:fullscreen,
+    video.mix-showreel-video:-webkit-full-screen {
+      object-fit: contain;
+      background: #000;
+    }
+
+    .mix-showreel-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 4;
+      display: inline-grid;
+      place-items: center;
+      width: clamp(68px, 8vw, 94px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(7, 14, 34, 0.62);
+      box-shadow: 0 18px 44px rgba(0, 0, 0, 0.32);
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      backdrop-filter: blur(14px);
+      transition: opacity 180ms ease, transform 220ms var(--ease-out), background 180ms ease;
+    }
+
+    .mix-showreel-play::before {
+      content: "";
+      width: 0;
+      height: 0;
+      margin-left: 6px;
+      border-top: 15px solid transparent;
+      border-bottom: 15px solid transparent;
+      border-left: 22px solid currentColor;
+    }
+
+    .mix-showreel-play:hover {
+      background: rgba(18, 36, 78, 0.74);
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+
+    .mix-showreel-play.is-hidden {
+      opacity: 0;
+      pointer-events: none;
+      transform: translate(-50%, -50%) scale(0.92);
+    }
+
+    .mix-showreel-window {
+      position: relative;
+      background:
+        linear-gradient(135deg, rgba(5, 10, 28, 0.88), rgba(10, 28, 62, 0.5)),
+        var(--surface-2);
+    }
+
+    .mix-showreel-window img {
+      object-fit: cover;
+      opacity: 0.64;
+      filter: saturate(1.08) contrast(1.08);
+      transform: scale(1.01);
+    }
+
+    .mix-showreel-window::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(5, 9, 24, 0.78), rgba(5, 9, 24, 0.18) 54%, rgba(5, 9, 24, 0.58)),
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px 6px);
+      pointer-events: none;
+    }
+
+    .mix-showreel-content {
+      position: absolute;
+      inset: clamp(22px, 4vw, 54px);
+      z-index: 2;
+      display: grid;
+      align-content: end;
+      max-width: 640px;
+      color: #fff;
+      text-shadow: 0 16px 34px rgba(0, 0, 0, 0.46);
+    }
+
+    .mix-showreel-label {
+      margin: 0 0 12px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: clamp(12px, 1.2vw, 14px);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .mix-showreel-title {
+      margin: 0;
+      font-size: clamp(34px, 7vw, 82px);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+
+    .mix-showreel-subtitle {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.82);
+      font-size: clamp(14px, 1.7vw, 18px);
+      line-height: 1.72;
+    }
+
+    .mix-showreel-tags {
+      position: absolute;
+      right: clamp(18px, 3vw, 42px);
+      top: clamp(18px, 3vw, 42px);
+      z-index: 2;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: min(380px, 42%);
+    }
+
+    .mix-showreel-tags span {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      color: rgba(255, 255, 255, 0.78);
+      background: rgba(8, 14, 34, 0.46);
+      font-size: clamp(11px, 1vw, 13px);
+      line-height: 1;
+      backdrop-filter: blur(12px);
     }
 
     .mix-video-shell:hover .mix-video-frame {
@@ -5237,11 +5369,12 @@
       </div>
 
       <div class="mix-video-shell reveal">
-        <div class="mix-video-frame" aria-label="混剪大视频 16:9 播放窗口">
-          <video controls preload="none" playsinline aria-label="混剪大视频">
-            <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B7%E5%89%AA%E5%8E%8B%E7%BC%A9.mp4" type="video/mp4">
+        <div class="mix-video-frame" aria-label="Kevin 视频作品 16:9 播放窗口">
+          <video class="mix-showreel-video" controls preload="metadata" playsinline muted poster="assets/images/video-covers/showreel-mix-cover.png" aria-label="Kevin 视频作品混剪">
+            <source src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%B7%B7%E5%89%AA1.mp4" type="video/mp4">
             您的浏览器不支持视频播放。
           </video>
+          <button class="mix-showreel-play" type="button" aria-label="播放 Kevin 视频作品"></button>
         </div>
       </div>
     </section>
@@ -6105,6 +6238,43 @@
     };
 
     setupVideoLoadingStates();
+
+    const setupShowreelVideo = () => {
+      const video = document.querySelector("#showreel-mix .mix-showreel-video");
+      const playButton = document.querySelector("#showreel-mix .mix-showreel-play");
+      if (!video || !playButton) return;
+
+      const syncPlayButton = () => {
+        playButton.classList.toggle("is-hidden", !video.paused && !video.ended);
+      };
+
+      playButton.dataset.ready = "true";
+        playButton.addEventListener("click", () => {
+          playButton.dataset.clicked = String(Date.now());
+          delete playButton.dataset.playError;
+          video.muted = true;
+          const playRequest = typeof video.play === "function" ? video.play() : null;
+          if (playRequest && typeof playRequest.catch === "function") {
+            playRequest
+              .then(() => {
+                syncPlayButton();
+              })
+              .catch((error) => {
+                playButton.dataset.playError = error?.name || "play-error";
+                playButton.classList.remove("is-hidden");
+              });
+          } else {
+            playButton.classList.remove("is-hidden");
+          }
+        });
+      video.addEventListener("play", syncPlayButton);
+      video.addEventListener("playing", syncPlayButton);
+      video.addEventListener("pause", syncPlayButton);
+      video.addEventListener("ended", syncPlayButton);
+      syncPlayButton();
+    };
+
+    setupShowreelVideo();
 
     const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
     const setupImageWorksSwitcher = () => {
