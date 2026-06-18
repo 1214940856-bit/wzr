@@ -119,6 +119,9 @@
       pointer-events: none;
       z-index: 0;
       opacity: 0.5;
+      contain: paint;
+      transform: translateZ(0);
+      backface-visibility: hidden;
       background-image:
         linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
@@ -157,8 +160,9 @@
     }
 
     [data-palette="artist"] .topbar {
-      background: rgba(6, 20, 58, 0.78);
-      backdrop-filter: blur(20px);
+      background: rgba(6, 20, 58, 0.94);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
     }
 
     [data-palette="artist"] .work-media,
@@ -209,7 +213,7 @@
         0 0 0 1px var(--window-inner-border) inset,
         0 28px 76px rgba(3, 10, 35, 0.38),
         0 0 24px rgba(91, 170, 255, 0.2);
-      animation: window-border-breathe 4.8s ease-in-out infinite;
+      animation: none;
     }
 
     [data-palette="artist"] .image-collection-grid .work-card.is-active {
@@ -270,6 +274,8 @@
       inset: 0;
       pointer-events: none;
       z-index: 0;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     .voyage-field {
@@ -388,7 +394,7 @@
       pointer-events: none;
       overflow: hidden;
       opacity: 0.78;
-      mix-blend-mode: screen;
+      mix-blend-mode: normal;
     }
 
     .voyage-gull {
@@ -465,7 +471,7 @@
       pointer-events: none;
       overflow: hidden;
       opacity: 0.82;
-      mix-blend-mode: screen;
+      mix-blend-mode: normal;
     }
 
     .sea-animal {
@@ -1042,8 +1048,11 @@
       top: 0;
       z-index: 50;
       border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 82%, transparent);
-      backdrop-filter: blur(18px);
+      background: color-mix(in srgb, var(--bg) 94%, transparent);
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     .topbar-inner {
@@ -3147,6 +3156,7 @@
 
     .image-collection-grid.is-dragging .work-card {
       transition: none;
+      will-change: transform, opacity;
     }
 
     .image-collection-grid::before {
@@ -3188,7 +3198,7 @@
         0 28px 70px rgba(0, 0, 0, 0.28),
         0 0 0 1px rgba(255, 255, 255, 0.4) inset;
       opacity: var(--carousel-opacity);
-      filter: blur(var(--carousel-blur)) brightness(var(--carousel-brightness));
+      filter: none;
       transform:
         translate3d(-50%, -50%, 0)
         translateX(var(--carousel-x))
@@ -3199,7 +3209,7 @@
       transform-style: preserve-3d;
       transition: box-shadow 260ms ease;
       pointer-events: auto;
-      will-change: transform, opacity, filter;
+      will-change: auto;
     }
 
     .image-collection-grid .work-card::before {
@@ -4834,22 +4844,29 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(28px) scale(0.985);
-      filter: blur(8px);
-      transition: opacity 760ms ease, transform 760ms var(--ease-out), filter 760ms ease;
-      will-change: opacity, transform, filter;
+      transform: translateY(20px);
+      transition: opacity 440ms ease, transform 520ms var(--ease-out);
     }
 
     .reveal.is-visible {
       opacity: 1;
       transform: translateY(0);
-      filter: blur(0);
+    }
+
+    body.is-scrolling .ambient-field *,
+    body.is-scrolling .ambient-field::before,
+    body.is-scrolling .ambient-field::after,
+    body.is-scrolling .voyage-field *,
+    body.is-scrolling .voyage-field::before,
+    body.is-scrolling .voyage-field::after,
+    body.is-scrolling .section-voyage-pattern * {
+      animation-play-state: paused !important;
     }
 
     .image-collection-grid .work-card.reveal,
     .image-collection-grid .work-card.reveal.is-visible {
       opacity: var(--carousel-opacity);
-      filter: blur(var(--carousel-blur)) brightness(var(--carousel-brightness));
+      filter: none;
       transform:
         translate3d(-50%, -50%, 0)
         translateX(var(--carousel-x))
@@ -6190,7 +6207,7 @@
       <div class="wallpaper-grid" aria-label="AI动态壁纸横屏窗口">
         <article class="wallpaper-window reveal">
           <div class="wallpaper-screen">
-            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-1-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 01">
+            <video class="wallpaper-video" muted loop playsinline preload="none" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-1-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 01">
               <source src="assets/videos/ai-dynamic-wallpaper-1.mp4" type="video/mp4">
             </video>
             <span class="wallpaper-glow-line" aria-hidden="true"></span>
@@ -6199,7 +6216,7 @@
 
         <article class="wallpaper-window reveal">
           <div class="wallpaper-screen">
-            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-2-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 02">
+            <video class="wallpaper-video" muted loop playsinline preload="none" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-2-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 02">
               <source src="assets/videos/ai-dynamic-wallpaper-2.mp4" type="video/mp4">
             </video>
             <span class="wallpaper-glow-line" aria-hidden="true"></span>
@@ -6990,6 +7007,7 @@
     let cursorX = window.innerWidth * 0.5;
     let cursorY = window.innerHeight * 0.34;
     let voyageFrame = 0;
+    let scrollIdleTimer = 0;
 
     const voyagePatternMarkup = (variant) => `
       <div class="section-voyage-pattern variant-${variant}" aria-hidden="true">
@@ -7027,8 +7045,19 @@
       }
     };
 
+    const markScrollActivity = () => {
+      if (!document.body.classList.contains("is-scrolling")) {
+        document.body.classList.add("is-scrolling");
+      }
+      window.clearTimeout(scrollIdleTimer);
+      scrollIdleTimer = window.setTimeout(() => {
+        document.body.classList.remove("is-scrolling");
+      }, 180);
+      queueVoyageRender();
+    };
+
     renderVoyage();
-    window.addEventListener("scroll", queueVoyageRender, { passive: true });
+    window.addEventListener("scroll", markScrollActivity, { passive: true });
     window.addEventListener("resize", queueVoyageRender, { passive: true });
 
     menuButton.addEventListener("click", () => {
@@ -7258,6 +7287,39 @@
     };
 
     setupReliableVideoPosters();
+
+    const setupViewportVideos = () => {
+      const viewportVideos = Array.from(document.querySelectorAll(".wallpaper-video"));
+      if (!viewportVideos.length) return;
+
+      const pauseVideo = (video) => {
+        if (!video.paused) video.pause();
+      };
+
+      if (!("IntersectionObserver" in window) || !canUseMotion) {
+        viewportVideos.forEach(pauseVideo);
+        return;
+      }
+
+      const viewportVideoObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const video = entry.target;
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.18 && !document.hidden) {
+            const playRequest = video.play();
+            playRequest?.catch(() => {});
+          } else {
+            pauseVideo(video);
+          }
+        });
+      }, { rootMargin: "120px 0px", threshold: [0, 0.18] });
+
+      viewportVideos.forEach((video) => viewportVideoObserver.observe(video));
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) viewportVideos.forEach(pauseVideo);
+      });
+    };
+
+    setupViewportVideos();
 
     const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
     const setupImageWorksSwitcher = () => {
@@ -8094,10 +8156,10 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.14 });
+    }, { rootMargin: "320px 0px", threshold: 0.01 });
 
-    document.querySelectorAll(".reveal").forEach((el, index) => {
-      el.style.transitionDelay = Math.min(index * 45, 260) + "ms";
+    document.querySelectorAll(".reveal").forEach((el) => {
+      el.style.transitionDelay = "0ms";
       observer.observe(el);
     });
   </script>
