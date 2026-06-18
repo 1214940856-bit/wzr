@@ -4213,7 +4213,7 @@
       position: fixed;
       inset: 0;
       z-index: 82;
-      display: grid;
+      display: none;
       place-items: center;
       padding: clamp(16px, 3vw, 34px);
       background:
@@ -4228,6 +4228,7 @@
     }
 
     .work-detail-viewer.is-open {
+      display: grid;
       opacity: 1;
       pointer-events: auto;
     }
@@ -4274,8 +4275,12 @@
         linear-gradient(115deg, transparent 22%, color-mix(in srgb, var(--window-border-strong) 14%, transparent) 44%, transparent 64%);
       opacity: 0.28;
       transform: translate3d(-8%, -4%, 0);
-      animation: workDetailDrift 12s ease-in-out infinite alternate;
+      animation: none;
       mix-blend-mode: screen;
+    }
+
+    .work-detail-viewer.is-open .work-detail-panel::after {
+      animation: workDetailDrift 12s ease-in-out infinite alternate;
     }
 
     @keyframes workDetailDrift {
