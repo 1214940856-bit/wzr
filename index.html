@@ -119,9 +119,6 @@
       pointer-events: none;
       z-index: 0;
       opacity: 0.5;
-      contain: paint;
-      transform: translateZ(0);
-      backface-visibility: hidden;
       background-image:
         linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
@@ -160,9 +157,8 @@
     }
 
     [data-palette="artist"] .topbar {
-      background: rgba(6, 20, 58, 0.94);
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
+      background: rgba(6, 20, 58, 0.78);
+      backdrop-filter: blur(20px);
     }
 
     [data-palette="artist"] .work-media,
@@ -213,7 +209,7 @@
         0 0 0 1px var(--window-inner-border) inset,
         0 28px 76px rgba(3, 10, 35, 0.38),
         0 0 24px rgba(91, 170, 255, 0.2);
-      animation: none;
+      animation: window-border-breathe 4.8s ease-in-out infinite;
     }
 
     [data-palette="artist"] .image-collection-grid .work-card.is-active {
@@ -227,10 +223,6 @@
     [data-palette="artist"] .story-video-media {
       border: 0;
       box-shadow: 0 28px 86px rgba(0, 0, 0, 0.4);
-      animation: none;
-    }
-
-    [data-palette="artist"] .work-media {
       animation: none;
     }
 
@@ -278,8 +270,6 @@
       inset: 0;
       pointer-events: none;
       z-index: 0;
-      transform: translateZ(0);
-      backface-visibility: hidden;
     }
 
     .voyage-field {
@@ -398,7 +388,7 @@
       pointer-events: none;
       overflow: hidden;
       opacity: 0.78;
-      mix-blend-mode: normal;
+      mix-blend-mode: screen;
     }
 
     .voyage-gull {
@@ -475,7 +465,7 @@
       pointer-events: none;
       overflow: hidden;
       opacity: 0.82;
-      mix-blend-mode: normal;
+      mix-blend-mode: screen;
     }
 
     .sea-animal {
@@ -582,19 +572,6 @@
       overflow: hidden;
       contain: paint;
       opacity: 0.92;
-    }
-
-    .ambient-field *,
-    .ambient-field::before,
-    .ambient-field::after,
-    .voyage-field *,
-    .voyage-field::before,
-    .voyage-field::after,
-    .section-voyage-pattern * {
-      animation: none !important;
-      transition: none !important;
-      filter: none !important;
-      will-change: auto !important;
     }
 
     .ambient-field::before,
@@ -1065,11 +1042,8 @@
       top: 0;
       z-index: 50;
       border-bottom: 1px solid var(--line);
-      background: color-mix(in srgb, var(--bg) 94%, transparent);
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-      transform: translateZ(0);
-      backface-visibility: hidden;
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(18px);
     }
 
     .topbar-inner {
@@ -2142,8 +2116,7 @@
       overflow: hidden;
       border: 1px solid var(--line);
       background: var(--surface-2);
-      isolation: auto;
-      contain: paint;
+      isolation: isolate;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0);
       transition: border-color 260ms ease, box-shadow 320ms var(--ease-out), transform 320ms var(--ease-out);
     }
@@ -2734,8 +2707,7 @@
       background: var(--surface-2);
       border: 1px solid var(--line);
       position: relative;
-      isolation: auto;
-      contain: paint;
+      isolation: isolate;
       box-shadow: 0 0 0 rgba(0, 0, 0, 0);
       transition: border-color 260ms ease, box-shadow 320ms var(--ease-out);
     }
@@ -3175,7 +3147,6 @@
 
     .image-collection-grid.is-dragging .work-card {
       transition: none;
-      will-change: transform, opacity;
     }
 
     .image-collection-grid::before {
@@ -3217,7 +3188,7 @@
         0 28px 70px rgba(0, 0, 0, 0.28),
         0 0 0 1px rgba(255, 255, 255, 0.4) inset;
       opacity: var(--carousel-opacity);
-      filter: none;
+      filter: blur(var(--carousel-blur)) brightness(var(--carousel-brightness));
       transform:
         translate3d(-50%, -50%, 0)
         translateX(var(--carousel-x))
@@ -3228,7 +3199,7 @@
       transform-style: preserve-3d;
       transition: box-shadow 260ms ease;
       pointer-events: auto;
-      will-change: auto;
+      will-change: transform, opacity, filter;
     }
 
     .image-collection-grid .work-card::before {
@@ -3989,15 +3960,7 @@
       box-shadow:
         0 14px 34px rgba(0, 0, 0, 0.14),
         inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-    }
-
-    .work-detail-lines *,
-    .work-detail-lines::before,
-    .work-detail-lines::after {
-      animation: none !important;
-      filter: none !important;
+      backdrop-filter: blur(14px);
     }
 
     .work-detail-lines {
@@ -4167,7 +4130,7 @@
     .work-detail-button {
       position: relative;
       z-index: 2;
-      isolation: auto;
+      isolation: isolate;
       min-width: max-content;
       min-height: 38px;
       display: inline-flex;
@@ -4207,7 +4170,7 @@
       opacity: 0.78;
       transform: scaleX(0.84);
       transform-origin: center;
-      filter: none;
+      filter: blur(4px);
       transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
     }
 
@@ -4219,7 +4182,7 @@
       background:
         linear-gradient(90deg, rgba(255, 255, 255, 0.92), rgba(125, 207, 255, 0.95));
       clip-path: polygon(0 0, 100% 50%, 0 100%);
-      filter: none;
+      filter: drop-shadow(0 0 12px rgba(112, 186, 255, 0.42));
       transform: translateX(-2px);
       transition: transform 220ms var(--ease-out), filter 220ms var(--ease-out);
     }
@@ -4870,107 +4833,23 @@
     }
 
     .reveal {
-      opacity: 1;
-      transform: none;
-      transition: none;
+      opacity: 0;
+      transform: translateY(28px) scale(0.985);
+      filter: blur(8px);
+      transition: opacity 760ms ease, transform 760ms var(--ease-out), filter 760ms ease;
+      will-change: opacity, transform, filter;
     }
 
     .reveal.is-visible {
       opacity: 1;
-      transform: none;
-    }
-
-    /* Stability mode: avoid full-page compositor churn during scrolling. */
-    *,
-    *::before,
-    *::after {
-      -webkit-backdrop-filter: none !important;
-      backdrop-filter: none !important;
-      mix-blend-mode: normal !important;
-      will-change: auto !important;
-    }
-
-    body::before,
-    .ambient-field,
-    .voyage-field,
-    .cursor-light,
-    .section-voyage-pattern,
-    .welcome-cover [aria-hidden="true"],
-    .hero [aria-hidden="true"],
-    .work-detail-lines,
-    .wallpaper-glow-line {
-      display: none !important;
-    }
-
-    .welcome-cover::before,
-    .welcome-panel::before,
-    .work-media,
-    .mix-video-frame,
-    .case-card,
-    .advantage-card,
-    .showreel,
-    .workflow-visual,
-    .wallpaper-screen,
-    .story-video-media,
-    .portrait-frame,
-    .image-collection-grid .work-card {
-      animation: none !important;
-      filter: none !important;
-    }
-
-    .welcome-title *,
-    .welcome-kicker {
-      animation: none !important;
-      filter: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-
-    @keyframes safe-content-enter {
-      from {
-        opacity: 0.9;
-        transform: translate3d(0, 10px, 0);
-      }
-      to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
-      }
-    }
-
-    .safe-motion-enter {
-      animation: safe-content-enter 480ms cubic-bezier(0.22, 1, 0.36, 1) both !important;
-    }
-
-    @media (hover: hover) and (pointer: fine) {
-      .work-card,
-      .wallpaper-window,
-      .case-card,
-      .advantage-card {
-        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
-      }
-
-      .work-card:hover,
-      .wallpaper-window:hover,
-      .case-card:hover,
-      .advantage-card:hover {
-        transform: translateY(-3px);
-      }
-    }
-
-    body.is-scrolling .ambient-field *,
-    body.is-scrolling .ambient-field::before,
-    body.is-scrolling .ambient-field::after,
-    body.is-scrolling .voyage-field *,
-    body.is-scrolling .voyage-field::before,
-    body.is-scrolling .voyage-field::after,
-    body.is-scrolling .section-voyage-pattern * {
-      animation-play-state: paused !important;
+      transform: translateY(0);
+      filter: blur(0);
     }
 
     .image-collection-grid .work-card.reveal,
     .image-collection-grid .work-card.reveal.is-visible {
       opacity: var(--carousel-opacity);
-      filter: none;
+      filter: blur(var(--carousel-blur)) brightness(var(--carousel-brightness));
       transform:
         translate3d(-50%, -50%, 0)
         translateX(var(--carousel-x))
@@ -6311,7 +6190,7 @@
       <div class="wallpaper-grid" aria-label="AI动态壁纸横屏窗口">
         <article class="wallpaper-window reveal">
           <div class="wallpaper-screen">
-            <video class="wallpaper-video" muted loop playsinline preload="none" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-1-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 01">
+            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-1-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 01">
               <source src="assets/videos/ai-dynamic-wallpaper-1.mp4" type="video/mp4">
             </video>
             <span class="wallpaper-glow-line" aria-hidden="true"></span>
@@ -6320,7 +6199,7 @@
 
         <article class="wallpaper-window reveal">
           <div class="wallpaper-screen">
-            <video class="wallpaper-video" muted loop playsinline preload="none" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-2-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 02">
+            <video class="wallpaper-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/fast/video-covers/ai-dynamic-wallpaper-2-first-frame-fast.jpg" aria-label="猴王山水 AI 动态壁纸横屏窗口 02">
               <source src="assets/videos/ai-dynamic-wallpaper-2.mp4" type="video/mp4">
             </video>
             <span class="wallpaper-glow-line" aria-hidden="true"></span>
@@ -7107,12 +6986,10 @@
     const root = document.documentElement;
     const themeMeta = document.querySelector('meta[name="theme-color"]');
     const canUseMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const decorativeMotionEnabled = false;
     let cursorFrame = 0;
     let cursorX = window.innerWidth * 0.5;
     let cursorY = window.innerHeight * 0.34;
     let voyageFrame = 0;
-    let scrollIdleTimer = 0;
 
     const voyagePatternMarkup = (variant) => `
       <div class="section-voyage-pattern variant-${variant}" aria-hidden="true">
@@ -7150,21 +7027,9 @@
       }
     };
 
-    const markScrollActivity = () => {
-      if (!document.body.classList.contains("is-scrolling")) {
-        document.body.classList.add("is-scrolling");
-      }
-      window.clearTimeout(scrollIdleTimer);
-      scrollIdleTimer = window.setTimeout(() => {
-        document.body.classList.remove("is-scrolling");
-      }, 180);
-      queueVoyageRender();
-    };
-
-    if (decorativeMotionEnabled) {
-      renderVoyage();
-      window.addEventListener("resize", queueVoyageRender, { passive: true });
-    }
+    renderVoyage();
+    window.addEventListener("scroll", queueVoyageRender, { passive: true });
+    window.addEventListener("resize", queueVoyageRender, { passive: true });
 
     menuButton.addEventListener("click", () => {
       const isOpen = nav.classList.toggle("is-open");
@@ -7394,39 +7259,6 @@
 
     setupReliableVideoPosters();
 
-    const setupViewportVideos = () => {
-      const viewportVideos = Array.from(document.querySelectorAll(".wallpaper-video"));
-      if (!viewportVideos.length) return;
-
-      const pauseVideo = (video) => {
-        if (!video.paused) video.pause();
-      };
-
-      if (!("IntersectionObserver" in window) || !canUseMotion || !decorativeMotionEnabled) {
-        viewportVideos.forEach(pauseVideo);
-        return;
-      }
-
-      const viewportVideoObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const video = entry.target;
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.18 && !document.hidden) {
-            const playRequest = video.play();
-            playRequest?.catch(() => {});
-          } else {
-            pauseVideo(video);
-          }
-        });
-      }, { rootMargin: "120px 0px", threshold: [0, 0.18] });
-
-      viewportVideos.forEach((video) => viewportVideoObserver.observe(video));
-      document.addEventListener("visibilitychange", () => {
-        if (document.hidden) viewportVideos.forEach(pauseVideo);
-      });
-    };
-
-    setupViewportVideos();
-
     const imageWorksSwitcherGrid = document.querySelector("#image-works > .works-rail-wrap:not(.image-carousel-wrap) .works-grid");
     const setupImageWorksSwitcher = () => {
       if (!imageWorksSwitcherGrid || imageWorksSwitcherGrid.dataset.switcherReady === "true") return;
@@ -7495,7 +7327,6 @@
 
       const restartAutoSwitch = () => {
         window.clearInterval(switchTimer);
-        if (!decorativeMotionEnabled) return;
         switchTimer = window.setInterval(() => {
           if (isSlideVideoPlaying(slides[activeIndex])) return;
           goToSlide(activeIndex + 1, 1, false);
@@ -7560,7 +7391,7 @@
       imageWorksSwitcherGrid.querySelectorAll("video").forEach((video) => {
         video.addEventListener("play", stopAutoSwitch);
         video.addEventListener("pause", () => {
-          if (decorativeMotionEnabled && canUseMotion && !isSlideVideoPlaying(slides[activeIndex])) restartAutoSwitch();
+          if (canUseMotion && !isSlideVideoPlaying(slides[activeIndex])) restartAutoSwitch();
         });
         video.addEventListener("ended", () => {
           if (!canUseMotion || isSwitching) return;
@@ -7575,7 +7406,7 @@
         });
       });
 
-      if (decorativeMotionEnabled && canUseMotion) restartAutoSwitch();
+      if (canUseMotion) restartAutoSwitch();
     };
 
     setupImageWorksSwitcher();
@@ -8235,7 +8066,7 @@
       renderVideoWorkflow();
     }
 
-    if (decorativeMotionEnabled && canUseMotion && window.matchMedia("(pointer: fine)").matches) {
+    if (canUseMotion && window.matchMedia("(pointer: fine)").matches) {
       window.addEventListener("pointermove", (event) => {
         cursorX += (event.clientX - cursorX) * 0.32;
         cursorY += (event.clientY - cursorY) * 0.32;
@@ -8256,31 +8087,19 @@
       });
     }
 
-    document.querySelectorAll(".reveal").forEach((el) => {
-      el.classList.add("is-visible");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((el, index) => {
+      el.style.transitionDelay = Math.min(index * 45, 260) + "ms";
+      observer.observe(el);
     });
-
-    if (canUseMotion && "IntersectionObserver" in window) {
-      const safeMotionTargets = document.querySelectorAll([
-        ".welcome-panel.reveal",
-        ".hero-intro.reveal",
-        ".hero-details.reveal",
-        ".hero-portrait.reveal",
-        ".section-head.reveal",
-        ".mix-video-shell.reveal",
-        ".contact-panel.reveal"
-      ].join(","));
-
-      const safeMotionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("safe-motion-enter");
-          safeMotionObserver.unobserve(entry.target);
-        });
-      }, { rootMargin: "80px 0px", threshold: 0.08 });
-
-      safeMotionTargets.forEach((element) => safeMotionObserver.observe(element));
-    }
   </script>
 </body>
 </html>
