@@ -693,30 +693,30 @@
     }
 
     @keyframes welcome-kicker-reveal {
-      0%, 36% { opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(8px); }
-      48%, 88% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+      0%, 4% { opacity: 0; transform: translate3d(0, 12px, 0); filter: blur(8px); }
+      14%, 88% { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
       100% { opacity: 0; transform: translate3d(0, -8px, 0); filter: blur(6px); }
     }
 
     @keyframes welcome-title-sweep {
-      0%, 40% { transform: translate3d(-118%, 0, 0) skewX(-14deg); opacity: 0; }
-      48% { opacity: 0.92; }
-      62% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
+      0%, 10% { transform: translate3d(-118%, 0, 0) skewX(-14deg); opacity: 0; }
+      18% { opacity: 0.92; }
+      34% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
       100% { transform: translate3d(128%, 0, 0) skewX(-14deg); opacity: 0; }
     }
 
     @keyframes welcome-title-reveal {
-      0%, 38% {
+      0%, 3% {
         opacity: 0;
         filter: blur(18px) brightness(2);
         transform: translate3d(0, 24px, 0) scale(0.96);
       }
-      48% {
+      12% {
         opacity: 0.72;
         filter: blur(5px) brightness(1.55);
         transform: translate3d(0, 6px, 0) scale(1.01);
       }
-      56%, 88% {
+      20%, 88% {
         opacity: 1;
         filter: blur(0) brightness(1);
         transform: translate3d(0, 0, 0) scale(1);
@@ -729,9 +729,9 @@
     }
 
     @keyframes welcome-title-light-wash {
-      0%, 34% { opacity: 0; transform: translate3d(-50%, -16%, 0) scale(0.72); }
-      47% { opacity: 0.9; transform: translate3d(-50%, -2%, 0) scale(1); }
-      66% { opacity: 0.34; transform: translate3d(-50%, 5%, 0) scale(1.18); }
+      0%, 4% { opacity: 0; transform: translate3d(-50%, -16%, 0) scale(0.72); }
+      14% { opacity: 0.9; transform: translate3d(-50%, -2%, 0) scale(1); }
+      34% { opacity: 0.34; transform: translate3d(-50%, 5%, 0) scale(1.18); }
       100% { opacity: 0; transform: translate3d(-50%, 8%, 0) scale(1.24); }
     }
 
@@ -1183,7 +1183,7 @@
       filter: blur(18px);
       mix-blend-mode: screen;
       opacity: 0;
-      animation: welcome-title-light-wash 17s ease-out infinite;
+      animation: welcome-title-light-wash 8s ease-out infinite;
     }
 
     .welcome-kicker {
@@ -1199,7 +1199,7 @@
         0 0 16px rgba(239, 201, 135, 0.34),
         0 10px 28px rgba(53, 76, 184, 0.22);
       opacity: 0;
-      animation: welcome-kicker-reveal 17s ease-out infinite;
+      animation: welcome-kicker-reveal 8s ease-out infinite;
     }
 
     .welcome-kicker::before,
@@ -1246,7 +1246,7 @@
       filter: blur(1px);
       mix-blend-mode: screen;
       opacity: 0;
-      animation: welcome-title-sweep 17s ease-in-out infinite;
+      animation: welcome-title-sweep 8s ease-in-out infinite;
     }
 
     .blur-text {
@@ -1275,10 +1275,10 @@
       filter: blur(10px);
       transform: translate3d(0, -42px, 0);
       animation:
-        welcome-title-reveal 17s var(--ease-soft) infinite,
-        welcome-letter-light 6.4s ease-in-out 9.4s infinite,
-        welcome-letter-sparkle 6.4s ease-in-out 9.4s infinite;
-      animation-delay: calc(var(--i) * 190ms), 9.4s, 9.4s;
+        welcome-title-reveal 8s var(--ease-soft) infinite,
+        welcome-letter-light 6.4s ease-in-out 2.1s infinite,
+        welcome-letter-sparkle 6.4s ease-in-out 2.1s infinite;
+      animation-delay: calc(var(--i) * 90ms), 2.1s, 2.1s;
       will-change: transform, filter, opacity;
     }
 
@@ -1299,7 +1299,7 @@
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.92), rgba(239, 201, 135, 0.62), transparent);
       box-shadow: 0 0 18px rgba(239, 201, 135, 0.46);
       transform-origin: center;
-      animation: welcome-word-glint 6.8s ease-in-out calc(9.6s + (var(--i) * 0.7s)) infinite;
+      animation: welcome-word-glint 6.8s ease-in-out calc(2.3s + (var(--i) * 0.35s)) infinite;
     }
 
     .blur-word::after {
@@ -1312,7 +1312,7 @@
         0 0 10px rgba(255, 255, 255, 0.9),
         0 0 22px rgba(133, 203, 255, 0.58),
         0 0 34px rgba(239, 201, 135, 0.4);
-      animation: welcome-title-spark-drift 7.4s ease-in-out calc(9.9s + (var(--i) * 1.1s)) infinite;
+      animation: welcome-title-spark-drift 7.4s ease-in-out calc(2.5s + (var(--i) * 0.55s)) infinite;
     }
 
     .welcome-title strong {
