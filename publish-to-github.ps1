@@ -67,6 +67,16 @@ foreach ($file in $filesToCopy) {
     }
 }
 
+$publishAssets = Join-Path $PublishRoot "assets"
+if (Test-Path -LiteralPath $publishAssets) {
+    $resolvedPublishRoot = (Resolve-Path -LiteralPath $PublishRoot).Path
+    $resolvedPublishAssets = (Resolve-Path -LiteralPath $publishAssets).Path
+    if (-not $resolvedPublishAssets.StartsWith($resolvedPublishRoot, [StringComparison]::OrdinalIgnoreCase)) {
+        throw "Refusing to replace assets outside the GitHub sync folder."
+    }
+    Remove-Item -LiteralPath $resolvedPublishAssets -Recurse -Force
+}
+
 $html = [IO.File]::ReadAllText((Join-Path $SourceRoot "index.html"), [Text.Encoding]::UTF8)
 $assetPaths = [regex]::Matches($html, "assets/[A-Za-z0-9._/-]+") |
     ForEach-Object Value |
