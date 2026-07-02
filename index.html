@@ -239,6 +239,69 @@
       animation-delay: -2.6s;
     }
 
+    [data-palette="artist"][data-theme="light"] {
+      color-scheme: light;
+      --bg: #eef6ff;
+      --surface: rgba(255, 255, 255, 0.82);
+      --surface-2: rgba(229, 241, 255, 0.82);
+      --surface-3: #c7dcff;
+      --text: #071b3f;
+      --muted: rgba(29, 54, 92, 0.72);
+      --dim: rgba(55, 82, 122, 0.62);
+      --line: rgba(36, 83, 150, 0.18);
+      --accent: #a66a16;
+      --accent-2: #1a67b8;
+      --accent-ink: #fff8eb;
+      --shadow: 0 24px 72px rgba(75, 112, 166, 0.18);
+      --ambient-a: rgba(111, 164, 240, 0.24);
+      --ambient-b: rgba(209, 229, 255, 0.72);
+      --ambient-c: rgba(244, 202, 132, 0.22);
+      --cursor-light: rgba(67, 125, 211, 0.16);
+      --cursor-light-2: rgba(238, 178, 86, 0.14);
+      --window-border: rgba(91, 139, 204, 0.36);
+      --window-border-strong: rgba(36, 111, 196, 0.72);
+      --window-border-mid: rgba(122, 163, 218, 0.58);
+      --window-inner-border: rgba(255, 255, 255, 0.72);
+    }
+
+    [data-palette="artist"][data-theme="light"] body::before {
+      opacity: 0.34;
+      background-image:
+        linear-gradient(rgba(25, 67, 129, 0.075) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(25, 67, 129, 0.075) 1px, transparent 1px);
+    }
+
+    [data-palette="artist"][data-theme="light"] body {
+      background:
+        radial-gradient(circle at 78% 16%, rgba(124, 176, 244, 0.38), transparent 24rem),
+        radial-gradient(circle at 14% 18%, rgba(255, 219, 158, 0.34), transparent 26rem),
+        radial-gradient(circle at 24% 88%, rgba(174, 205, 250, 0.34), transparent 32rem),
+        linear-gradient(135deg, #f8fbff 0%, #eef6ff 38%, #dbeaff 72%, #c8dcff 100%);
+    }
+
+    [data-palette="artist"][data-theme="light"] body::after {
+      opacity: 0.42;
+      background:
+        radial-gradient(ellipse at 18% 100%, rgba(76, 125, 199, 0.16), transparent 54%),
+        radial-gradient(ellipse at 78% 86%, rgba(175, 203, 244, 0.32), transparent 58%),
+        radial-gradient(circle at 52% 118%, rgba(214, 143, 48, 0.12), transparent 42%);
+    }
+
+    [data-palette="artist"][data-theme="light"] .topbar {
+      background: rgba(239, 247, 255, 0.82);
+      backdrop-filter: blur(16px);
+    }
+
+    [data-palette="artist"][data-theme="light"] .work-media,
+    [data-palette="artist"][data-theme="light"] .mix-video-frame,
+    [data-palette="artist"][data-theme="light"] .case-card,
+    [data-palette="artist"][data-theme="light"] .advantage-card,
+    [data-palette="artist"][data-theme="light"] .showreel,
+    [data-palette="artist"][data-theme="light"] .workflow-visual {
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 22px 64px rgba(73, 108, 160, 0.18);
+    }
+
     @keyframes window-border-breathe {
       0%, 100% {
         border-color: var(--window-border);
@@ -1051,7 +1114,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 14px;
       min-width: 0;
     }
 
@@ -1059,6 +1122,7 @@
       display: inline-flex;
       align-items: baseline;
       gap: 10px;
+      flex: 0 0 auto;
       font-weight: 900;
       letter-spacing: 0;
       font-size: 24px;
@@ -1075,7 +1139,17 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 8px;
+      flex: 1 1 auto;
+      justify-content: center;
+      gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav::-webkit-scrollbar {
+      display: none;
     }
 
     .nav a,
@@ -1091,10 +1165,11 @@
     }
 
     .nav a {
-      padding: 0 14px;
-      font-size: 13px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      flex: 0 0 auto;
+      padding: 0 10px;
+      font-size: 12px;
+      letter-spacing: 0;
+      white-space: nowrap;
     }
 
     .nav a:hover,
@@ -1106,6 +1181,7 @@
     }
 
     .icon-button {
+      flex: 0 0 auto;
       width: 42px;
       cursor: pointer;
       background: transparent;
@@ -2067,6 +2143,7 @@
       position: relative;
       isolation: isolate;
       overflow: hidden;
+      scroll-margin-top: 90px;
       content-visibility: auto;
       contain-intrinsic-block-size: 920px;
       --panel-art-height: clamp(210px, 32vw, 390px);
@@ -2076,6 +2153,10 @@
       --section-blend:
         radial-gradient(ellipse at 18% 0%, color-mix(in srgb, var(--accent-2) 14%, transparent), transparent 54%),
         radial-gradient(ellipse at 82% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 48%);
+    }
+
+    .hero {
+      scroll-margin-top: 90px;
     }
 
     .welcome-cover:not(.is-in-view) .section-voyage-pattern,
@@ -3545,6 +3626,7 @@
 
     #asset-gallery {
       margin-top: clamp(96px, 12vw, 168px);
+      scroll-margin-top: 90px;
     }
 
     .asset-collection-grid .work-meta p {
@@ -5095,6 +5177,38 @@
       align-items: center;
     }
 
+    .footer-jump {
+      flex: 1 1 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      max-width: 520px;
+    }
+
+    .footer-jump a {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--surface) 72%, transparent);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 220ms var(--ease-out);
+    }
+
+    .footer-jump a:hover {
+      color: var(--text);
+      border-color: color-mix(in srgb, var(--accent-2) 56%, var(--line));
+      background: var(--surface);
+      transform: translateY(-1px);
+    }
+
     .footer-backup {
       display: grid;
       justify-items: end;
@@ -5280,14 +5394,19 @@
       .nav {
         position: fixed;
         inset: 68px 16px auto 16px;
+        flex: 0 0 auto;
         display: none;
         flex-direction: column;
         align-items: stretch;
+        justify-content: flex-start;
         padding: 12px;
         border: 1px solid var(--line);
         border-radius: 18px;
         background: var(--surface);
         box-shadow: var(--shadow);
+        max-height: calc(100dvh - 84px);
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       .nav.is-open {
@@ -5462,6 +5581,11 @@
       .footer-inner {
         align-items: flex-start;
         flex-direction: column;
+      }
+
+      .footer-jump {
+        justify-content: flex-start;
+        max-width: 100%;
       }
 
       .footer-backup {
@@ -6066,15 +6190,19 @@
         Kevin <small>AI Video Design</small>
       </a>
       <nav class="nav" id="site-nav" aria-label="主导航">
-        <a href="#showreel-mix">混剪</a>
-        <a href="#works">作品</a>
-        <a href="#workflow">工作流</a>
-        <a href="#cases">案例</a>
+        <a href="#advantages">个人介绍</a>
+        <a href="#showreel-mix">作品介绍</a>
+        <a href="#works">视频作品集</a>
+        <a href="#image-works">动态海报</a>
+        <a href="#dynamic-wallpaper">动态壁纸</a>
+        <a href="#image-gallery">图片设计</a>
+        <a href="#image-to-video">视频生成</a>
+        <a href="#workflow">AIGC工作流</a>
+        <a href="#cases">往期项目</a>
+        <a href="#asset-gallery">资产设计</a>
         <a href="#contact">联系</a>
       </nav>
       <div style="display:flex; gap:8px;">
-        <button class="icon-button" id="palette-toggle" type="button" aria-label="切换新旧配色" title="切换新旧配色">◆</button>
-        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换明暗主题">☼</button>
         <button class="icon-button menu-button" id="menu-toggle" type="button" aria-label="打开菜单" aria-controls="site-nav" aria-expanded="false">☰</button>
       </div>
     </div>
@@ -6571,9 +6699,21 @@
             </div>
           </article>
 
-          <article class="work-card reveal" aria-label="正在制作视频窗口">
+          <article class="work-card reveal is-detail-gated">
             <div class="work-media">
-              <div class="media-placeholder">正在制作</div>
+              <div class="work-detail-thumb" aria-label="赤壁·火烧连船视频封面">
+                <img src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%B5%A4%E5%A3%81%E7%81%AB%E7%83%A7%E8%BF%9E%E8%88%B9.png" alt="赤壁·火烧连船视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ai-video-7" aria-label="查看赤壁·火烧连船详情并播放视频">进入详情播放</button>
             </div>
           </article>
         </div>
@@ -7289,6 +7429,32 @@
     </div>
   </div>
 
+  <div class="work-detail-viewer" id="work-detail-ai-video-7" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ai-video-7-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">AI Live-action Drama</span>
+          <h3 id="work-detail-ai-video-7-title">赤壁·火烧连船</h3>
+          <ul class="work-detail-facts" aria-label="项目亮点">
+            <li>真人剧</li>
+            <li>古装战争叙事</li>
+            <li>个人独立完成</li>
+          </ul>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《赤壁·火烧连船》是一支以真人剧质感呈现的古装战争短片，灵感来自电影《赤壁》中黄盖率领东吴战船突袭曹军的经典桥段。作品围绕夜色江面、连船火攻、战船推进与火光爆燃等关键画面组织叙事，强化战前压迫感、偷袭节奏和赤壁战场的史诗氛围。项目从脚本构思、镜头设计、视频生成到后期剪辑均由我个人完成，重点探索 AI 在历史战争题材、真人化影像和大场面调度中的表现力。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%B5%A4%E5%A3%81%E7%81%AB%E7%83%A7%E8%BF%9E%E8%88%B9.png" aria-label="赤壁·火烧连船详情视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E7%81%AB%E7%83%A7%E8%BF%9E%E8%88%B9.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
   <div class="work-detail-viewer" id="work-detail-case-project-1" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-case-project-1-title">
     <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
     <div class="work-detail-panel" role="document">
@@ -7418,6 +7584,19 @@
   <footer>
     <div class="page-shell footer-inner">
       <div class="footer-mark">Kevin</div>
+      <nav class="footer-jump" aria-label="页脚快速导航">
+        <a href="#advantages">个人介绍</a>
+        <a href="#showreel-mix">作品介绍</a>
+        <a href="#works">视频作品集</a>
+        <a href="#image-works">动态海报</a>
+        <a href="#dynamic-wallpaper">动态壁纸</a>
+        <a href="#image-gallery">图片设计</a>
+        <a href="#image-to-video">视频生成</a>
+        <a href="#workflow">AIGC工作流</a>
+        <a href="#cases">往期项目</a>
+        <a href="#asset-gallery">资产设计</a>
+        <a href="#contact">联系</a>
+      </nav>
       <div class="footer-backup">
         <aside class="portfolio-backup-card" aria-label="百度网盘备用观看入口">
           <div class="portfolio-backup-copy">
@@ -7440,8 +7619,6 @@
   <script>
     const nav = document.querySelector("#site-nav");
     const menuButton = document.querySelector("#menu-toggle");
-    const themeButton = document.querySelector("#theme-toggle");
-    const paletteButton = document.querySelector("#palette-toggle");
     const root = document.documentElement;
     const themeMeta = document.querySelector('meta[name="theme-color"]');
     const canUseMotion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -7505,44 +7682,13 @@
     });
 
     const updateThemeMeta = () => {
+      const isDark = root.dataset.theme === "dark";
       if (root.dataset.palette === "artist") {
-        themeMeta?.setAttribute("content", "#0b1d4d");
-        paletteButton.textContent = "◆";
-        paletteButton.setAttribute("aria-pressed", "true");
-        paletteButton.setAttribute("title", "切回旧配色");
+        themeMeta?.setAttribute("content", isDark ? "#0b1d4d" : "#eef6ff");
       } else {
-        const isDark = root.dataset.theme === "dark";
         themeMeta?.setAttribute("content", isDark ? "#09090b" : "#f4f0e8");
-        paletteButton.textContent = "◇";
-        paletteButton.setAttribute("aria-pressed", "false");
-        paletteButton.setAttribute("title", "切换到蓝橙新配色");
       }
-      themeButton.textContent = root.dataset.theme === "dark" ? "☼" : "☾";
     };
-
-    themeButton.addEventListener("click", () => {
-      const nextTheme = root.dataset.theme === "dark" ? "light" : "dark";
-      root.dataset.theme = nextTheme;
-      localStorage.setItem("evan-prototype-theme", nextTheme);
-      updateThemeMeta();
-    });
-
-    paletteButton.addEventListener("click", () => {
-      const nextPalette = root.dataset.palette === "artist" ? "original" : "artist";
-      root.dataset.palette = nextPalette;
-      localStorage.setItem("evan-prototype-palette", nextPalette);
-      updateThemeMeta();
-    });
-
-    const savedTheme = localStorage.getItem("evan-prototype-theme");
-    if (savedTheme) {
-      root.dataset.theme = savedTheme;
-    }
-
-    const savedPalette = localStorage.getItem("evan-prototype-palette");
-    if (savedPalette) {
-      root.dataset.palette = savedPalette;
-    }
 
     updateThemeMeta();
 
