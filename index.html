@@ -2995,6 +2995,124 @@
       justify-content: center;
     }
 
+    #image-works > .works-rail-wrap:not(.image-carousel-wrap) .work-card {
+      width: min(100%, 430px);
+      margin-inline: auto;
+    }
+
+    #image-works > .works-rail-wrap:not(.image-carousel-wrap) .work-card.is-landscape {
+      width: min(100%, 760px);
+    }
+
+    #image-works > .works-rail-wrap:not(.image-carousel-wrap) .work-card.is-landscape .work-media {
+      aspect-ratio: 16 / 9;
+    }
+
+    #image-works > .works-rail-wrap:not(.image-carousel-wrap) .work-card.is-landscape .work-cover {
+      object-fit: contain;
+    }
+
+    #works .work-card.is-updating .media-placeholder {
+      position: relative;
+      min-height: 100%;
+      overflow: hidden;
+      display: grid;
+      align-content: center;
+      gap: clamp(12px, 2vw, 20px);
+      place-items: center;
+      padding: clamp(24px, 4vw, 42px);
+      background: #071639;
+      border: 0;
+    }
+
+    #works .work-card.is-video-window .work-media {
+      aspect-ratio: 16 / 9;
+    }
+
+    #works .work-card.is-updating .work-media {
+      aspect-ratio: 16 / 9;
+    }
+
+    #works .work-card.is-video-window .work-cover {
+      object-fit: contain;
+    }
+
+    #works .work-card.is-updating .media-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 24% 24%, rgba(239, 201, 135, 0.18), transparent 28%),
+        radial-gradient(circle at 74% 68%, rgba(112, 186, 255, 0.2), transparent 34%),
+        linear-gradient(138deg, rgba(6, 18, 48, 0.92), rgba(11, 36, 92, 0.78) 52%, rgba(3, 9, 28, 0.96));
+      transform: scale(1.03);
+    }
+
+    #works .work-card.is-updating .media-placeholder::after {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      background: linear-gradient(105deg, transparent 12%, rgba(255, 255, 255, 0.18) 44%, transparent 72%);
+      filter: blur(18px);
+      opacity: 0.58;
+      transform: translateX(-38%) rotate(-8deg);
+      animation: updatingLightSweep 5.8s ease-in-out infinite;
+    }
+
+    #works .work-card.is-updating .render-caption {
+      position: relative;
+      z-index: 1;
+      font-family: "Noto Serif SC", "Songti SC", "STSong", "Microsoft YaHei", serif;
+      font-size: clamp(22px, 2.8vw, 34px);
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      line-height: 1.18;
+      color: transparent;
+      background: linear-gradient(100deg, #f8fbff 0%, #d7e8ff 28%, #f3cf8c 52%, #ffffff 74%, #9dccff 100%);
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow:
+        0 0 28px rgba(112, 186, 255, 0.26),
+        0 18px 44px rgba(0, 0, 0, 0.38);
+      animation: updatingTextFlow 6.4s ease-in-out infinite;
+    }
+
+    #works .work-card.is-updating .render-progress {
+      position: relative;
+      z-index: 1;
+      width: min(220px, 48%);
+      height: 3px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.13);
+    }
+
+    #works .work-card.is-updating .render-progress::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 46%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, transparent, rgba(157, 210, 255, 0.95), rgba(243, 207, 140, 0.92), transparent);
+      animation: renderProgressFlow 2.6s ease-in-out infinite;
+    }
+
+    @keyframes updatingTextFlow {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @keyframes updatingLightSweep {
+      0%, 100% { transform: translateX(-38%) rotate(-8deg); opacity: 0.42; }
+      50% { transform: translateX(38%) rotate(-8deg); opacity: 0.72; }
+    }
+
+    @keyframes renderProgressFlow {
+      0% { transform: translateX(-110%); }
+      52%, 100% { transform: translateX(240%); }
+    }
+
     .work-card {
       display: grid;
       gap: 18px;
@@ -3136,7 +3254,7 @@
     }
 
     .image-work-switcher-wrap {
-      max-width: min(100%, 430px);
+      max-width: min(100%, 760px);
       margin-inline: auto;
       position: relative;
     }
@@ -6716,6 +6834,24 @@
               <button class="work-detail-button" type="button" data-detail-open="ai-video-7" aria-label="查看赤壁·火烧连船详情并播放视频">进入详情播放</button>
             </div>
           </article>
+
+          <article class="work-card reveal is-video-window">
+            <div class="work-media">
+              <video class="work-cover" controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E6%B5%B7%E6%8A%A52.png" aria-label="Fuggler FuggGlow 视频">
+                <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E8%A7%86%E9%A2%91.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-updating">
+            <div class="work-media">
+              <div class="media-placeholder" aria-label="视频窗口新作品渲染中">
+                <span class="render-caption">新作品渲染中~</span>
+                <span class="render-progress" aria-hidden="true"></span>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -6724,12 +6860,30 @@
       <div class="section-head reveal">
         <div>
           <span class="kicker">AI Motion Posters</span>
-          <h2>AI动态海报模板</h2>
+          <h2>AI动态海报</h2>
         </div>
       </div>
 
       <div class="works-rail-wrap">
         <div class="works-grid" aria-label="AI动态海报视频切换窗口">
+          <article class="work-card reveal is-landscape">
+            <div class="work-media">
+              <video class="work-cover" controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E6%B5%B7%E6%8A%A51.png" aria-label="Fuggler FuggGlow 动态海报视频 01">
+                <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E6%B5%B7%E6%8A%A5%E8%A7%86%E9%A2%911.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-landscape">
+            <div class="work-media">
+              <video class="work-cover" controls preload="none" playsinline poster="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E6%B5%B7%E6%8A%A52.png" aria-label="Fuggler FuggGlow 动态海报视频 02">
+                <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E6%B5%B7%E6%8A%A5%E8%A7%86%E9%A2%912.mp4" type="video/mp4">
+                您的浏览器不支持视频播放。
+              </video>
+            </div>
+          </article>
+
           <article class="work-card reveal">
             <div class="work-media">
               <video class="work-cover" controls preload="none" playsinline poster="assets/images/video-covers/yushui-dynamic-poster-web.jpg" aria-label="雨水动态海报视频">
