@@ -1812,29 +1812,171 @@
       stroke-width: 5;
     }
 
-    .welcome-scroll {
+    .welcome-directory {
       position: absolute;
-      z-index: 3;
+      z-index: 9;
       left: 50%;
-      bottom: clamp(22px, 4vw, 42px);
+      bottom: clamp(14px, 2vw, 24px);
       transform: translateX(-50%);
+      width: min(calc(100% - 48px), 1120px);
       display: grid;
-      justify-items: center;
       gap: 10px;
-      color: rgba(255, 255, 255, 0.74);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      padding: 12px 14px 14px;
+      border: 1px solid rgba(204, 225, 255, 0.2);
+      border-radius: 20px;
+      background:
+        linear-gradient(110deg, rgba(255, 255, 255, 0.075), transparent 36%, rgba(239, 201, 135, 0.055)),
+        rgba(6, 24, 69, 0.34);
+      box-shadow:
+        0 18px 48px rgba(3, 12, 42, 0.24),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+        0 1px 0 rgba(255, 255, 255, 0.12) inset;
+      backdrop-filter: blur(14px) saturate(1.12);
+      -webkit-backdrop-filter: blur(14px) saturate(1.12);
     }
 
-    .welcome-scroll::after {
+    .welcome-directory::before {
       content: "";
-      width: 1px;
-      height: 38px;
-      border-radius: 999px;
-      background: linear-gradient(to bottom, currentColor, transparent);
-      animation: welcome-scroll-pulse 1.8s ease-in-out infinite;
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 10% 100%, rgba(239, 201, 135, 0.12), transparent 24%),
+        linear-gradient(90deg, transparent, rgba(204, 225, 255, 0.11), transparent) 50% 100% / calc(100% - 32px) 1px no-repeat;
+    }
+
+    .welcome-directory-intro {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .welcome-directory-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+      color: color-mix(in srgb, var(--accent) 84%, #ffffff);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+    }
+
+    .welcome-directory-mark::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px rgba(239, 201, 135, 0.1), 0 0 14px rgba(239, 201, 135, 0.42);
+    }
+
+    .welcome-directory-intro p {
+      margin: 0;
+      min-width: 0;
+      color: rgba(239, 246, 255, 0.76);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .welcome-directory-intro p::before {
+      content: "";
+      display: inline-block;
+      width: 34px;
+      height: 1px;
+      margin: 0 12px 3px 0;
+      background: linear-gradient(90deg, rgba(239, 201, 135, 0.68), transparent);
+    }
+
+    .welcome-directory-links {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(9, minmax(0, 1fr));
+      gap: 6px;
+    }
+
+    .welcome-directory-links::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 4%;
+      right: 4%;
+      top: 50%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(205, 227, 255, 0.2) 8%, rgba(239, 201, 135, 0.28) 50%, rgba(205, 227, 255, 0.2) 92%, transparent);
+    }
+
+    .welcome-directory-links a {
+      position: relative;
+      min-width: 0;
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid rgba(209, 229, 255, 0.14);
+      border-radius: 12px;
+      padding: 0 7px;
+      background: rgba(9, 31, 82, 0.5);
+      color: rgba(247, 250, 255, 0.86);
+      text-decoration: none;
+      box-shadow: 0 9px 22px rgba(3, 11, 39, 0.12);
+      transition: transform 220ms var(--ease-out), color 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .welcome-directory-links a::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -4px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(220, 235, 255, 0.7);
+      transform: translateX(-50%);
+      box-shadow: 0 0 10px rgba(154, 206, 255, 0.34);
+    }
+
+    .welcome-directory-links a span {
+      color: color-mix(in srgb, var(--accent) 80%, #ffffff);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      opacity: 0.84;
+    }
+
+    .welcome-directory-links a strong {
+      min-width: 0;
+      overflow: hidden;
+      color: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .welcome-directory-links a:hover,
+    .welcome-directory-links a:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(239, 201, 135, 0.62);
+      background: linear-gradient(135deg, rgba(239, 201, 135, 0.16), rgba(55, 105, 190, 0.34));
+      color: #ffffff;
+      box-shadow: 0 13px 28px rgba(3, 11, 39, 0.2), 0 0 20px rgba(239, 201, 135, 0.12);
+      outline: none;
+    }
+
+    .welcome-directory-links a:hover::after,
+    .welcome-directory-links a:focus-visible::after {
+      background: var(--accent);
+      box-shadow: 0 0 14px rgba(239, 201, 135, 0.62);
     }
 
     .hero {
@@ -2627,6 +2769,115 @@
 
       to {
         transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 840px) {
+      .welcome-cover {
+        min-height: max(calc(100svh - 68px), 780px);
+        padding-bottom: 258px;
+      }
+
+      .welcome-directory {
+        bottom: 14px;
+        width: calc(100% - 32px);
+        gap: 9px;
+        padding: 12px;
+        border-radius: 18px;
+      }
+
+      .welcome-directory-intro {
+        flex-direction: column;
+        gap: 2px;
+        text-align: center;
+      }
+
+      .welcome-directory-intro p::before {
+        display: none;
+      }
+
+      .welcome-directory-links {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+      }
+
+      .welcome-directory-links::before {
+        display: none;
+      }
+
+      .welcome-directory-links a {
+        min-height: 43px;
+      }
+
+      .welcome-sailboat {
+        bottom: 210px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .welcome-cover {
+        min-height: max(calc(100svh - 64px), 800px);
+        padding-bottom: 266px;
+      }
+
+      .welcome-directory {
+        bottom: 10px;
+        width: calc(100% - 20px);
+        gap: 8px;
+        padding: 10px;
+        border-radius: 16px;
+        background:
+          linear-gradient(110deg, rgba(255, 255, 255, 0.07), transparent 44%, rgba(239, 201, 135, 0.05)),
+          rgba(6, 24, 69, 0.52);
+      }
+
+      .welcome-directory-mark {
+        font-size: 10px;
+      }
+
+      .welcome-directory-intro p {
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .welcome-directory-links {
+        gap: 6px;
+      }
+
+      .welcome-directory-links a {
+        min-height: 42px;
+        gap: 4px;
+        padding: 0 5px;
+        border-radius: 10px;
+      }
+
+      .welcome-directory-links a strong {
+        font-size: 11px;
+      }
+
+      .welcome-directory-links a span {
+        font-size: 9px;
+      }
+
+      .welcome-sailboat {
+        bottom: 226px;
+        opacity: 0.54;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .welcome-directory {
+        width: calc(100% - 16px);
+        padding: 9px 8px 10px;
+      }
+
+      .welcome-directory-links {
+        gap: 5px;
+      }
+
+      .welcome-directory-links a {
+        min-height: 40px;
+        padding: 0 4px;
       }
     }
 
@@ -6453,6 +6704,29 @@
       }
     }
 
+    @media (max-width: 840px) {
+      .welcome-cover {
+        min-height: max(calc(100svh - 68px), 780px);
+        padding-bottom: 258px;
+      }
+
+      .welcome-sailboat {
+        bottom: 210px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .welcome-cover {
+        min-height: max(calc(100svh - 64px), 800px);
+        padding-bottom: 266px;
+      }
+
+      .welcome-sailboat {
+        bottom: 226px;
+        opacity: 0.54;
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -6816,7 +7090,23 @@
           <path d="M8 137 C39 128 78 145 140 129" fill="none" stroke="#ffffff" stroke-linecap="round" stroke-opacity="0.46" stroke-width="3" stroke-dasharray="10 10"/>
         </svg>
       </div>
-      <div class="welcome-scroll" aria-hidden="true">Scroll</div>
+      <nav class="welcome-directory" aria-label="首页快捷导航">
+        <div class="welcome-directory-intro">
+          <span class="welcome-directory-mark">快速导航</span>
+          <p>从这里出发，一键抵达你想了解的内容。</p>
+        </div>
+        <div class="welcome-directory-links">
+          <a href="#advantages"><span>01</span><strong>个人介绍</strong></a>
+          <a href="#showreel-mix"><span>02</span><strong>作品介绍</strong></a>
+          <a href="#works"><span>03</span><strong>视频作品</strong></a>
+          <a href="#image-works"><span>04</span><strong>动态海报</strong></a>
+          <a href="#dynamic-wallpaper"><span>05</span><strong>动态壁纸</strong></a>
+          <a href="#image-gallery"><span>06</span><strong>图片设计</strong></a>
+          <a href="#image-to-video"><span>07</span><strong>视频生成</strong></a>
+          <a href="#asset-gallery"><span>08</span><strong>资产设计</strong></a>
+          <a href="#contact"><span>09</span><strong>联系我</strong></a>
+        </div>
+      </nav>
     </section>
 
     <section class="hero page-shell" id="advantages">
