@@ -3094,6 +3094,117 @@
       letter-spacing: 0.045em;
     }
 
+    #works .section-head.works-section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: clamp(28px, 5vw, 72px);
+    }
+
+    .works-backup-entry {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(16px, 2.4vw, 30px);
+      width: min(100%, 650px);
+      min-height: 68px;
+      margin-bottom: 2px;
+      padding: 11px 13px 11px 18px;
+      overflow: hidden;
+      border: 1px solid rgba(121, 183, 255, 0.34);
+      border-radius: 14px;
+      background:
+        radial-gradient(circle at 8% 50%, rgba(236, 199, 122, 0.12), transparent 30%),
+        linear-gradient(100deg, rgba(17, 48, 111, 0.7), rgba(7, 28, 75, 0.46));
+      box-shadow:
+        0 16px 36px rgba(2, 13, 43, 0.18),
+        0 0 0 1px rgba(224, 242, 255, 0.035) inset;
+      backdrop-filter: blur(14px);
+    }
+
+    .works-backup-entry::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(242, 211, 143, 0.72), rgba(91, 220, 255, 0.54), transparent);
+    }
+
+    .works-backup-copy {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .works-backup-compass {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(235, 204, 139, 0.46);
+      border-radius: 50%;
+      color: #f1d18d;
+      background: rgba(237, 201, 126, 0.07);
+      font-size: 14px;
+      box-shadow: 0 0 18px rgba(239, 203, 129, 0.1);
+    }
+
+    .works-backup-text {
+      display: grid;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .works-backup-text strong {
+      color: rgba(247, 250, 255, 0.94);
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .works-backup-text small {
+      color: rgba(188, 210, 244, 0.72);
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .works-backup-entry .portfolio-backup-action {
+      width: auto;
+      min-height: 40px;
+      padding: 9px 13px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 900px) {
+      #works .section-head.works-section-head {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 22px;
+      }
+
+      .works-backup-entry {
+        width: 100%;
+        margin-bottom: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .works-backup-entry {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 11px;
+        padding: 14px;
+      }
+
+      .works-backup-entry .portfolio-backup-action {
+        width: 100%;
+      }
+    }
+
     .showreel {
       display: grid;
       grid-template-columns: 1fr;
@@ -7268,11 +7379,24 @@
     </section>
 
     <section class="section page-shell" id="works">
-      <div class="section-head reveal">
+      <div class="section-head works-section-head reveal">
         <div>
           <span class="kicker">Selected Works</span>
           <h2>AI视频作品集</h2>
         </div>
+        <aside class="works-backup-entry" aria-label="百度网盘作品集入口">
+          <div class="works-backup-copy">
+            <span class="works-backup-compass" aria-hidden="true">↗</span>
+            <span class="works-backup-text">
+              <strong>想一次看完全部作品？</strong>
+              <small>可前往百度网盘查看完整作品集</small>
+            </span>
+          </div>
+          <a class="portfolio-backup-action" href="https://pan.baidu.com/s/1OekbiREGbB-wqcZ0RtuwOA?pwd=6cpt" target="_blank" rel="noopener noreferrer">
+            打开百度网盘
+            <span class="portfolio-backup-code">6cpt</span>
+          </a>
+        </aside>
       </div>
 
       <div class="video-work-filter-shell reveal">
