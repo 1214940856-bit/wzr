@@ -109,6 +109,13 @@ if ($LASTEXITCODE -ne 0) {
 
 Invoke-Git -GitArgs @("add", ".")
 
+# Referenced videos are intentionally ignored in the source workspace, but the
+# publishing mirror must track newly added delivery files so GitHub Pages can
+# serve them. Force-add only the assets that index.html actually references.
+foreach ($assetPath in $assetPaths) {
+    Invoke-Git -GitArgs @("add", "-f", "--", $assetPath)
+}
+
 $status = (& git -C $PublishRoot status --short)
 if (-not $status) {
     Write-Host "No changes to publish."

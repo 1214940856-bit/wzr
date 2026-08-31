@@ -9,3 +9,7 @@ cloudflared.exe
 localtunnel.err.log
 localtunnel.log
 .netlify
+node_modules/
+.wrangler/
+.dev.vars
+.env
