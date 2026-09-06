@@ -1227,6 +1227,18 @@
       mask-image: radial-gradient(ellipse at 72% 28%, black 0 22%, rgba(0, 0, 0, 0.58) 44%, transparent 78%);
     }
 
+    .welcome-cover > .welcome-background-video {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
     .welcome-cover > * {
       position: relative;
       z-index: 2;
@@ -7008,6 +7020,9 @@
 
   <main id="top">
     <section class="welcome-cover page-shell" aria-label="Portfolio welcome cover">
+      <video class="welcome-background-video" autoplay muted loop playsinline preload="auto" poster="assets/images/home-background-poster.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+        <source src="assets/videos/home-background.mp4" type="video/mp4">
+      </video>
       <div class="welcome-clouds" aria-hidden="true">
         <span class="welcome-cloud" style="--cloud-y:12vh; --cloud-width:clamp(78px, 8.5vw, 140px); --cloud-scale:0.72; --cloud-opacity:0.7; --cloud-speed:54s; --cloud-delay:-24s; --cloud-lift:18px;"></span>
         <span class="welcome-cloud" style="--cloud-y:24vh; --cloud-width:clamp(96px, 11vw, 178px); --cloud-scale:0.92; --cloud-opacity:0.8; --cloud-speed:62s; --cloud-delay:-44s; --cloud-lift:34px;"></span>
@@ -7071,32 +7086,6 @@
             <circle class="lighthouse-lamp" cx="25" cy="18" r="15" fill="url(#lamp-glow)"/>
             <path d="M10 8 L25 -4 L40 8 Z" fill="#ffffff"/>
           </g>
-        </svg>
-      </div>
-      <div class="welcome-helicopter" aria-hidden="true">
-        <span class="welcome-helicopter-light"></span>
-        <svg viewBox="0 0 360 160" role="presentation" focusable="false">
-          <path class="plane-red" d="M56 45 L92 65 L62 78 L38 52 Z"/>
-          <path class="heli-tail" d="M45 76 L105 65 L119 83 L50 93 Z"/>
-          <path class="plane-red" d="M54 95 L103 84 L76 120 L45 112 Z" opacity="0.92"/>
-          <path class="plane-wing" d="M172 83 L112 35 L153 33 L241 82 Z"/>
-          <path class="plane-red" d="M177 94 L108 139 L155 135 L252 92 Z"/>
-          <path class="heli-body" d="M75 78 C98 56 160 46 241 55 C289 61 323 75 341 90 C319 103 284 110 236 111 L116 107 C88 106 69 94 75 78 Z"/>
-          <path class="plane-stripe" d="M78 91 C125 96 246 101 326 90 C310 100 279 106 236 107 L116 104 C91 104 75 98 70 91 Z"/>
-          <path class="plane-stripe" d="M89 75 C134 70 247 72 318 83 L310 88 C240 79 138 78 84 84 Z" opacity="0.74"/>
-          <path class="heli-accent" d="M318 79 C331 82 339 86 342 90 C335 94 326 97 315 100 C321 92 322 85 318 79 Z"/>
-          <path class="heli-window" d="M228 61 C251 64 273 69 292 78 L267 90 L226 86 Z"/>
-          <path class="heli-window" d="M183 58 L216 60 L215 86 L181 85 Z" opacity="0.82"/>
-          <path class="heli-window" d="M142 62 L172 59 L171 84 L136 84 Z" opacity="0.78"/>
-          <path class="heli-window" d="M109 68 L132 63 L130 84 L103 84 Z" opacity="0.7"/>
-          <path class="heli-panel" d="M119 74 C171 66 246 70 307 82"/>
-          <path class="heli-panel" d="M118 101 C174 105 257 103 315 96"/>
-          <text class="heli-registration" x="199" y="100" transform="rotate(2 199 100)">N1757G</text>
-          <path class="plane-engine" d="M126 100 C145 98 161 102 166 111 C158 119 137 120 120 114 C116 108 119 103 126 100 Z"/>
-          <path class="plane-engine" d="M240 96 C260 94 277 99 282 108 C273 116 251 117 235 111 C232 105 234 100 240 96 Z"/>
-          <path class="heli-strut" d="M150 108 L143 121 M243 108 L252 120"/>
-          <circle class="plane-wheel" cx="143" cy="123" r="5"/>
-          <circle class="plane-wheel" cx="252" cy="122" r="5"/>
         </svg>
       </div>
       <div class="welcome-panel reveal">
@@ -7410,6 +7399,12 @@
           <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="animation" tabindex="-1">
             AI漫剧·动画 <span class="video-work-filter-count">5</span>
           </button>
+          <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="ip-animation" tabindex="-1">
+            IP动漫动画 <span class="video-work-filter-count">8</span>
+          </button>
+          <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="ip-social" tabindex="-1">
+            IP动画新媒体 <span class="video-work-filter-count">9</span>
+          </button>
           <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="commercial" tabindex="-1">
             商业与品牌 <span class="video-work-filter-count">8</span>
           </button>
@@ -7616,7 +7611,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="commercial" data-work-title="Fuggler FuggGlow" hidden>
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial ip-animation" data-work-title="Fuggler FuggGlow" hidden>
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="Fuggler FuggGlow 视频封面">
                 <img src="https://wzr-u1p3sf15.cdn.7caiyun.com/Fuggler%20FuggGlow%20%E6%B5%B7%E6%8A%A52.png" alt="Fuggler FuggGlow 视频封面" loading="lazy" decoding="async">
@@ -7634,7 +7629,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured commercial" data-work-title="南山文博会">
+          <article class="work-card reveal is-detail-gated" data-work-categories="featured commercial ip-animation" data-work-title="南山文博会">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="南山文博会视频封面">
                 <img src="assets/images/fast/video-covers/shenzhen-cultural-expo-web-fast.jpg" alt="南山文博会视频封面" loading="lazy" decoding="async">
@@ -7652,7 +7647,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="commercial" data-work-title="厦门萌发地·海野乐园" hidden>
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial ip-animation" data-work-title="厦门萌发地·海野乐园" hidden>
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="厦门萌发地 海野乐园视频封面">
                 <img src="assets/images/fast/video-covers/mengfadi-web-fast.jpg" alt="厦门萌发地 海野乐园视频封面" loading="lazy" decoding="async">
@@ -7688,7 +7683,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="commercial" data-work-title="AI智能陪伴玩偶" hidden>
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial ip-animation" data-work-title="AI智能陪伴玩偶" hidden>
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="AI 智能陪伴玩偶概念片视频封面">
                 <img src="assets/images/fast/video-covers/companion-toy-concept-web-fast.jpg" alt="AI 智能陪伴玩偶概念片视频封面" loading="lazy" decoding="async">
@@ -7706,7 +7701,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="animation" data-work-title="非洲猴面包树" hidden>
+          <article class="work-card reveal is-detail-gated" data-work-categories="animation ip-animation" data-work-title="非洲猴面包树" hidden>
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="非洲猴面包树科普视频封面">
                 <img src="assets/images/fast/video-covers/baobab-science-web-fast.jpg" alt="非洲猴面包树科普视频封面" loading="lazy" decoding="async">
@@ -7724,7 +7719,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="animation" data-work-title="敢于说不" hidden>
+          <article class="work-card reveal is-detail-gated" data-work-categories="animation ip-animation" data-work-title="敢于说不" hidden>
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="敢于说不视频封面">
                 <img src="assets/images/video-covers/dare-to-say-no-web.jpg" alt="敢于说不视频封面" loading="lazy" decoding="async">
@@ -7760,7 +7755,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="commercial" data-work-title="深圳南山荔枝节" hidden>
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial ip-animation" data-work-title="深圳南山荔枝节" hidden>
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="深圳南山荔枝节视频封面">
                 <img src="assets/images/fast/video-covers/shenzhen-nanshan-litchi-festival-cover.png" alt="深圳南山荔枝节视频封面" loading="lazy" decoding="async">
@@ -7775,6 +7770,186 @@
                 <span></span>
               </div>
               <button class="work-detail-button" type="button" data-detail-open="nanshan-litchi-festival" aria-label="查看深圳南山荔枝节详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="上班的一天" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="上班的一天视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-01.jpg?v=first-frame" alt="上班的一天视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-01" aria-label="查看上班的一天详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="上班精神" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="上班精神视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-02.jpg?v=first-frame" alt="上班精神视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-02" aria-label="查看上班精神详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="出发前往月球" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="出发前往月球视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-03.jpg?v=first-frame" alt="出发前往月球视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-03" aria-label="查看出发前往月球详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="嗨萌马舞蹈" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="嗨萌马舞蹈视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-04.jpg?v=first-frame" alt="嗨萌马舞蹈视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-04" aria-label="查看嗨萌马舞蹈详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="完了！睡过头了" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="完了！睡过头了视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-05.jpg?v=first-frame" alt="完了！睡过头了视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-05" aria-label="查看完了！睡过头了详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="摇摇椅" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="摇摇椅视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-06.jpg?v=first-frame" alt="摇摇椅视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-06" aria-label="查看摇摇椅详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="新年祝贺" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="新年祝贺视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-07.jpg?v=first-frame" alt="新年祝贺视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-07" aria-label="查看新年祝贺详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-animation" data-work-title="森林火车" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="森林火车视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-08.jpg?v=first-frame" alt="森林火车视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-08" aria-label="查看森林火车详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="萌马拜年" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="萌马拜年视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-09.jpg?v=first-frame" alt="萌马拜年视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-09" aria-label="查看萌马拜年详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-social" data-work-title="门外都有啥？" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="门外都有啥？视频封面">
+                <img src="assets/images/fast/video-covers/ip-social-10.jpg?v=first-frame" alt="门外都有啥？视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <button class="work-detail-button" type="button" data-detail-open="ip-social-10" aria-label="查看门外都有啥？详情并播放视频">进入详情播放</button>
             </div>
           </article>
           </div>
@@ -8303,6 +8478,216 @@
     </div>
   </div>
 
+  <div class="work-detail-viewer" id="work-detail-ip-social-01" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-01-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-01-title">上班的一天</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《上班的一天》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-01.jpg?v=first-frame" aria-label="上班的一天视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E4%B8%8A%E7%8F%AD%E7%9A%84%E4%B8%80%E5%A4%A9.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-02" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-02-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-02-title">上班精神</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《上班精神》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-02.jpg?v=first-frame" aria-label="上班精神视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E4%B8%8A%E7%8F%AD%E7%B2%BE%E7%A5%9E.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-03" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-03-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-03-title">出发前往月球</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《出发前往月球》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-03.jpg?v=first-frame" aria-label="出发前往月球视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%87%BA%E5%8F%91%E5%89%8D%E5%BE%80%E6%9C%88%E7%90%83.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-04" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-04-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-04-title">嗨萌马舞蹈</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《嗨萌马舞蹈》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-04.jpg?v=first-frame" aria-label="嗨萌马舞蹈视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%97%A8%E8%90%8C%E9%A9%AC%E8%88%9E%E8%B9%88.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-05" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-05-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-05-title">完了！睡过头了</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《完了！睡过头了》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-05.jpg?v=first-frame" aria-label="完了！睡过头了视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%AE%8C%E4%BA%86%EF%BC%81%E7%9D%A1%E8%BF%87%E5%A4%B4%E4%BA%86.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-06" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-06-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-06-title">摇摇椅</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《摇摇椅》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-06.jpg?v=first-frame" aria-label="摇摇椅视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%91%87%E6%91%87%E6%A4%85.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-07" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-07-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-07-title">新年祝贺</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《新年祝贺》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-07.jpg?v=first-frame" aria-label="新年祝贺视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%96%B0%E5%B9%B4%E7%A5%9D%E8%B4%BA.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-08" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-08-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-08-title">森林火车</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《森林火车》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-08.jpg?v=first-frame" aria-label="森林火车视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%A3%AE%E6%9E%97%E7%81%AB%E8%BD%A6.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-09" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-09-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-09-title">萌马拜年</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《萌马拜年》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-09.jpg?v=first-frame" aria-label="萌马拜年视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%90%8C%E9%A9%AC%E6%8B%9C%E5%B9%B4.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-ip-social-10" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-10-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP动画新媒体</span>
+          <h3 id="work-detail-ip-social-10-title">门外都有啥？</h3>
+        </div>
+        <div class="work-detail-copy">
+          <p class="work-detail-description">《门外都有啥？》 · IP动画新媒体作品。</p>
+        </div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/ip-social-10.jpg?v=first-frame" aria-label="门外都有啥？视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%97%A8%E5%A4%96%E9%83%BD%E6%9C%89%E5%95%A5%EF%BC%9F.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
   <div class="work-detail-viewer" id="work-detail-wuxie" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-wuxie-title">
     <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
     <div class="work-detail-panel" role="document">
@@ -8823,6 +9208,19 @@
 
     setupDeferredVideos();
 
+    const welcomeBackgroundVideo = document.querySelector(".welcome-background-video");
+    const playWelcomeBackground = () => {
+      if (!welcomeBackgroundVideo || document.hidden) return;
+      welcomeBackgroundVideo.muted = true;
+      welcomeBackgroundVideo.play()?.catch(() => {});
+    };
+    playWelcomeBackground();
+    document.addEventListener("visibilitychange", playWelcomeBackground);
+    window.addEventListener("pageshow", playWelcomeBackground);
+    document.addEventListener("pointerdown", playWelcomeBackground, { once: true });
+    document.addEventListener("keydown", playWelcomeBackground, { once: true });
+
+
     const setupWallpaperVideos = () => {
       const wallpaperVideos = Array.from(document.querySelectorAll(".wallpaper-video"));
       if (!wallpaperVideos.length) return;
@@ -9211,13 +9609,17 @@
       const categoryLabels = {
         "live-action": "AI真人剧",
         animation: "AI漫剧·动画",
+        "ip-animation": "IP动漫动画",
+        "ip-social": "IP动画新媒体",
         commercial: "商业与品牌"
       };
 
       const preferredOrders = {
+        "ip-social": ["ip-social-06", "ip-social-10", "ip-social-09", "ip-social-02", "ip-social-01", "ip-social-03", "ip-social-04", "ip-social-05", "ip-social-07"],
         featured: ["wuxie", "shelf-life", "toothpaste", "ai-comic-project", "ai-video-2", "case-project-1", "case-project-3"],
         "live-action": ["wuxie", "shelf-life", "ai-video-2", "ai-video-3", "ai-video-4", "ai-video-5", "ai-video-7"],
         animation: ["ai-comic-project", "ai-video-1", "ai-video-6", "case-project-5", "case-project-6"],
+        "ip-animation": ["fuggler-fuggglow", "nanshan-litchi-festival", "case-project-2", "ip-social-08", "case-project-1", "case-project-4", "case-project-5", "case-project-6"],
         commercial: ["nanshan-litchi-festival", "case-project-1", "case-project-3", "toothpaste", "case-project-2", "fuggler-fuggglow", "case-project-4", "massage-chair"]
       };
 
@@ -9411,7 +9813,7 @@
       workDetailViewers.forEach((item) => {
         if (item !== viewer) closeWorkDetail(item);
       });
-      document.querySelectorAll("video").forEach((video) => video.pause());
+      document.querySelectorAll("video:not(.welcome-background-video)").forEach((video) => video.pause());
       workDetailPreviousFocus = trigger || document.activeElement;
       viewer.classList.add("is-open");
       viewer.setAttribute("aria-hidden", "false");
