@@ -1909,7 +1909,7 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: repeat(9, minmax(0, 1fr));
+      grid-template-columns: repeat(8, minmax(0, 1fr));
       gap: 6px;
     }
 
@@ -3397,6 +3397,23 @@
     .video-work-filter[aria-selected="true"] .video-work-filter-count {
       background: rgba(7, 23, 65, 0.13);
     }
+
+    .video-work-empty {
+      min-height: 320px;
+      display: grid;
+      align-content: center;
+      justify-items: center;
+      gap: 14px;
+      padding: 40px 24px;
+      border: 1px dashed var(--line);
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--surface), var(--bg));
+      text-align: center;
+    }
+
+    .video-work-empty h3 { margin: 0; font-size: clamp(24px, 4vw, 40px); }
+    .video-work-empty p { margin: 0; color: var(--muted); }
+    .video-work-empty[hidden], .video-work-index-layout[hidden] { display: none; }
 
     .video-work-index-layout {
       display: grid;
@@ -7003,7 +7020,6 @@
       </a>
       <nav class="nav" id="site-nav" aria-label="主导航">
         <a href="#advantages">个人介绍</a>
-        <a href="#showreel-mix">作品介绍</a>
         <a href="#works">视频作品集</a>
         <a href="#image-works">动态海报</a>
         <a href="#dynamic-wallpaper">动态壁纸</a>
@@ -7197,14 +7213,13 @@
         </div>
         <div class="welcome-directory-links">
           <a href="#advantages"><span>01</span><strong>个人介绍</strong></a>
-          <a href="#showreel-mix"><span>02</span><strong>作品介绍</strong></a>
-          <a href="#works"><span>03</span><strong>视频作品</strong></a>
-          <a href="#image-works"><span>04</span><strong>动态海报</strong></a>
-          <a href="#dynamic-wallpaper"><span>05</span><strong>动态壁纸</strong></a>
-          <a href="#image-gallery"><span>06</span><strong>图片设计</strong></a>
-          <a href="#image-to-video"><span>07</span><strong>视频生成</strong></a>
-          <a href="#asset-gallery"><span>08</span><strong>资产设计</strong></a>
-          <a href="#contact"><span>09</span><strong>联系我</strong></a>
+          <a href="#works"><span>02</span><strong>视频作品</strong></a>
+          <a href="#image-works"><span>03</span><strong>动态海报</strong></a>
+          <a href="#dynamic-wallpaper"><span>04</span><strong>动态壁纸</strong></a>
+          <a href="#image-gallery"><span>05</span><strong>图片设计</strong></a>
+          <a href="#image-to-video"><span>06</span><strong>视频生成</strong></a>
+          <a href="#asset-gallery"><span>07</span><strong>资产设计</strong></a>
+          <a href="#contact"><span>08</span><strong>联系我</strong></a>
         </div>
       </nav>
     </section>
@@ -7308,64 +7323,6 @@
       </div>
     </section>
 
-    <section class="section page-shell" id="showreel-mix">
-      <div class="section-head reveal">
-        <div>
-          <span class="kicker">Showreel Mix</span>
-          <h2>Kevin作品介绍</h2>
-        </div>
-      </div>
-
-      <aside class="portfolio-backup-card reveal" aria-label="百度网盘备用观看入口">
-        <div class="portfolio-backup-copy">
-          <span class="portfolio-backup-icon" aria-hidden="true">↗</span>
-          <span class="portfolio-backup-text">
-            <strong>网页视频加载较慢时，可通过百度网盘观看</strong>
-            <span class="portfolio-backup-note">网盘已包含本网站所有作品 · 文件：吴卓儒的作品集</span>
-          </span>
-        </div>
-          <a class="portfolio-backup-action" href="https://pan.baidu.com/s/1OekbiREGbB-wqcZ0RtuwOA?pwd=6cpt" target="_blank" rel="noopener noreferrer">
-            打开百度网盘
-            <span class="portfolio-backup-code">6cpt</span>
-          </a>
-      </aside>
-
-      <div class="mix-video-shell reveal">
-        <div class="mix-video-frame" aria-label="Kevin 作品介绍 16:9 播放窗口">
-          <video class="mix-showreel-video" controls preload="metadata" playsinline poster="assets/images/fast/video-covers/showreel-mix-current-style-cover.jpg" aria-label="Kevin 作品介绍混剪">
-            <source data-src="assets/videos/showreel-mix-current-style-web.mp4" type="video/mp4">
-            您的浏览器不支持视频播放。
-          </video>
-          <button class="mix-showreel-play" type="button" aria-label="播放 Kevin 作品介绍"></button>
-        </div>
-        <div class="mix-video-meta" aria-label="作品覆盖类型介绍">
-          <div class="mix-video-marquee">
-            <ul class="mix-video-tags" aria-label="作品类型标签">
-              <li>AI 3D漫剧</li>
-              <li>AI 2D漫剧</li>
-              <li>AI真人剧</li>
-              <li>AI古装剧</li>
-              <li>AI文旅宣传片</li>
-              <li>AI商业宣传片</li>
-              <li>AI产品宣传片</li>
-              <li>AI儿童科普片</li>
-              <li>AI概念视频</li>
-            </ul>
-            <ul class="mix-video-tags" aria-hidden="true">
-              <li>AI 3D漫剧</li>
-              <li>AI 2D漫剧</li>
-              <li>AI真人剧</li>
-              <li>AI古装剧</li>
-              <li>AI文旅宣传片</li>
-              <li>AI商业宣传片</li>
-              <li>AI产品宣传片</li>
-              <li>AI儿童科普片</li>
-              <li>AI概念视频</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section page-shell" id="works">
       <div class="section-head works-section-head reveal">
@@ -7390,31 +7347,38 @@
 
       <div class="video-work-filter-shell reveal">
         <div class="video-work-filters" role="tablist" aria-label="按作品类型筛选 AI 视频">
-          <button class="video-work-filter" type="button" role="tab" aria-selected="true" aria-controls="video-work-grid" data-work-filter="featured">
-            精选 <span class="video-work-filter-count">7</span>
-          </button>
-          <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="live-action" tabindex="-1">
+          <button class="video-work-filter" type="button" role="tab" aria-selected="true" aria-controls="video-work-grid" data-work-filter="live-action">
             AI真人剧 <span class="video-work-filter-count">7</span>
           </button>
           <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="animation" tabindex="-1">
-            AI漫剧·动画 <span class="video-work-filter-count">5</span>
+            AI动漫 <span class="video-work-filter-count">5</span>
           </button>
           <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="ip-animation" tabindex="-1">
-            IP动漫动画 <span class="video-work-filter-count">8</span>
+            IP动画 <span class="video-work-filter-count">8</span>
           </button>
           <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="ip-social" tabindex="-1">
-            IP动画新媒体 <span class="video-work-filter-count">9</span>
+            IP新媒体 <span class="video-work-filter-count">9</span>
           </button>
           <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="commercial" tabindex="-1">
-            商业与品牌 <span class="video-work-filter-count">8</span>
+            品牌宣传 <span class="video-work-filter-count">8</span>
+          </button>
+          <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="3d-modeling" tabindex="-1">
+            3D建模 <span class="video-work-filter-count">4</span>
+          </button>
+          <button class="video-work-filter" type="button" role="tab" aria-selected="false" aria-controls="video-work-grid" data-work-filter="ip-akkk" tabindex="-1">
+            IP AKKK <span class="video-work-filter-count">2</span>
           </button>
         </div>
       </div>
 
+      <div class="video-work-empty" id="video-work-empty" role="status" hidden>
+        <h3 id="video-work-empty-title"></h3>
+        <p>作品即将呈现，敬请期待。</p>
+      </div>
       <div class="video-work-index-layout">
         <div class="works-rail-wrap">
           <div class="works-grid" id="video-work-grid" aria-label="AI 视频作品筛选结果">
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured live-action" data-work-title="《无邪》">
+          <article class="work-card reveal is-detail-gated" data-work-categories="live-action" data-work-title="《无邪》">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="《无邪》视频封面">
                 <img src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%97%A0%E9%82%AA%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.png" alt="《无邪》视频封面" loading="lazy" decoding="async">
@@ -7432,7 +7396,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured live-action" data-work-title="《保质期》">
+          <article class="work-card reveal is-detail-gated" data-work-categories="live-action" data-work-title="《保质期》">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="《保质期》视频封面">
                 <img src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E4%BF%9D%E8%B4%A8%E6%9C%9F%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.png" alt="《保质期》视频封面" loading="lazy" decoding="async">
@@ -7450,7 +7414,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured commercial" data-work-title="《黑人牙膏》">
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial" data-work-title="《黑人牙膏》">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="《黑人牙膏》视频封面">
                 <img src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E9%BB%91%E4%BA%BA%E7%89%99%E8%86%8F%E8%A7%86%E9%A2%91%E5%B0%81%E9%9D%A2.png" alt="《黑人牙膏》视频封面" loading="lazy" decoding="async">
@@ -7468,7 +7432,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured animation" data-work-title="《别惹我，我防御拉满》">
+          <article class="work-card reveal is-detail-gated" data-work-categories="animation" data-work-title="《别惹我，我防御拉满》">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="AI 漫剧项目视频封面">
                 <img src="assets/images/fast/video-covers/ai-comic-project-3d-fast.jpg" alt="AI 漫剧项目视频封面" loading="lazy" decoding="async">
@@ -7504,7 +7468,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured live-action" data-work-title="《提线》">
+          <article class="work-card reveal is-detail-gated" data-work-categories="live-action" data-work-title="《提线》">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="AI精品剧《提线》视频封面">
                 <img src="assets/images/fast/video-covers/tixian-web-fast.jpg" alt="AI精品剧《提线》视频封面" loading="lazy" decoding="async">
@@ -7629,7 +7593,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured commercial ip-animation" data-work-title="南山文博会">
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial ip-animation" data-work-title="南山文博会">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="南山文博会视频封面">
                 <img src="assets/images/fast/video-covers/shenzhen-cultural-expo-web-fast.jpg" alt="南山文博会视频封面" loading="lazy" decoding="async">
@@ -7665,7 +7629,7 @@
             </div>
           </article>
 
-          <article class="work-card reveal is-detail-gated" data-work-categories="featured commercial" data-work-title="雅诗兰黛广告片">
+          <article class="work-card reveal is-detail-gated" data-work-categories="commercial" data-work-title="雅诗兰黛广告片">
             <div class="work-media">
               <div class="work-detail-thumb" aria-label="雅诗兰黛广告片视频封面">
                 <img src="assets/images/fast/video-covers/estee-lauder-web-fast.jpg" alt="雅诗兰黛广告片视频封面" loading="lazy" decoding="async">
@@ -7950,6 +7914,72 @@
                 <span></span>
               </div>
               <button class="work-detail-button" type="button" data-detail-open="ip-social-10" aria-label="查看门外都有啥？详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+          <article class="work-card reveal is-detail-gated" data-work-categories="3d-modeling" data-work-title="企鹅" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="企鹅视频封面">
+                <img src="assets/images/fast/video-covers/portfolio-penguin.jpg" alt="企鹅视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              <button class="work-detail-button" type="button" data-detail-open="portfolio-penguin" aria-label="查看企鹅详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+          <article class="work-card reveal is-detail-gated" data-work-categories="3d-modeling" data-work-title="猫猫" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="猫猫视频封面">
+                <img src="assets/images/fast/video-covers/portfolio-cats.jpg" alt="猫猫视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              <button class="work-detail-button" type="button" data-detail-open="portfolio-cats" aria-label="查看猫猫详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-akkk" data-work-title="辞职" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="辞职视频封面">
+                <img src="assets/images/fast/video-covers/portfolio-resignation.jpg" alt="辞职视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              <button class="work-detail-button" type="button" data-detail-open="portfolio-resignation" aria-label="查看辞职详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+          <article class="work-card reveal is-detail-gated" data-work-categories="3d-modeling" data-work-title="车" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="车视频封面">
+                <img src="assets/images/fast/video-covers/portfolio-car.jpg" alt="车视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              <button class="work-detail-button" type="button" data-detail-open="portfolio-car" aria-label="查看车详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+          <article class="work-card reveal is-detail-gated" data-work-categories="3d-modeling" data-work-title="天台" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="天台视频封面">
+                <img src="assets/images/fast/video-covers/portfolio-rooftop.jpg" alt="天台视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              <button class="work-detail-button" type="button" data-detail-open="portfolio-rooftop" aria-label="查看天台详情并播放视频">进入详情播放</button>
+            </div>
+          </article>
+          <article class="work-card reveal is-detail-gated" data-work-categories="ip-akkk" data-work-title="极限" hidden>
+            <div class="work-media">
+              <div class="work-detail-thumb" aria-label="极限视频封面">
+                <img src="assets/images/fast/video-covers/portfolio-extreme.jpg" alt="极限视频封面" loading="lazy" decoding="async">
+              </div>
+            </div>
+            <div class="work-detail-dock">
+              <div class="work-detail-lines" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+              <button class="work-detail-button" type="button" data-detail-open="portfolio-extreme" aria-label="查看极限详情并播放视频">进入详情播放</button>
             </div>
           </article>
           </div>
@@ -8478,16 +8508,130 @@
     </div>
   </div>
 
+  <div class="work-detail-viewer" id="work-detail-portfolio-penguin" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-portfolio-penguin-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">3D建模</span>
+          <h3 id="work-detail-portfolio-penguin-title">企鹅</h3>
+        </div>
+        <div class="work-detail-copy"><p class="work-detail-description">《企鹅》 · 3D建模作品。</p></div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/portfolio-penguin.jpg" aria-label="企鹅视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E4%BC%81%E9%B9%85.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-portfolio-cats" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-portfolio-cats-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">3D建模</span>
+          <h3 id="work-detail-portfolio-cats-title">猫猫</h3>
+        </div>
+        <div class="work-detail-copy"><p class="work-detail-description">《猫猫》 · 3D建模作品。</p></div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/portfolio-cats.jpg" aria-label="猫猫视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E7%8C%AB%E7%8C%AB.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-portfolio-resignation" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-portfolio-resignation-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP AKKK</span>
+          <h3 id="work-detail-portfolio-resignation-title">辞职</h3>
+        </div>
+        <div class="work-detail-copy"><p class="work-detail-description">《辞职》 · IP AKKK作品。</p></div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/portfolio-resignation.jpg" aria-label="辞职视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%BE%9E%E8%81%8C.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-portfolio-car" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-portfolio-car-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">3D建模</span>
+          <h3 id="work-detail-portfolio-car-title">车</h3>
+        </div>
+        <div class="work-detail-copy"><p class="work-detail-description">《车》 · 3D建模作品。</p></div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/portfolio-car.jpg" aria-label="车视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E8%BD%A6.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-portfolio-rooftop" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-portfolio-rooftop-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">3D建模</span>
+          <h3 id="work-detail-portfolio-rooftop-title">天台</h3>
+        </div>
+        <div class="work-detail-copy"><p class="work-detail-description">《天台》 · 3D建模作品。</p></div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/portfolio-rooftop.jpg" aria-label="天台视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E5%A4%A9%E5%8F%B0.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <div class="work-detail-viewer" id="work-detail-portfolio-extreme" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-portfolio-extreme-title">
+    <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
+    <div class="work-detail-panel" role="document">
+      <div class="work-detail-info">
+        <div class="work-detail-heading">
+          <span class="work-detail-kicker">IP AKKK</span>
+          <h3 id="work-detail-portfolio-extreme-title">极限</h3>
+        </div>
+        <div class="work-detail-copy"><p class="work-detail-description">《极限》 · IP AKKK作品。</p></div>
+      </div>
+      <div class="work-detail-media">
+        <video controls preload="none" playsinline poster="assets/images/fast/video-covers/portfolio-extreme.jpg" aria-label="极限视频">
+          <source data-src="https://wzr-u1p3sf15.cdn.7caiyun.com/%E6%9E%81%E9%99%90.mp4" type="video/mp4">
+          您的浏览器不支持视频播放。
+        </video>
+      </div>
+    </div>
+  </div>
+
   <div class="work-detail-viewer" id="work-detail-ip-social-01" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="work-detail-ip-social-01-title">
     <button class="work-detail-close" type="button" data-detail-close aria-label="关闭作品详情">&times;</button>
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-01-title">上班的一天</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《上班的一天》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《上班的一天》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8504,11 +8648,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-02-title">上班精神</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《上班精神》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《上班精神》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8525,11 +8669,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-03-title">出发前往月球</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《出发前往月球》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《出发前往月球》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8546,11 +8690,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-04-title">嗨萌马舞蹈</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《嗨萌马舞蹈》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《嗨萌马舞蹈》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8567,11 +8711,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-05-title">完了！睡过头了</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《完了！睡过头了》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《完了！睡过头了》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8588,11 +8732,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-06-title">摇摇椅</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《摇摇椅》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《摇摇椅》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8609,11 +8753,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-07-title">新年祝贺</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《新年祝贺》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《新年祝贺》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8630,11 +8774,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-08-title">森林火车</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《森林火车》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《森林火车》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8651,11 +8795,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-09-title">萌马拜年</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《萌马拜年》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《萌马拜年》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -8672,11 +8816,11 @@
     <div class="work-detail-panel" role="document">
       <div class="work-detail-info">
         <div class="work-detail-heading">
-          <span class="work-detail-kicker">IP动画新媒体</span>
+          <span class="work-detail-kicker">IP新媒体</span>
           <h3 id="work-detail-ip-social-10-title">门外都有啥？</h3>
         </div>
         <div class="work-detail-copy">
-          <p class="work-detail-description">《门外都有啥？》 · IP动画新媒体作品。</p>
+          <p class="work-detail-description">《门外都有啥？》 · IP新媒体作品。</p>
         </div>
       </div>
       <div class="work-detail-media">
@@ -9063,7 +9207,6 @@
       <div class="footer-mark">Kevin</div>
       <nav class="footer-jump" aria-label="页脚快速导航">
         <a href="#advantages">个人介绍</a>
-        <a href="#showreel-mix">作品介绍</a>
         <a href="#works">视频作品集</a>
         <a href="#image-works">动态海报</a>
         <a href="#dynamic-wallpaper">动态壁纸</a>
@@ -9312,43 +9455,6 @@
 
     setupVideoLoadingStates();
 
-    const setupShowreelVideo = () => {
-      const video = document.querySelector("#showreel-mix .mix-showreel-video");
-      const playButton = document.querySelector("#showreel-mix .mix-showreel-play");
-      if (!video || !playButton) return;
-
-      const syncPlayButton = () => {
-        playButton.classList.toggle("is-hidden", !video.paused && !video.ended);
-      };
-
-      playButton.dataset.ready = "true";
-        playButton.addEventListener("click", () => {
-          playButton.dataset.clicked = String(Date.now());
-          delete playButton.dataset.playError;
-          video.muted = true;
-          hydrateVideo(video);
-          const playRequest = typeof video.play === "function" ? video.play() : null;
-          if (playRequest && typeof playRequest.catch === "function") {
-            playRequest
-              .then(() => {
-                syncPlayButton();
-              })
-              .catch((error) => {
-                playButton.dataset.playError = error?.name || "play-error";
-                playButton.classList.remove("is-hidden");
-              });
-          } else {
-            playButton.classList.remove("is-hidden");
-          }
-        });
-      video.addEventListener("play", syncPlayButton);
-      video.addEventListener("playing", syncPlayButton);
-      video.addEventListener("pause", syncPlayButton);
-      video.addEventListener("ended", syncPlayButton);
-      syncPlayButton();
-    };
-
-    setupShowreelVideo();
 
     const forceImageLoad = (target) => {
       if (!target) return;
@@ -9608,15 +9714,18 @@
 
       const categoryLabels = {
         "live-action": "AI真人剧",
-        animation: "AI漫剧·动画",
-        "ip-animation": "IP动漫动画",
-        "ip-social": "IP动画新媒体",
-        commercial: "商业与品牌"
+        animation: "AI动漫",
+        "ip-animation": "IP动画",
+        "ip-social": "IP新媒体",
+        commercial: "品牌宣传",
+        "3d-modeling": "3D建模",
+        "ip-akkk": "IP AKKK"
       };
 
       const preferredOrders = {
+        "3d-modeling": ["portfolio-rooftop", "portfolio-penguin", "portfolio-cats", "portfolio-car"],
+        "ip-akkk": ["portfolio-extreme", "portfolio-resignation"],
         "ip-social": ["ip-social-06", "ip-social-10", "ip-social-09", "ip-social-02", "ip-social-01", "ip-social-03", "ip-social-04", "ip-social-05", "ip-social-07"],
-        featured: ["wuxie", "shelf-life", "toothpaste", "ai-comic-project", "ai-video-2", "case-project-1", "case-project-3"],
         "live-action": ["wuxie", "shelf-life", "ai-video-2", "ai-video-3", "ai-video-4", "ai-video-5", "ai-video-7"],
         animation: ["ai-comic-project", "ai-video-1", "ai-video-6", "case-project-5", "case-project-6"],
         "ip-animation": ["fuggler-fuggglow", "nanshan-litchi-festival", "case-project-2", "ip-social-08", "case-project-1", "case-project-4", "case-project-5", "case-project-6"],
@@ -9627,7 +9736,7 @@
       const getDetailButton = (card) => card.querySelector("[data-detail-open]");
       const getDetailId = (card) => getDetailButton(card)?.dataset.detailOpen || "";
       const getCategoryLabel = (card) => {
-        const primaryCategory = getCardCategories(card).find((category) => category !== "featured");
+        const primaryCategory = getCardCategories(card)[0];
         return categoryLabels[primaryCategory] || "AI视频作品";
       };
 
@@ -9769,7 +9878,19 @@
 
         grid.dataset.activeFilter = activeFilter;
         activeCard = null;
-        setPreview(visibleCards[0], true);
+        window.clearTimeout(previewSwapTimer);
+        preview.classList.remove("is-switching");
+        const isEmpty = visibleCards.length === 0;
+        grid.closest(".video-work-index-layout").hidden = isEmpty;
+        document.querySelector("#video-work-empty").hidden = !isEmpty;
+        document.querySelector("#video-work-empty-title").textContent = categoryLabels[activeFilter];
+        previewButton.disabled = isEmpty;
+        if (isEmpty) {
+          previewButton.removeAttribute("data-detail-open");
+          cards.forEach((card) => card.classList.remove("is-preview-active"));
+        } else {
+          setPreview(visibleCards[0], true);
+        }
         requestAnimationFrame(() => grid.setAttribute("aria-busy", "false"));
         if (shouldFocus) activeTab.focus();
       };
@@ -9788,7 +9909,7 @@
         });
       });
 
-      activateFilter("featured");
+      activateFilter("live-action");
     };
 
     setupVideoWorkFilters();
